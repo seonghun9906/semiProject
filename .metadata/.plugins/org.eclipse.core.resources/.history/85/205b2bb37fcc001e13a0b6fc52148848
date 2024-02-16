@@ -1,0 +1,13 @@
+package com.icia.drawAcademy.dao;
+
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.icia.drawAcademy.dto.MemberDto;
+
+public interface MemberDao {
+
+	void signUp(MemberDto memberDto);
+	
+	int login(@RequestParam("m_email") String m_name,@RequestParam("m_password")  String m_password);
+	
+} // interface end

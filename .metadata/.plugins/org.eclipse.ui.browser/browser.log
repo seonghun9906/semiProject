@@ -1,0 +1,6 @@
+
+2월 16, 2024 08:27:49.312 NEW SESSION
+2월 16, 2024 08:27:49.312 [12544:5272:0216/082749.308:ERROR:usb_descriptors.cc(141)] Failed to read length for configuration 0.
+2월 16, 2024 08:27:49.313 [12544:5272:0216/082749.308:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 1, got 0.
+2월 16, 2024 08:27:49.313 [12544:5272:0216/082749.308:ERROR:device_event_log_impl.cc(192)] [08:27:49.308] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_0000&pid_3825#6&868c983&0&6#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
+2월 16, 2024 08:27:50.400 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.

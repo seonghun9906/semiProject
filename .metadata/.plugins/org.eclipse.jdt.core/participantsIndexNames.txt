@@ -1,0 +1,17 @@
+INDEX VERSION 1.131
+C:\drawAcadmeyProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1421004192.index
+\drawAcademy\src\main\java
+C:\eezyAcadmeyProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1268557208.index
+\dizzyAcademyProject\src\main\java
+C:\eezyAcadmeyProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4121945246.index
+\dizzyAcademy\src\main\java
+C:\eezyAcadmeyProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1421004192.index
+\drawAcademy\src\main\java
+C:\eezyAcadmeyProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\496435615.index
+\eezyAcademyProject\src\main\java
+C:\eezyAcadmeyProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\366009873.index
+\movieinfo\src\main\java
+C:\eezyAcadmeyProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2368886228.index
+\spring-first\src\main\java
+C:\eezyAcadmeyProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2766883732.index
+\spring-jsp02\src\main\java

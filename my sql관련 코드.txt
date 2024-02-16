@@ -1,0 +1,50 @@
+-- eezy academyProject
+create database if not exists eezy_db;
+create user if not exists eezy_user@localhost identified by '1234';
+grant all privileges on eezy_db.* to eezy_user@localhost;
+ALTER USER 'eezy_user'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';
+FLUSH PRIVILEGES;
+
+
+
+
+
+
+use eezy_db;
+
+DROP VIEW IF EXISTS memeberlist;
+DROP TABLE IF EXISTS membertbl;
+
+CREATE TABLE IF NOT EXISTS membertbl (
+    m_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    m_name varchar(100) NOT NULL,
+    m_phoneNumber varchar(50) NOT NULL,
+    m_email varchar(50) NOT NULL,
+    m_password varchar(100) NOT NULL,
+    m_address varchar(100) NOT NULL,
+    m_age varchar(10) NOT NULL,
+    p_sysname varchar(50) default null,
+    classCode varchar(20) default null
+);
+
+CREATE OR REPLACE VIEW memberlist AS
+SELECT * FROM membertbl
+ORDER BY m_id DESC;
+
+INSERT INTO membertbl 
+value (null, 
+		'manager', 
+        '000', 
+        'manager',
+        'manager123',
+        'managerAddress',
+        '00',
+        null,
+        null);
+        
+COMMIT; -- comit은 마지막에 필수로 해야함(안하면 리스트가 안보임)
+
+SELECT * FROM memberlist;
+
+delete from memberlist;
+commit;
