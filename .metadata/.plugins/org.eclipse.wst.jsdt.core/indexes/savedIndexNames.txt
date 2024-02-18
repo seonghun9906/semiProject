@@ -1,9 +1,6 @@
-INDEX VERSION 1.4+C:\drawAcadmeyProject\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-1111882594.index
-2747692092.index
-1532825438.index
+INDEX VERSION 1.4+C:\icia.semiproject\semiProject\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+4168007331.index
+2723658923.index
+1860728860.index
+3228128359.index
 1980007610.index
-1683757828.index
-667126816.index
-1421004192.index
-1421004192.index
