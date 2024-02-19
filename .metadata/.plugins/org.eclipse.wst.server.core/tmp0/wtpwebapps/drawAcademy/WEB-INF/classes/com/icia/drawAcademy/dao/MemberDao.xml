@@ -10,8 +10,22 @@
 		)
 	</insert>
 	
+	<select id="checkEmail" parameterType="draw">
+		SELECT COUNT(*) FROM membertbl WHERE m_email = #{m_email}
+	</select>
+	
 	<select id="login" parameterType="draw" resultType="draw">
 		SELECT * FROM membertbl WHERE m_email = #{m_email} AND m_password = #{m_password}
 	</select>
 	
+	<update id="updateMember" parameterType="draw">
+		UPDATE membertbl
+		SET m_name=#{m_name},m_phoneNumber=#{m_phoneNumber},m_email=#{m_email},m_password = #{m_password},
+		m_address=#{m_address}, m_age=#{m_age},classCode=#{classCode}
+		WHERE m_id=#{m_id}
+	</update>
+	
+	<delete id="memout" parameterType="Integer">
+		DELETE FROM membertbl WHERE m_id=#{m_id}
+	</delete>
 </mapper>
