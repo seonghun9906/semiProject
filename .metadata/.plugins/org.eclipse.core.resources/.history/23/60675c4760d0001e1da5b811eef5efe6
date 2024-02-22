@@ -1,0 +1,11 @@
+package com.icia.drawAcademy.dao.classdao;
+
+import com.icia.drawAcademy.dto.ClassDto;
+
+
+public interface ClassDao {
+
+	void class1proc(ClassDto classdto);
+	
+	void PlusMemberClassName(String className, String m_name);
+}

@@ -1,9 +1,0 @@
-package com.icia.eezyAcademy.dao;
-
-import com.icia.drawAcademy.dto.MemberDto;
-
-public class MemberDao {
-
-	void signUp(MemberDto memberDto);
-	
-}

@@ -1,27 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="draw"/>
+		<item key="selection" value="signUpEamil"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="signUpEamil"/>
+			<item value="selectOption"/>
+			<item value=".Home-btn"/>
+			<item value="SIGNUP-btn"/>
+			<item value="logout"/>
+			<item value="bodymain"/>
+			<item value="src/main/resources/"/>
+			<item value="teacher1"/>
+			<item value="ARN : org.springframework.web.servlet.PageNotFound - No mapping for POST /drawAcademy/emailCheckResult"/>
+			<item value="redirectPort=&quot;8443&quot;"/>
+			<item value="UTF-8"/>
 			<item value="draw"/>
 			<item value="javax.servlet"/>
 			<item value="&lt;dependency&gt;&#x0A;&#x09;&#x09;&#x09;&lt;groupId&gt;javax.servlet&lt;/groupId&gt;&#x0A;&#x09;&#x09;&#x09;&lt;artifactId&gt;jstl&lt;/artifactId&gt;&#x0A;&#x09;&#x09;&#x09;&lt;version&gt;1.2&lt;/version&gt;&#x0A;&#x09;&#x09;&lt;/dependency&gt;&#x0A;&#x09;&#x09;&lt;dependency&gt;&#x0A;&#x09;&#x09;&#x09;&lt;groupId&gt;taglibs&lt;/groupId&gt;&#x0A;&#x09;&#x09;&#x09;&lt;artifactId&gt;standard&lt;/artifactId&gt;&#x0A;&#x09;&#x09;&#x09;&lt;version&gt;1.1.2&lt;/version&gt;&#x0A;&#x09;&#x09;&lt;/dependency&gt;&#x0A;"/>
 			<item value="session.set"/>
-			<item value="eezy"/>
-			<item value="dizzy"/>
 		</list>
 		<list key="replacehistory">
 			<item value="draw"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1377"/>
-		<item key="DIALOG_Y_ORIGIN" value="305"/>
+		<item key="DIALOG_X_ORIGIN" value="788"/>
+		<item key="DIALOG_Y_ORIGIN" value="459"/>
 		<item key="DIALOG_WIDTH" value="340"/>
 		<item key="DIALOG_HEIGHT" value="454"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

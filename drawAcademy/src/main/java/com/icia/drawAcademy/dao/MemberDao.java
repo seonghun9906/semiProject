@@ -1,6 +1,8 @@
 package com.icia.drawAcademy.dao;
 
 
+
+
 import com.icia.drawAcademy.dto.MemberDto;
 
 public interface MemberDao {
@@ -13,6 +15,7 @@ public interface MemberDao {
 	
 	void memout(Integer m_id);
 	
-	void checkEmail(String m_email);
+	Integer checkEmail(String m_email);
 	
+	MemberDto myPage(Integer m_id);
 } // interface end

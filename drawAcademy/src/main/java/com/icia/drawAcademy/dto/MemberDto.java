@@ -18,8 +18,8 @@ public class MemberDto {
 	private String m_password;
 	private String m_address;
 	private String m_age;
-	private String p_sysname;
-	private String classCode; 
+	private String sORt;
+	private String className; 
 		
 	
 	

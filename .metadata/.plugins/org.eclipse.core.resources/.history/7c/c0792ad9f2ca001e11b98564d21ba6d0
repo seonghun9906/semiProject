@@ -1,9 +1,0 @@
-package dao.copy;
-
-import dto.MemberDto;
-
-public class MemberDao {
-
-	void signUp(MemberDto memberDto);
-	
-}

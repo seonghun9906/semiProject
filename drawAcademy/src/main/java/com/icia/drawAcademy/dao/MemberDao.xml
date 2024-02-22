@@ -6,11 +6,15 @@
 	<insert id="signUp" parameterType="draw" >
 		INSERT INTO membertbl
 		VALUES (null,#{m_name},#{m_phoneNumber},#{m_email},#{m_password},#{m_address},
-		#{m_age},#{p_sysname},#{classCode}
+		#{m_age},#{sORt},#{className}
 		)
 	</insert>
-	
-	<select id="checkEmail" parameterType="draw">
+		
+	<select id="myPage" parameterType="Integer" resultType="draw">
+		SELECT * FROM membertbl WHERE m_id = #{m_id}
+	</select>
+		
+	<select id="checkEmail" parameterType="draw" resultType="Integer">
 		SELECT COUNT(*) FROM membertbl WHERE m_email = #{m_email}
 	</select>
 	
@@ -21,11 +25,17 @@
 	<update id="updateMember" parameterType="draw">
 		UPDATE membertbl
 		SET m_name=#{m_name},m_phoneNumber=#{m_phoneNumber},m_email=#{m_email},m_password = #{m_password},
-		m_address=#{m_address}, m_age=#{m_age},classCode=#{classCode}
+		m_address=#{m_address}, m_age=#{m_age},className=#{className}
 		WHERE m_id=#{m_id}
 	</update>
 	
 	<delete id="memout" parameterType="Integer">
 		DELETE FROM membertbl WHERE m_id=#{m_id}
 	</delete>
+	
+	<select id="classList" parameterType="draw" >
+		
+	</select>
+	
+	
 </mapper>

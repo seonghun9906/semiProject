@@ -1,5 +1,0 @@
-package com.icia.drawAcademy.dao;
-
-public interface MemberDao {
-
-}

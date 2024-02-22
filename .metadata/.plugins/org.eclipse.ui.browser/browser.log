@@ -4,3 +4,29 @@
 2월 16, 2024 08:27:49.313 [12544:5272:0216/082749.308:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 1, got 0.
 2월 16, 2024 08:27:49.313 [12544:5272:0216/082749.308:ERROR:device_event_log_impl.cc(192)] [08:27:49.308] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_0000&pid_3825#6&868c983&0&6#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
 2월 16, 2024 08:27:50.400 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+2월 19, 2024 21:22:10.197 NEW SESSION
+2월 19, 2024 21:22:10.197 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+2월 20, 2024 08:34:14.927 NEW SESSION
+2월 20, 2024 08:34:14.927 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+2월 20, 2024 14:39:34.300 [10328:6140:0220/143934.299:ERROR:connection_factory_impl.cc(471)] ConnectionHandler failed with net error: -2
+2월 20, 2024 14:39:56.470 [10328:6140:0220/143956.470:ERROR:connection_factory_impl.cc(471)] ConnectionHandler failed with net error: -2
+2월 20, 2024 14:40:03.701 [10328:6140:0220/144003.701:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+2월 20, 2024 14:42:24.161 [10328:6140:0220/144224.161:ERROR:connection_factory_impl.cc(471)] ConnectionHandler failed with net error: -2
+2월 20, 2024 14:43:21.180 [10328:6140:0220/144321.180:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+2월 20, 2024 14:47:20.321 [10328:6140:0220/144720.320:ERROR:connection_factory_impl.cc(471)] ConnectionHandler failed with net error: -2
+2월 20, 2024 15:05:06.32 [10328:6140:0220/150506.032:ERROR:connection_factory_impl.cc(471)] ConnectionHandler failed with net error: -2
+2월 20, 2024 15:05:35.108 [10328:6140:0220/150535.107:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+2월 20, 2024 16:57:22.567 [10328:6140:0220/165722.566:ERROR:connection_factory_impl.cc(471)] ConnectionHandler failed with net error: -2
+2월 20, 2024 16:58:08.798 [10328:6140:0220/165808.798:ERROR:connection_factory_impl.cc(471)] ConnectionHandler failed with net error: -2
+2월 20, 2024 17:02:20.694 [10328:6140:0220/170220.694:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+2월 20, 2024 17:02:46.162 [10328:6140:0220/170246.161:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+2월 20, 2024 17:03:37.845 [10328:6140:0220/170337.845:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+2월 20, 2024 17:05:28.668 [10328:6140:0220/170528.667:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+2월 20, 2024 17:07:00.927 [10328:6140:0220/170700.926:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+2월 20, 2024 17:09:26.426 [10328:6140:0220/170926.425:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+2월 20, 2024 17:10:13.277 [10328:6140:0220/171013.276:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+2월 20, 2024 17:12:04.158 [10328:6140:0220/171204.157:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
+2월 21, 2024 08:32:05.65 [10328:6140:0221/083205.025:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
+2월 21, 2024 08:32:05.67 [10328:9444:0221/083205.027:ERROR:get_updates_processor.cc(263)] PostClientToServerMessage() failed during GetUpdates with error Network error (ERR_NETWORK_CHANGED)

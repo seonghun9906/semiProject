@@ -1,0 +1,5 @@
+package com.icia.drawAcademy.dao.classdao;
+
+public interface ClassDao {
+
+}

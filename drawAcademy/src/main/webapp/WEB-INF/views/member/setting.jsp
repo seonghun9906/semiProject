@@ -19,13 +19,7 @@
     <p>비밀번호 : ${loggedInMember.m_password} <input type=text placeholder="${loggedInMember.m_password}" name="m_password"  > </p>
     <p>주소 : ${loggedInMember.m_address} <input type=text placeholder="${loggedInMember.m_address}" name="m_address" > </p>
     <p>나이 : ${loggedInMember.m_age} <input type=text placeholder="${loggedInMember.m_age}" name="m_age" > </p>
-    <p>예약한 클래스 : ${loggedInMember.classCode} 
-    <label for="classCode">클래스:</label>
-        <select name="classCode">
-            <option value="Classcode1">Classcode1</option>
-            <option value="Classcode2">Classcode2</option>
-            <option value="Classcode3">Classcode3</option>
-        </select> </p>
+    
 		
 		<input type="submit" value="test">
 		<input type="reset" value="cencel">
