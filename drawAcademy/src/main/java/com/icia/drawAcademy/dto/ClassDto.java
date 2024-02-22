@@ -1,5 +1,7 @@
 package com.icia.drawAcademy.dto;
 
+import java.util.List;
+
 import org.apache.ibatis.type.Alias;
 
 import lombok.Data;
@@ -18,5 +20,5 @@ public class ClassDto {
 	private String time;
 	private String m_name;
 	private String m_email;
-
+	
 }

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.icia.drawAcademy.dto.MemberDto" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +29,7 @@
                 $("#timeField").val("8:30-9:30");
             } else if (selectedClass === "classC") {
                 $("#dateField").val("3/21");
-                $("#dayField").val("WEN");
+                $("#dayField").val("WED");
                 $("#timeField").val("3:30-4:30");
             }
 

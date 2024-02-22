@@ -1,5 +1,7 @@
 package com.icia.drawAcademy.dto;
 
+import java.util.List;
+
 import org.apache.ibatis.type.Alias;
 
 import lombok.Getter;
@@ -20,6 +22,7 @@ public class MemberDto {
 	private String m_age;
 	private String sORt;
 	private String className; 
+	
 		
 	
 	

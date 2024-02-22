@@ -19,6 +19,11 @@
 	});
 
 </script>
+<style>
+  .white-text {
+    color: white;
+  }
+</style>
 </head>
 
 
@@ -32,23 +37,23 @@
      onsubmit="return validateForm()" class="joinForm">
       <h2>SIGN UP</h2>
       <div class="textForm">
-         <input type="text" class="id" name="m_email" placeholder="E-mail" id="signUpEmail">
-      <span id="emailCheckResult"></span>
+         <input type="email" class="id" name="m_email" placeholder="E-mail" id="signUpEmail" required>
+      <span id="emailCheckResult" class="checkResult"></span>
       </div>
       <div class="textForm">
-         <input type="text" class="pw" name="m_password" placeholder="Password">
+         <input type="password" class="pw" name="m_password" placeholder="Password" required>
       </div>
       <div class="textForm">
-         <input type="text" class="name" name="m_name" placeholder="Name">
+         <input type="text" class="name" name="m_name" placeholder="Name" required>
       </div>
       <div class="textForm">
-         <input type="text" class="phoneNumber" name="m_phoneNumber" placeholder="Phone number">
+         <input type="text" class="phoneNumber" name="m_phoneNumber" placeholder="Phone number" required>
       </div>
       <div class="textForm">
-         <input type="text" class="address" name="m_address" placeholder="Address">
+         <input type="text" class="address" name="m_address" placeholder="Address" required>
       </div>
       <div class="textForm">
-         <input type="text" class="age" name="m_age" placeholder="Age">
+         <input type="text" class="age" name="m_age" placeholder="Age" required>
       </div>
       <div class ="textForm">
              <select id="selectOption" name="sORt">
@@ -72,8 +77,8 @@ function validateForm() {
     let result = $("#emailCheckResult").text();
 
     // 중복된 경우
-    if (result === "중복된 이메일입니다.") {
-        alert("중복된 이메일입니다. 다른 이메일을 입력해주세요.");
+    if (result === "올바르지 않은 형식의 이메일이 거나 중복된 이메일입니다.") {
+        alert("다른 이메일을 입력해주세요.");
         return false; // 회원가입 막기
     }
     
@@ -89,16 +94,16 @@ $(document).ready(function() {
         let email = $(this).val();
         // 'signUpEamil' 필드의 값(value)을 가져와서 'email' 변수에 저장
         if (email.trim() === "") {
-            $("#emailCheckResult").text("이메일을 입력해주세요.");
+            $("#emailCheckResult").text("이메일을 입력해주세요.").addClass("white-text");;
             return;
         }else if (email.indexOf('@') === -1) {
         	//indexOf("")는 문자열이 포함되지 안흥면 무조건 -1값이 반환됨.
-            $("#emailCheckResult").text("올바르지 않은 이메일입니다.")
+            $("#emailCheckResult").text("올바르지 않은 이메일입니다.").addClass("white-text");
         } 
         $.post("emailCheckResult", { m_email: email }, function(result) {
             // 서버로 POST 요청을 보내는데, 요청 경로는 "emailCheckResult"이고, 데이터로 'm_email'을 키로 하는 'email' 값을 전송
             // 성공적으로 요청이 완료되면 실행되는 함수, 서버에서 반환한 결과가 'result' 매개변수로 전달됨
-            $("#emailCheckResult").text(result);
+            $("#emailCheckResult").text(result).addClass("white-text");;
             // 'emailCheckResult'라는 ID를 가진 요소에 서버에서 받은 결과를 텍스트로 설정하여 표시	  
       		  	});
         	

@@ -232,4 +232,8 @@ body {
   50%,100% {
     bottom: 100%;
   }
+  
+ .checkResult {
+	color: white;
+ }
 }

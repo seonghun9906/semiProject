@@ -18,11 +18,11 @@
     <p>주소 : ${memberDto.m_address}</p>
     <p>나이 : ${memberDto.m_age}</p>
    	<p>내 수강신청 확인 :</p>
-    <ul>
-        <c:forEach var="className" items="${memberDto.classList}">
-            <li>${className}</li>
-        </c:forEach>
-    </ul>
+  	<ul>
+  	<c:forEach var="cl" items="${cList}">
+  		<li>${cl.className} : ${cl.day} ${cl.date} ${cl.time}</li> 
+  	</c:forEach>
+  	</ul>
 	</form>
     
     	<form action="memout" method="get">

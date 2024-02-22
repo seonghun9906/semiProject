@@ -2,6 +2,8 @@ package com.icia.drawAcademy.Service;
 
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.icia.drawAcademy.dao.MemberDao;
-
+import com.icia.drawAcademy.dto.ClassDto;
 import com.icia.drawAcademy.dto.MemberDto;
 
 import lombok.extern.slf4j.Slf4j;
@@ -149,10 +151,10 @@ public class MemberService {
 	    try {
 	        int emailCount = mDao.checkEmail(m_email);
 	        if (emailCount > 0) {
-	        	checkMsg = "중복된 이메일입니다.";
+	        	checkMsg = "올바르지 않은 형식의 이메일이 거나 중복된 이메일입니다.";
 	            return checkMsg;
 	        } else {
-	        	checkMsg = "작성가능한 이메일 입니다.";
+	        	checkMsg = "사용 가능한 이메일 입니다.";
 	        	return checkMsg;
 	        }
 	    } catch (Exception e) {
@@ -161,14 +163,16 @@ public class MemberService {
 	    }
 	}
 
-	public MemberDto myPage(Integer m_id, Model model) {
+	public void myPage(Integer m_id, Model model, String m_email) {
 			log.info("mypage()");
 			//DB에서 꺼내와야함
 			MemberDto memberDto = mDao.myPage(m_id);
+			List<ClassDto> cList = mDao.getClasslist(m_email);
+			
 			//상자에 담기
 			model.addAttribute("memberDto", memberDto);
+			model.addAttribute("cList", cList);
 			System.out.println("service memberDto = " + memberDto);
-			return memberDto;
 	}
 
 }// end
