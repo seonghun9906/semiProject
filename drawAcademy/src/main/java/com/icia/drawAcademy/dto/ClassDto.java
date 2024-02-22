@@ -18,7 +18,6 @@ public class ClassDto {
 	private String day;
 	private String date;
 	private String time;
-	private String m_name;
-	private String m_email;
+	private Integer m_id;
 	
 }

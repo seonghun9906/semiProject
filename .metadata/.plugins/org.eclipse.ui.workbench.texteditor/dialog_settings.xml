@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="signUpEamil"/>
+		<item key="selection" value="memout"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="memout"/>
+			<item value="selectedClass"/>
 			<item value="signUpEamil"/>
 			<item value="selectOption"/>
 			<item value=".Home-btn"/>
@@ -21,8 +23,6 @@
 			<item value="UTF-8"/>
 			<item value="draw"/>
 			<item value="javax.servlet"/>
-			<item value="&lt;dependency&gt;&#x0A;&#x09;&#x09;&#x09;&lt;groupId&gt;javax.servlet&lt;/groupId&gt;&#x0A;&#x09;&#x09;&#x09;&lt;artifactId&gt;jstl&lt;/artifactId&gt;&#x0A;&#x09;&#x09;&#x09;&lt;version&gt;1.2&lt;/version&gt;&#x0A;&#x09;&#x09;&lt;/dependency&gt;&#x0A;&#x09;&#x09;&lt;dependency&gt;&#x0A;&#x09;&#x09;&#x09;&lt;groupId&gt;taglibs&lt;/groupId&gt;&#x0A;&#x09;&#x09;&#x09;&lt;artifactId&gt;standard&lt;/artifactId&gt;&#x0A;&#x09;&#x09;&#x09;&lt;version&gt;1.1.2&lt;/version&gt;&#x0A;&#x09;&#x09;&lt;/dependency&gt;&#x0A;"/>
-			<item value="session.set"/>
 		</list>
 		<list key="replacehistory">
 			<item value="draw"/>

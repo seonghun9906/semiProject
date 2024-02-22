@@ -30,3 +30,10 @@
 2월 20, 2024 17:12:04.158 [10328:6140:0220/171204.157:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
 2월 21, 2024 08:32:05.65 [10328:6140:0221/083205.025:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -105
 2월 21, 2024 08:32:05.67 [10328:9444:0221/083205.027:ERROR:get_updates_processor.cc(263)] PostClientToServerMessage() failed during GetUpdates with error Network error (ERR_NETWORK_CHANGED)
+
+2월 22, 2024 21:04:11.276 NEW SESSION
+2월 22, 2024 21:04:11.276 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+2월 22, 2024 21:40:52.512 NEW SESSION
+2월 22, 2024 21:40:52.512 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+2월 22, 2024 22:05:56.508 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.

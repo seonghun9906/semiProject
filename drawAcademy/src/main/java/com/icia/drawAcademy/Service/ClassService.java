@@ -1,5 +1,7 @@
 package com.icia.drawAcademy.Service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,20 +51,17 @@ public class ClassService {
 		}
 	}
 
-	public String class1proc(ClassDto classDto, HttpSession session, RedirectAttributes rttr) {
+	public String class1proc(ClassDto classDto, HttpSession session, RedirectAttributes rttr, Model model) {
 		log.info("class1proc()");
 		String msg = null;
 		String view = null;
 		MemberDto loggedInMember = (MemberDto) session.getAttribute("login");
-		String m_name = loggedInMember.getM_name();
+		Integer m_id = loggedInMember.getM_id();
 		String className = classDto.getClassName();
-		String m_email = loggedInMember.getM_email();
-
+	    
+		
 		try {
-			view = "redirect:/?";
-			msg = "수강신청 성공";
-			classDto.setM_name(m_name);
-			classDto.setM_email(m_email);
+			classDto.setM_id(m_id);
 			loggedInMember.setClassName(className);
 			// System.out.println("classDto = " + classDto);
 			// System.out.println("loggedInMember = " + loggedInMember);
@@ -70,20 +69,20 @@ public class ClassService {
 			// MemberDto의 ClassName 정보 업데이트
 			cDao.class1proc(classDto); // 저장 성공
 			
-			cDao.PlusMemberClassName(className, m_email);
-			cDao.PlusClassNameMember(className, m_name, m_email);
-			System.out.println(m_email);
+			cDao.PlusMemberClassName(className, m_id);
+			cDao.PlusClassNameMember(className, m_id);
+			System.out.println(m_id);
+			view = "redirect:/?";
+			msg = "수강신청 성공";
 			rttr.addFlashAttribute("msg", msg);
 			return view;
 		} catch (Exception e) { // 저장 실패
 			e.printStackTrace();
 			view = "redirect:/?";
 			msg = "수강신청 실패";
-		}
-
-		rttr.addFlashAttribute("msg", msg);
-		return view;
-
+			rttr.addFlashAttribute("msg", msg);
+			return view;
+		}	
 	}
 
 	public Integer getClassLimit(String className) {
@@ -93,6 +92,8 @@ public class ClassService {
 	    
 	   return classNameCount;
 	}
+		// 이메일 중복체크 
+
 
 
 }

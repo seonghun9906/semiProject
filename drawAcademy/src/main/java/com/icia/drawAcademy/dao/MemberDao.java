@@ -23,5 +23,5 @@ public interface MemberDao {
 	
 	MemberDto myPage(Integer m_id);
 	
-	List<ClassDto> getClasslist(String m_email);
+	List<ClassDto> getClasslist(Integer m_id);
 } // interface end

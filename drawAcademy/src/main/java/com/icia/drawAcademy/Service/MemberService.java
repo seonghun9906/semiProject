@@ -131,6 +131,7 @@ public class MemberService {
 			System.out.println(id);
 			mDao.memout(id);
 			session.removeAttribute("login");
+			session.invalidate();
 			msg = "탈퇴 성공";
 			view = "redirect:/";
 			
@@ -163,11 +164,11 @@ public class MemberService {
 	    }
 	}
 
-	public void myPage(Integer m_id, Model model, String m_email) {
+	public void myPage(Integer m_id, Model model) {
 			log.info("mypage()");
 			//DB에서 꺼내와야함
 			MemberDto memberDto = mDao.myPage(m_id);
-			List<ClassDto> cList = mDao.getClasslist(m_email);
+			List<ClassDto> cList = mDao.getClasslist(m_id);
 			
 			//상자에 담기
 			model.addAttribute("memberDto", memberDto);

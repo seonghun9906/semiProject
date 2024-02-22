@@ -5,20 +5,24 @@
   <mapper namespace="com.icia.drawAcademy.dao.classdao.ClassDao">
   <insert id="class1proc" parameterType="classDto" >
 		INSERT INTO teacherName1
-		VALUES (null,#{className},#{day},#{date},#{time},#{m_name},#{m_email}
-		)
+		VALUES (null,#{className},#{day},#{date},#{time},#{m_id})
 	</insert>
   	
-  	<update id="PlusMemberClassName" parameterType="String">
-  		UPDATE membertbl SET className = #{className} WHERE m_email = #{m_email};
+  	<update id="PlusMemberClassName" parameterType="classDto">
+  		UPDATE membertbl SET className = #{className} WHERE m_id = #{m_id}
   	</update>
   	
-  	<update id="PlusClassNameMember" parameterType="String">
-  		UPDATE teacherName1 SET m_name = #{m_name}, m_email = #{m_email} WHERE className = #{className};
+  	<update id="PlusClassNameMember" parameterType="classDto">
+  		UPDATE teacherName1 SET m_id=#{m_id} WHERE className = #{className}
   	</update>
   	
   	<select id="classLimit" parameterType="classDto" resultType="Integer">
   		SELECT COUNT(*) FROM teacherName1 WHERE className = #{className}
   	</select>
   	
+  	<!--  
+  	<select id="checkClass" parameterType="String" resultType="classDto" >
+		SELECT * FROM teacherName1 WHERE m_email=#{m_email}
+	</select>
+	-->
   </mapper>

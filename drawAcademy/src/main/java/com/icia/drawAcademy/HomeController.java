@@ -1,5 +1,7 @@
 package com.icia.drawAcademy;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,7 +88,9 @@ public class HomeController {
 		log.info("logout");
 		String msg = "로그아웃 성공";
 		// 세션에서 "login" 속성만을 제거
+		
 		session.removeAttribute("login");
+	    session.invalidate();
 
 		// 로그아웃 후 로그인 페이지로 리다이렉트
 		rttr.addFlashAttribute("msg", msg);
@@ -103,7 +107,7 @@ public class HomeController {
 
 		if (loggedInMember != null) {
 			// 로그인한 회원 정보를 모델에 추가하여 JSP로 전달
-			mServ.myPage(loggedInMember.getM_id(), model, loggedInMember.getM_email());
+			mServ.myPage(loggedInMember.getM_id(), model);
 
 			return "member/mypage";
 		} else {
@@ -168,24 +172,12 @@ public class HomeController {
 	}
 
 	@PostMapping("class1proc")
-	public String class1proc(ClassDto classDto, HttpSession session, RedirectAttributes rttr) {
+	public String class1proc(ClassDto classDto, HttpSession session, RedirectAttributes rttr,Model model) {
 		log.info("class1proc()");
-
-		String view = cServ.class1proc(classDto, session, rttr);
-		System.out.println("rttr = " + rttr);
+		String view = cServ.class1proc(classDto, session, rttr, model);
+		
 
 		return view;
 	}
 
-	@GetMapping("class2")
-	public String class2() {
-		log.info("class2()");
-		return "Class/class2";
-	}
-
-	@GetMapping("class3")
-	public String class3() {
-		log.info("class3()");
-		return "Class/class3";
-	}
 }

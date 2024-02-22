@@ -33,9 +33,11 @@
 		DELETE FROM membertbl WHERE m_id=#{m_id}
 	</delete>
 	
-	<select id="getClasslist" parameterType="String" resultType="classDto" >
-		SELECT * FROM teacherName1 WHERE m_email=#{m_email}
+	<select id="getClasslist" parameterType="Integer" resultType="classDto" >
+		SELECT * FROM teacherName1 WHERE m_id=#{m_id}
 	</select>
+	
+	
 	
 	
 </mapper>
