@@ -213,7 +213,7 @@ public class HomeController {
 	   @GetMapping("qwrite")
 	   public String qBoardWrite() {
 	      log.info("qwirte()");
-	      return "qwrite";
+	      return "QBoard/qwrite";
 	   }
 
 	   // 게시물 작성----------------------------------------------------------------
@@ -239,7 +239,7 @@ public class HomeController {
 	      Qserv.getQBoard(b_code, model);
 	      
 	      //cServ.commentList(model, session, pageNum);   
-	      return "detail";
+	      return "QBoard/detail";
 	   }
 
 	   // 게시물 수정-------------------------------------------------------
@@ -247,7 +247,7 @@ public class HomeController {
 	   public String qboardUpdateString(Integer b_code, Model model) {
 	      log.info("QBUpdate()");
 	      Qserv.getQBoard(b_code, model);
-	      return "QBUpdate";
+	      return "QBoard/QBUpdate";
 	   }
 
 	   @PostMapping("QBUpdateProc")
