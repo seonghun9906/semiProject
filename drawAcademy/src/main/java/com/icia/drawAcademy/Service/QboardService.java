@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
+import com.icia.drawAcademy.dao.Qboarddao.CmtDao;
 import com.icia.drawAcademy.dao.Qboarddao.QboardDao;
-
+import com.icia.drawAcademy.dto.CmtDto;
 import com.icia.drawAcademy.dto.MemberDto;
 import com.icia.drawAcademy.dto.QboardDto;
 import com.icia.drawAcademy.util.PagingUtil;
@@ -27,8 +27,8 @@ public class QboardService {
    @Autowired
    private QboardDao qDao;
 
-//   @Autowired
-//   private CmtDao cDao;
+   @Autowired
+   private CmtDao cDao;
    
    
    public String getQboardList(Integer pageNum, Model model, HttpSession session) {
@@ -79,10 +79,13 @@ public class QboardService {
 
       String msg = "";
       String view = "";
-
+      MemberDto loggedInMember = (MemberDto) session.getAttribute("login");
+      Integer m_id = loggedInMember.getM_id();
       try {
+    	 qboard.setM_id(m_id);
          qDao.insertQBoard(qboard);
          System.out.println("qboard" + qboard);
+         
          view = "redirect:qboard";
          msg = "게시물 등록 성공";
 
@@ -100,11 +103,12 @@ public class QboardService {
    public void getQBoard(Integer b_code, Model model) {
       QboardDto qboard = qDao.selectQBoard(b_code);
       model.addAttribute("qboard_m_id", qboard.getM_id());
+      System.out.println(b_code);
       
-//      List<CmtDto> cList = cDao.getCommentList(b_code);
+      List<CmtDto> cmtList = cDao.getCommentList(b_code);
       
       model.addAttribute("qboard", qboard);
-//      model.addAttribute("cList", cList);
+      model.addAttribute("cmtList", cmtList);
       
       
       System.out.println(model);

@@ -18,12 +18,12 @@
 <body>
    <div class="content">
    <!-- sessionScope."세션에 저장된 이름" <-- 세션에 저장된 모든 정보에 접촉 가능 -->
-      <c:if test="${sessionScope.login eq qboard.m_id}">
+      <c:if test="${sessionScope.login.m_id eq qboard.m_id}">
          <form action="QBUpdateProc" method="post"
             enctype="multipart/form-data">
             <h2 class="form-header">게시물 수정</h2>
             <input type="hidden" name="b_code" value="${qboard.b_code}">
-            <input type="hidden" name="m_id" value="${sessionScope.login}">
+            <input type="hidden" name="m_id" value="${sessionScope.login.m_id}">
             <input type="text" class="write-input" value="${qboard.b_title}"
                name="b_title" autofocus placeholder="제목" required> <input
                type="text" class="write-input" value="${qboard.b_contents}"
@@ -33,7 +33,7 @@
             <button value="submit">수정</button>
          </form>
       </c:if>
-      <c:if test="${sessionScope.login ne qboard.m_id}">
+      <c:if test="${sessionScope.login.m_id ne qboard.m_id}">
          <p>게시물을 수정할 수 있는 권한이 없습니다.</p>
       </c:if>
    </div>

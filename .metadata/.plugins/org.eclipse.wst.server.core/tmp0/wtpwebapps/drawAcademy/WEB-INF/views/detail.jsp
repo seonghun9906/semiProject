@@ -39,13 +39,13 @@
       </div>
    </div>
    <div class="btn-area">
-   <c:if test="${sessionScope.login eq qboard.m_id}">
+   <c:if test="${sessionScope.login.m_id eq qboard.m_id}">
       <a href="QBUpdate?b_code=${qboard.b_code}">
          <button class="btn-write" id="upbtn">수정</button>
       </a>
    </c:if>
    
-      <c:if test="${sessionScope.login eq qboard.m_id}">
+      <c:if test="${sessionScope.login.m_id eq qboard.m_id}">
          <form action="delete?b_code=${qboard.b_code}" method="post">
             <button class="btn-write" id="delbtn">삭제</button>
          </form>
@@ -62,21 +62,21 @@
    <div>
       <form action="inscProc" method="post" enctype="multipart/form-data">
          <input type="hidden" name="b_code" value="${qboard.b_code}">
-         <input type="hidden" name="m_id" value="${qboard.m_id}"> <input
+         <input type="hidden" name="m_id" value="${sessionScope.login.m_id}"> <input
             type="text" placeholder="내용" name="c_contents"> <input
-            type="text" placeholder="비밀번호" name="c_password">
+            type="text" placeholder="로그인된 비밀번호" name="c_password">
          <button value="submit">등록</button>
       </form>
       <div>
          <c:choose>
-            <c:when test="${empty cList}">
+            <c:when test="${empty cmtList}">
                <div class="cmt-item">
                   <span class="none-content">등록된 댓글이 없습니다.</span>
                </div>
             </c:when>
             <c:otherwise>
                <h3>댓글</h3>
-               <c:forEach var="ccc" items="${cList}">
+               <c:forEach var="ccc" items="${cmtList}">
                   <div>
                      <p>${ccc.c_contents}</p>
                   </div>

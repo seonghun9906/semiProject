@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.icia.drawAcademy.Service.ClassService;
+import com.icia.drawAcademy.Service.CmtService;
 import com.icia.drawAcademy.Service.MemberService;
 import com.icia.drawAcademy.Service.QboardService;
 import com.icia.drawAcademy.dto.ClassDto;
+import com.icia.drawAcademy.dto.CmtDto;
 import com.icia.drawAcademy.dto.MemberDto;
 import com.icia.drawAcademy.dto.QboardDto;
 
@@ -35,6 +37,9 @@ public class HomeController {
 	
 		@Autowired
 	   private QboardService Qserv;
+		
+		@Autowired
+		private CmtService cmtServ;
 		
 	// --------------------------------------------------------------------------------//
 	@GetMapping("/")
@@ -250,17 +255,15 @@ public class HomeController {
 	      log.info("QBUpdateProc()");
 	      String view = Qserv.getQBUpdate(qboard, session, rttr);
 	      // 세션에서 "login" 값을 가져옴
-	      String login = (String) session.getAttribute("login");
+	      MemberDto login = (MemberDto) session.getAttribute("login");
+	      Integer m_id = login.getM_id();
 
 	      // 가져온 값이 null이 아니라면
 	      
 	       if (login != null) {
 	           // 가져온 값을 Integer로 변환하여 qboardDTO 객체에 저장
-	           qboard.setM_id(Integer.parseInt(login));
-	       } else {
-	           // 세션에 "login" 값이 없는 경우 처리
-	           view = "qboard";
-	       }
+	           qboard.setM_id(m_id);
+	       } 
 	      return view;
 	   }
 	   
@@ -275,16 +278,16 @@ public class HomeController {
 	      return view;
 	   }
 	   
-	   // 게시물 댓글 달기
-//	   @PostMapping("inscProc")
-//	   public String insertCmt (CmtDto cDto,
-//	                     //QboardDto qDto,
-//	                     HttpSession session,
-//	                     RedirectAttributes rttr) {
-//	      
-//	      String view = cServ.insertCmt(cDto, session, rttr);
-//	      
-//	      return view;
-//	   }
+	  //  게시물 댓글 달기
+	   @PostMapping("inscProc")
+	   public String insertCmt (CmtDto cDto,
+	                     //QboardDto qDto,
+	                     HttpSession session,
+	                     RedirectAttributes rttr) {
+	      
+	      String view = cmtServ.insertCmt(cDto, session, rttr);
+	      
+	      return view;
+	   }
 
 }

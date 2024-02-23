@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="QBUpdateProc"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="QBUpdateProc"/>
 			<item value="myPage"/>
 			<item value="mypage"/>
 			<item value="memout"/>
@@ -22,7 +23,6 @@
 			<item value="teacher1"/>
 			<item value="ARN : org.springframework.web.servlet.PageNotFound - No mapping for POST /drawAcademy/emailCheckResult"/>
 			<item value="redirectPort=&quot;8443&quot;"/>
-			<item value="UTF-8"/>
 		</list>
 		<list key="replacehistory">
 			<item value="draw"/>
