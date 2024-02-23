@@ -20,9 +20,8 @@
   		SELECT COUNT(*) FROM teacherName1 WHERE className = #{className}
   	</select>
   	
-  	<!--  
-  	<select id="checkClass" parameterType="String" resultType="classDto" >
-		SELECT * FROM teacherName1 WHERE m_email=#{m_email}
+  	<select id="checkClass" parameterType="Integer" resultType="classDto" >
+		SELECT * FROM teacherName1 WHERE m_id=#{m_id}
 	</select>
-	-->
-  </mapper>
+	
+	</mapper>

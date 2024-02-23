@@ -30,17 +30,12 @@ public class ClassService {
 		
 		try {
 		if (loggedInMember != null) {
-		
 			view = "Class/classpage";
-		
-			
 			return view;
-			
 			} else {
 				view = "redirect:login";
 			
 			return view;
-				
 			}
 		}catch (Exception e) {
 			// TODO: handle exception
@@ -58,11 +53,12 @@ public class ClassService {
 		MemberDto loggedInMember = (MemberDto) session.getAttribute("login");
 		Integer m_id = loggedInMember.getM_id();
 		String className = classDto.getClassName();
-	    
 		
 		try {
+			
 			classDto.setM_id(m_id);
 			loggedInMember.setClassName(className);
+			
 			// System.out.println("classDto = " + classDto);
 			// System.out.println("loggedInMember = " + loggedInMember);
 
@@ -71,11 +67,11 @@ public class ClassService {
 			
 			cDao.PlusMemberClassName(className, m_id);
 			cDao.PlusClassNameMember(className, m_id);
-			System.out.println(m_id);
 			view = "redirect:/?";
 			msg = "수강신청 성공";
 			rttr.addFlashAttribute("msg", msg);
 			return view;
+			
 		} catch (Exception e) { // 저장 실패
 			e.printStackTrace();
 			view = "redirect:/?";
@@ -94,6 +90,12 @@ public class ClassService {
 	}
 		// 이메일 중복체크 
 
-
+	public void class1(Integer m_id, Model model) {
+		log.info("class1()");
+		List<ClassDto> cList = cDao.checkClass(m_id);
+		System.out.println(m_id);
+		model.addAttribute("cList", cList);
+		System.out.println("class1 serv = " + cList);
+	}
 
 }

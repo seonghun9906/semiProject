@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="memout"/>
+		<item key="selection" value=""/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="myPage"/>
+			<item value="mypage"/>
 			<item value="memout"/>
 			<item value="selectedClass"/>
 			<item value="signUpEamil"/>
@@ -21,8 +23,6 @@
 			<item value="ARN : org.springframework.web.servlet.PageNotFound - No mapping for POST /drawAcademy/emailCheckResult"/>
 			<item value="redirectPort=&quot;8443&quot;"/>
 			<item value="UTF-8"/>
-			<item value="draw"/>
-			<item value="javax.servlet"/>
 		</list>
 		<list key="replacehistory">
 			<item value="draw"/>

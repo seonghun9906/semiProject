@@ -47,9 +47,11 @@
 <form action="class1proc" method="post" id="class1proc" onsubmit="checkClass()">
     <label for="selectOption">Choose an option:</label>
     <select id="selectOption" name="className">
+    	<option value="none" id="none">선택</option>
         <option value="classA" id="classA">Class A</option>
         <option value="classB" id="classB">Class B</option>
         <option value="classC" id="classC">Class C</option>
+        <option value="classD" id="classD">Class D</option>
     </select>
     <p>
         <span>Date: <input type="text" id="dateField" name="date" readonly></span>
@@ -57,6 +59,13 @@
         <br><span>Time: <input type="text" id="timeField" name="time" readonly></span>
          <input type="hidden" name="m_id" value="${m_id}">
     </p>
+    	<ul>
+         <c:forEach var="cl" items="${cList}" varStatus="loop">
+ 			<input type="hidden" id="classCheck" value="${cl.className}"> 
+ 			<li>${cl.className}</li> 
+         </c:forEach>
+         </ul>
+         
     <input type="submit" value="수강신청" >
 </form>
 </body>
@@ -64,11 +73,31 @@
 
 <script>
 $(document).ready(function () {
-    // 클래스를 선택했을 때의 이벤트 처리
-    $("#selectOption").change(function () {
-        // 선택된 옵션 값 가져오기
+	$("#selectOption").on('change', function () {
         var selectedClass = $(this).val();
-
+        console.log("selectedClass:", selectedClass);
+        
+        var classCheckElement = document.querySelectorAll("#classCheck");
+        //console.log(classCheckElement);
+        
+        for(var classCheckItem of classCheckElement){
+        	//console.log(classCheckItem);
+        	var classCheck = classCheckItem ? classCheckItem.value : null;
+        	console.log("consolelog = " + classCheck);
+        	
+        	if (classCheck == selectedClass) {
+                alert("이미 수강신청한 CLASS입니다.");
+                break;
+            }
+        }
+        /* var classCheck = classCheckElement ? classCheckElement.value : null
+       	console.log("consolelog = " + classCheck); 
+        		
+        if (classCheck == selectedClass) {
+            alert("이미 수강신청한 CLASS입니다.");
+            
+        }*/
+        
         // 선택된 클래스에 따라 필드 값 설정
         if (selectedClass === "classA") {
             $("#dateField").val("3/19");
@@ -83,16 +112,17 @@ $(document).ready(function () {
             $("#dayField").val("WED");
             $("#timeField").val("3:30-4:30");
         }
-
-        // 필드를 활성화
+            // 이미 수강 중이라면 필드를 활성화하지 않음
+        
+     // 필드를 활성화
         $("#dateField, #dayField, #timeField").prop("disabled", false);
- 
- 
     });
 });
 </script>
   <!-- -------------------------------------------------------- -->
-
+	<script>
+	
+	</script>
   <!-- -------------------------------------------------------- -->
   <script>
   function checkClass() {
@@ -100,7 +130,8 @@ $(document).ready(function () {
   		var classLimitAValue = ${classLimitA};
   		var classLimitBValue = ${classLimitB};
   		var classLimitCValue = ${classLimitC};
-	
+		
+		
   	// 정원 초과 체크
  	 if (selectedClass === "classA" && classLimitAValue >= 20) {
       alert("classA 정원이 초과되었습니다. 수강신청이 불가합니다.");

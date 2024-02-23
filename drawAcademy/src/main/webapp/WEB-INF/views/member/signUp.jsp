@@ -77,7 +77,7 @@ function validateForm() {
     let result = $("#emailCheckResult").text();
 
     // 중복된 경우
-    if (result === "올바르지 않은 형식의 이메일이 거나 중복된 이메일입니다.") {
+    if (result === "중복된 이메일입니다.") {
         alert("다른 이메일을 입력해주세요.");
         return false; // 회원가입 막기
     }
@@ -92,14 +92,7 @@ $(document).ready(function() {
     $("#signUpEmail").blur(function() {
         // 'signUpEamil'이라는 ID를 가진 입력 필드에서 blur 이벤트가 발생했을 때 실행되는 함수
         let email = $(this).val();
-        // 'signUpEamil' 필드의 값(value)을 가져와서 'email' 변수에 저장
-        if (email.trim() === "") {
-            $("#emailCheckResult").text("이메일을 입력해주세요.").addClass("white-text");;
-            return;
-        }else if (email.indexOf('@') === -1) {
-        	//indexOf("")는 문자열이 포함되지 안흥면 무조건 -1값이 반환됨.
-            $("#emailCheckResult").text("올바르지 않은 이메일입니다.").addClass("white-text");
-        } 
+      
         $.post("emailCheckResult", { m_email: email }, function(result) {
             // 서버로 POST 요청을 보내는데, 요청 경로는 "emailCheckResult"이고, 데이터로 'm_email'을 키로 하는 'email' 값을 전송
             // 성공적으로 요청이 완료되면 실행되는 함수, 서버에서 반환한 결과가 'result' 매개변수로 전달됨

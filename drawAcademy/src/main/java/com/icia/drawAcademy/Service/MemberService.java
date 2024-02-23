@@ -66,7 +66,8 @@ public class MemberService {
 
 			System.out.println(loggedInMember);
 			// 로그인시 세션에 저장
-			session.setAttribute("login", loggedInMember);
+			session.setAttribute("login", loggedInMember.getM_id());
+			
 
 		} else {
 			msg = "로그인 실패/ 이메일 및 비밀번호를 다시 확인해주시길 바랍니다.";
@@ -152,10 +153,10 @@ public class MemberService {
 	    try {
 	        int emailCount = mDao.checkEmail(m_email);
 	        if (emailCount > 0) {
-	        	checkMsg = "올바르지 않은 형식의 이메일이 거나 중복된 이메일입니다.";
+	        	checkMsg = "중복된 이메일입니다.";
 	            return checkMsg;
 	        } else {
-	        	checkMsg = "사용 가능한 이메일 입니다.";
+	        	checkMsg = "";
 	        	return checkMsg;
 	        }
 	    } catch (Exception e) {
@@ -176,4 +177,5 @@ public class MemberService {
 			System.out.println("service memberDto = " + memberDto);
 	}
 
+	
 }// end

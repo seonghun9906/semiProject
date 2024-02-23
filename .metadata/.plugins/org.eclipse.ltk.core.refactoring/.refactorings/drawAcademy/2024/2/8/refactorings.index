@@ -22,3 +22,15 @@
 1708489575973	Rename resource 'KakaoTalk_20240221_132143884_04 (1).png'
 1708489594081	Rename resource 'KakaoTalk_20240221_132143884.png'
 1708491380558	Delete element
+1708668951055	Delete element
+1708669768560	Delete element
+1708671034288	Move 'qboard.jsp' to 'member'
+1708671037241	Move 'QBUpdate.jsp' to 'member'
+1708671039457	Move 'qwrite.jsp' to 'member'
+1708671046191	Move 'QBUpdate.jsp' to 'views'
+1708671052762	Move 'QBUpdate.jsp' to 'WEB-INF'
+1708671056163	Move 'detail.jsp' to 'Class'
+1708671059678	Move 'QBUpdate.jsp' to 'views'
+1708671062008	Move 'detail.jsp' to 'views'
+1708671065287	Move 'qboard.jsp' to 'views'
+1708671071227	Move 'qwrite.jsp' to 'views'

@@ -2,6 +2,7 @@ package com.icia.drawAcademy;
 
 import java.util.List;
 
+import javax.inject.Qualifier;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.icia.drawAcademy.Service.ClassService;
 import com.icia.drawAcademy.Service.MemberService;
+import com.icia.drawAcademy.Service.QboardService;
 import com.icia.drawAcademy.dto.ClassDto;
 import com.icia.drawAcademy.dto.MemberDto;
+import com.icia.drawAcademy.dto.QboardDto;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -29,7 +32,10 @@ public class HomeController {
 
 	@Autowired
 	private ClassService cServ;
-
+	
+		@Autowired
+	   private QboardService Qserv;
+		
 	// --------------------------------------------------------------------------------//
 	@GetMapping("/")
 	public String home(Model model) {
@@ -162,22 +168,123 @@ public class HomeController {
 	}
 
 	@GetMapping("class1")
-	public String class1(Model model) {
+	public String class1(Model model,HttpSession session, Integer m_id) {
 		log.info("class1()");
 		model.addAttribute("classLimitA", cServ.getClassLimit("classA"));
 		model.addAttribute("classLimitB", cServ.getClassLimit("classB"));
 		model.addAttribute("classLimitC", cServ.getClassLimit("classC"));
-
+		MemberDto loggedInMember = (MemberDto) session.getAttribute("login");
+			
+		cServ.class1(loggedInMember.getM_id(), model);
 		return "Class/class1";
 	}
 
 	@PostMapping("class1proc")
 	public String class1proc(ClassDto classDto, HttpSession session, RedirectAttributes rttr,Model model) {
 		log.info("class1proc()");
+		
 		String view = cServ.class1proc(classDto, session, rttr, model);
 		
-
+		
 		return view;
 	}
+	
+	// 질문 게시판
+	   // 게시물
+	   // 목록------------------------------------------------------------------------//
+	   @GetMapping("qboard")
+	   public String qboardString(Integer pageNum, Model model, HttpSession session) {
+
+	      // service에서 기능을 가져와야함./
+
+	      log.info("qboard()");
+
+	      String view = Qserv.getQboardList(pageNum, model, session);
+
+	      return view;
+	   }
+
+	   // 게시물 작성---------------------------------------------------
+	   @GetMapping("qwrite")
+	   public String qBoardWrite() {
+	      log.info("qwirte()");
+	      return "qwrite";
+	   }
+
+	   // 게시물 작성----------------------------------------------------------------
+	   @PostMapping("qwriteProc")
+	   public String qwriteProc(QboardDto qboard, HttpSession session, RedirectAttributes rttr) {
+	         log.info("qwritePoec()");
+	      MemberDto login = (MemberDto) session.getAttribute("login");
+	      System.out.println("qwriteProc Login" + login);
+	      String view = null;
+	      // 가져온 값이 null이 아니라면
+	      if (login != null) {
+	          // 가져온 값을 Integer로 변환하여 qboardDTO 객체에 저장
+	          //qboard.setM_id(Integer.parseInt(login));
+	         view = Qserv.insertQBoard(qboard, session, rttr);
+	      }
+	             
+	      return view;
+	   }
+
+	   @GetMapping("detail")
+	   public String detail(Integer b_code, Model model) {
+	      log.info("detail()");
+	      Qserv.getQBoard(b_code, model);
+	      
+	      //cServ.commentList(model, session, pageNum);   
+	      return "detail";
+	   }
+
+	   // 게시물 수정-------------------------------------------------------
+	   @GetMapping("QBUpdate")
+	   public String qboardUpdateString(Integer b_code, Model model) {
+	      log.info("QBUpdate()");
+	      Qserv.getQBoard(b_code, model);
+	      return "QBUpdate";
+	   }
+
+	   @PostMapping("QBUpdateProc")
+	   public String QBUdateProc(QboardDto qboard, HttpSession session, RedirectAttributes rttr) {
+	      log.info("QBUpdateProc()");
+	      String view = Qserv.getQBUpdate(qboard, session, rttr);
+	      // 세션에서 "login" 값을 가져옴
+	      String login = (String) session.getAttribute("login");
+
+	      // 가져온 값이 null이 아니라면
+	      
+	       if (login != null) {
+	           // 가져온 값을 Integer로 변환하여 qboardDTO 객체에 저장
+	           qboard.setM_id(Integer.parseInt(login));
+	       } else {
+	           // 세션에 "login" 값이 없는 경우 처리
+	           view = "qboard";
+	       }
+	      return view;
+	   }
+	   
+	   
+	   // 게시물 삭제
+	   @PostMapping("delete")
+	   public String boardDelete (Integer b_code,
+	                     HttpSession session,
+	                     RedirectAttributes rttr) {
+	      String view=Qserv.boardDelete(b_code, session, rttr);
+	      
+	      return view;
+	   }
+	   
+	   // 게시물 댓글 달기
+//	   @PostMapping("inscProc")
+//	   public String insertCmt (CmtDto cDto,
+//	                     //QboardDto qDto,
+//	                     HttpSession session,
+//	                     RedirectAttributes rttr) {
+//	      
+//	      String view = cServ.insertCmt(cDto, session, rttr);
+//	      
+//	      return view;
+//	   }
 
 }

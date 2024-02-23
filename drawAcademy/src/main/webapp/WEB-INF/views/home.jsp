@@ -52,6 +52,9 @@
             <button class="CONTACT-btn" onclick="location.href='./CONTACT'">
                <p>CONTACT</p>
             </button>
+              <button class="CONTACT-btn" onclick="location.href='./qboard'">
+               <p>Qboard</p>
+            </button>
             <br> <br> <br> <br> <br> <br> <br>
             <br> <br> <br> <br> <br> <br> <br>
             <div class="smallWord">

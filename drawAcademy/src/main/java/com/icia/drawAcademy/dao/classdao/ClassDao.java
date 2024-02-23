@@ -17,5 +17,5 @@ public interface ClassDao {
 							
 	Integer classLimit(String className);
 	
-	List<ClassDto> checkClass(String m_email);
+	List<ClassDto> checkClass(Integer m_id);
 }
