@@ -26,6 +26,8 @@ public interface QboardDao {
    QboardDto selectQBoard(Integer b_code);
 
    void deleteQBoard(Integer b_code);
+
+   void deleteMemQboard(Integer id);
    
    
 }

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,10 +20,13 @@
    	<p>내 수강신청 확인 :</p>
   	<ul>
   	<c:forEach var="cl" items="${cList}">
-  		<li>${cl.className} : ${cl.day} ${cl.date} ${cl.time}</li> 
+  		<li>${cl.className} : ${cl.day} ${cl.date} ${cl.time}</li>
   	</c:forEach>
   	</ul>
 	</form>
+  		<form action="classCancle" method="get">
+    	<input type ="submit" value="수강신청 취소">
+    	</form> 
     
     	<form action="memout" method="get">
     	<input type="submit" value="회원탈퇴">

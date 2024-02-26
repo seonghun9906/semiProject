@@ -62,9 +62,9 @@
    <div>
       <form action="inscProc" method="post" enctype="multipart/form-data">
          <input type="hidden" name="b_code" value="${qboard.b_code}">
-         <input type="hidden" name="m_id" value="${sessionScope.login.m_id}"> <input
-            type="text" placeholder="내용" name="c_contents"> <input
-            type="text" placeholder="로그인된 비밀번호" name="c_password">
+         <input type="hidden" name="m_id" value="${sessionScope.login.m_id}"> 
+         <input  type="text" placeholder="내용" name="c_contents">
+         <input  type="text" placeholder="비밀번호" name="c_password">
          <button value="submit">등록</button>
       </form>
       <div>

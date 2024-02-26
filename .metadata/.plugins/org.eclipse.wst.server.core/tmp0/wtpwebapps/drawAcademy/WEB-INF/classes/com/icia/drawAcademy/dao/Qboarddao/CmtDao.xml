@@ -5,12 +5,17 @@
 <mapper namespace="com.icia.drawAcademy.dao.Qboarddao.CmtDao">
    <insert id="insertCmt" parameterType="CmtDTO">
       INSERT INTO cmt
-      (c_contents, c_password, b_code)
-      VALUES (#{c_contents}, #{c_password}, #{b_code})
+      (c_contents, c_password, b_code, m_id)
+      VALUES (#{c_contents}, #{c_password}, #{b_code}, #{m_id})
    </insert>
 
    <select id="getCommentList" resultType="CmtDTO" >
       SELECT * FROM clist WHERE b_code=#{b_code}
    </select>
+   
+   <delete id="deleteMemCmt" parameterType="Integer" >
+   	DELETE FROM cmt WHERE m_id = #{m_id}
+   </delete>
+   
 
 </mapper>

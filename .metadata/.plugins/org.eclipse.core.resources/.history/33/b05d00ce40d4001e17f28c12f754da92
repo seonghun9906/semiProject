@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="false"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>수강취소</title>
+</head>
+
+<body>
+<h4>내 수강목록</h4>
+
+
+		<form id="classCancleProc" >
+		<c:forEach var="cl" items="${cList}">
+  		<li>${cl.className} : ${cl.day} ${cl.date} ${cl.time}</li>
+  		</c:forEach>
+  		</form>
+</body>
+</html>

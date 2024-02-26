@@ -26,8 +26,10 @@
    <delete id="deleteQBoard" parameterType="Integer">
       DELETE FROM Qboard
       WHERE b_code=#{b_code}
-
-
+   </delete>
+   
+   <delete id="deleteMemQboard" parameterType="Integer">
+   		DELETE FROM Qboard WHERE m_id=#{m_id}
    </delete>
 
    <select id="selectQBoard" parameterType="Integer"

@@ -40,3 +40,7 @@
 
 2월 23, 2024 17:03:14.617 NEW SESSION
 2월 23, 2024 17:03:14.617 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+2월 25, 2024 15:07:02.451 NEW SESSION
+2월 25, 2024 15:07:02.451 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+2월 25, 2024 15:08:57.463 [12924:10316:0225/150857.462:ERROR:connection_factory_impl.cc(478)] ConnectionHandler failed with net error: -2

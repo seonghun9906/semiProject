@@ -1,7 +1,5 @@
 package com.icia.drawAcademy.Service;
 
-
-
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -13,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.icia.drawAcademy.dao.MemberDao;
+import com.icia.drawAcademy.dao.Qboarddao.CmtDao;
+import com.icia.drawAcademy.dao.Qboarddao.QboardDao;
 import com.icia.drawAcademy.dto.ClassDto;
 import com.icia.drawAcademy.dto.MemberDto;
 
@@ -24,8 +24,10 @@ public class MemberService {
 
 	@Autowired
 	private MemberDao mDao;
-	
-	
+	@Autowired
+	private CmtDao cmtDao;
+	@Autowired
+	private QboardDao qDao;
 
 	// 회원가입
 	public String signUp(MemberDto member, HttpSession session, RedirectAttributes rttr) {
@@ -56,7 +58,7 @@ public class MemberService {
 		log.info("login()");
 		String msg = null;
 		String view = null;
-		
+
 		MemberDto loggedInMember = mDao.login(memberDto);
 
 		if (loggedInMember != null) {
@@ -67,13 +69,12 @@ public class MemberService {
 			System.out.println(loggedInMember);
 			// 로그인시 세션에 저장
 			session.setAttribute("login", loggedInMember);
-			
 
 		} else {
 			msg = "로그인 실패/ 이메일 및 비밀번호를 다시 확인해주시길 바랍니다.";
 			view = "redirect:/login";
 		}
-		
+
 		rttr.addFlashAttribute("msg", msg);
 		return view;
 
@@ -118,6 +119,7 @@ public class MemberService {
 		rttr.addFlashAttribute("msg", msg);
 		return view;
 	}
+
 //------------------------------------------------------------------------------------------------------------//
 	// 회원탈퇴
 	public String memout(Integer m_id, HttpSession session, RedirectAttributes rttr) {
@@ -126,56 +128,82 @@ public class MemberService {
 		String view = null;
 		MemberDto loggedInMember = (MemberDto) session.getAttribute("login");
 		int id = loggedInMember.getM_id();
-		
-		
+
 		try {
-			System.out.println(id);
+			// cmtDao.deleteMemCmt(id);
+			// qDao.deleteMemQboard(id);
+			mDao.memClassOut(id);
 			mDao.memout(id);
 			session.removeAttribute("login");
 			session.invalidate();
 			msg = "탈퇴 성공";
 			view = "redirect:/";
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			msg = "탈퇴 실패";
-			view = "redirect:member/mypage";
+			view = "redirect:mypage";
 		}
 
 		rttr.addFlashAttribute("msg", msg);
 		return view;
 	}
 
-	
 	public String checkEmail(String m_email) {
-			String checkMsg = null;
-			
-	    try {
-	        int emailCount = mDao.checkEmail(m_email);
-	        if (emailCount > 0) {
-	        	checkMsg = "중복된 이메일입니다.";
-	            return checkMsg;
-	        } else {
-	        	checkMsg = "";
-	        	return checkMsg;
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        return "error";
-	    }
+		String checkMsg = null;
+
+		try {
+			int emailCount = mDao.checkEmail(m_email);
+			if (emailCount > 0) {
+				checkMsg = "중복된 이메일입니다.";
+				return checkMsg;
+			} else {
+				checkMsg = "";
+				return checkMsg;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 	}
 
 	public void myPage(Integer m_id, Model model) {
-			log.info("mypage()");
-			//DB에서 꺼내와야함
-			MemberDto memberDto = mDao.myPage(m_id);
-			List<ClassDto> cList = mDao.getClasslist(m_id);
-			
-			//상자에 담기
-			model.addAttribute("memberDto", memberDto);
-			model.addAttribute("cList", cList);
-			System.out.println("service memberDto = " + memberDto);
+		log.info("mypage()");
+		// DB에서 꺼내와야함
+		MemberDto memberDto = mDao.myPage(m_id);
+		List<ClassDto> cList = mDao.getClasslist(m_id);
+
+		// 상자에 담기
+		model.addAttribute("memberDto", memberDto);
+		model.addAttribute("cList", cList);
+		System.out.println("service memberDto = " + memberDto);
 	}
 
+	public void classCancle(Integer m_id, Model model) {
+		List<ClassDto> cList = mDao.getClasslist(m_id);
+		model.addAttribute("cList", cList);
+	}
+
+	public String classCancleProc(ClassDto classDto, RedirectAttributes rttr ) {
+				log.info("classCancleProc()");
+				String msg = null;
+				String view = null;
+				System.out.println("classCancleProcServ = " + classDto);
+		try {
+			mDao.classCancleProc(classDto);
+			
+			msg = "수강신청 취소 성공";
+			view = "redirect:/mypage";
+			rttr.addFlashAttribute("msg", msg);
+			return view;
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg = "수강신청 취소 실패";
+			view = "redirect:/mypage";
+			rttr.addFlashAttribute("msg", msg);
+			return view;
+		}
 	
+	}
+
 }// end

@@ -16,4 +16,6 @@ public interface CmtDao {
    @Select("SELECT count(*) FROM cmt")
    int cntcmt();
    
+   void deleteMemCmt(Integer m_id);
+   
 }

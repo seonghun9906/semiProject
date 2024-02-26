@@ -33,6 +33,15 @@
 		DELETE FROM membertbl WHERE m_id=#{m_id}
 	</delete>
 	
+	
+	<delete id="memClassOut" parameterType="Integer">
+		DELETE FROM teacherName1 WHERE m_id=#{m_id}
+	</delete>
+	
+	<delete id="classCancleProc" parameterType="classDto">
+		DELETE FROM teacherName1 WHERE m_id=#{m_id} AND className=#{className}
+	</delete>
+	
 	<select id="getClasslist" parameterType="Integer" resultType="classDto" >
 		SELECT * FROM teacherName1 WHERE m_id=#{m_id}
 	</select>

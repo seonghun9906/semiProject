@@ -49,7 +49,12 @@ public class HomeController {
 		return "home";
 
 	}
-
+	
+	@GetMapping("instructors")
+	public String instructors() {
+		log.info("instructors()");
+		return "instructors";
+	}
 	// --------------------------------------------------------------------------------//
 	@GetMapping("signUp")
 	public String signUp() {
@@ -126,7 +131,25 @@ public class HomeController {
 			return "redirect:/login";
 		}
 	}
-
+	
+	@GetMapping("classCancle")
+	public String classCancle(Model model,HttpSession session) {
+		log.info("classCancle()");
+		MemberDto loggedInMember = (MemberDto) session.getAttribute("login");
+		mServ.classCancle(loggedInMember.getM_id(),model);
+		
+		return "member/classCancle";
+	}
+	
+	@PostMapping("classCancleProc")
+	public String cancelClass(ClassDto classDto, RedirectAttributes rttr) {
+		log.info("classCancleProc()");
+		
+	    // 필요한 정보 설정 및 서비스 호출S
+	  String view = mServ.classCancleProc(classDto, rttr);
+	  return view;
+	}
+	
 	// --------------------------------------------------------------------------------//
 	@GetMapping("setting")
 	public String setting(Model model, HttpSession session) {
