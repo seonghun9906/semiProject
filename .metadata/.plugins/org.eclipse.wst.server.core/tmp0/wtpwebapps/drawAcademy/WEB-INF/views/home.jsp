@@ -36,12 +36,12 @@
                <p>HOME</p>
             </button>
             <br> <br> <br>
-            <button class="ABOUT-btn" onclick="location.href='./ABOUT'">
+            <button class="ABOUT-btn" onclick="location.href='./about'">
                <p>ABOUT</p>
             </button>
             <br> <br> <br>
             <button class="INSTRUCTORS-btn"
-               onclick="location.href='./INSTRUCTORS'">
+               onclick="location.href='./instructors'">
                <p>INSTRUCTORS</p>
             </button>
             <br> <br> <br>
@@ -49,11 +49,8 @@
                <p>CLASS</p>
             </button>
             <br> <br> <br>
-            <button class="CONTACT-btn" onclick="location.href='./CONTACT'">
-               <p>CONTACT</p>
-            </button>
               <button class="CONTACT-btn" onclick="location.href='./qboard'">
-               <p>Qboard</p>
+               <p>FAQ</p>
             </button>
             <br> <br> <br> <br> <br> <br> <br>
             <br> <br> <br> <br> <br> <br> <br>

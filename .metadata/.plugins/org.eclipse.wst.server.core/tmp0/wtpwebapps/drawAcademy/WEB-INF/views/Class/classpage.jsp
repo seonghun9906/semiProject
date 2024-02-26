@@ -46,9 +46,9 @@
             <button class="CLASS-btn" onclick="location.href='./classpage'">
                <p>CLASS</p>
             </button>
-            <br> <br> <br>
-            <button class="CONTACT-btn" onclick="location.href='./contact'">
-               <p>CONTACT</p>
+             <br> <br> <br>
+              <button class="CONTACT-btn" onclick="location.href='./qboard'">
+               <p>FAQ</p>
             </button>
             <br> <br> <br> <br> <br> <br> <br>
             <div class="smallWord">

@@ -47,11 +47,10 @@
 <form action="class1proc" method="post" id="class1proc" onsubmit="checkClass()">
     <label for="selectOption">Choose an option:</label>
     <select id="selectOption" name="className">
-    	<option value="none" id="none">선택</option>
+    	<option value="none" id="none" selected>선택</option>
         <option value="classA" id="classA">Class A</option>
         <option value="classB" id="classB">Class B</option>
         <option value="classC" id="classC">Class C</option>
-        <option value="classD" id="classD">Class D</option>
     </select>
     <p>
         <span>Date: <input type="text" id="dateField" name="date" readonly></span>
@@ -73,6 +72,11 @@
 
 <script>
 $(document).ready(function () {
+	
+	//아무것도 선택안했을시 비활성화
+	 $("#dateField, #dayField, #timeField").prop("disabled", true);
+	 
+	 
 	$("#selectOption").on('change', function () {
         var selectedClass = $(this).val();
         console.log("selectedClass:", selectedClass);
@@ -87,7 +91,24 @@ $(document).ready(function () {
         	
         	if (classCheck == selectedClass) {
                 alert("이미 수강신청한 CLASS입니다.");
+                event.preventDefault();
+                $("#dateField, #dayField, #timeField").prop("disabled", true);
+                
+                // 이미 중복되었다고 알리고 필드를 빈칸으로 비활성화
+                $("#dateField").val("");
+                $("#dayField").val("");
+                $("#timeField").val("");
+                return;
                 break;
+            }else if (selectedClass == "none"){
+            	 $("#dateField, #dayField, #timeField").prop("disabled", true);
+                 
+                 // 이미 중복되었다고 알리고 필드를 빈칸으로 비활성화
+                 $("#dateField").val("");
+                 $("#dayField").val("");
+                 $("#timeField").val("");
+                 return;
+            	 break;
             }
         }
         /* var classCheck = classCheckElement ? classCheckElement.value : null
@@ -114,8 +135,14 @@ $(document).ready(function () {
         }
             // 이미 수강 중이라면 필드를 활성화하지 않음
         
-     // 필드를 활성화
-        $("#dateField, #dayField, #timeField").prop("disabled", false);
+   		  // 필드를 활성화
+      	  $("#dateField, #dayField, #timeField").prop("disabled", false);
+            
+        // 이미 수강 중인 경우 폼 제출을 막음
+        if (isFieldDisabled) {
+            alert("이미 수강신청한 CLASS입니다.");
+            event.preventDefault();
+        }
     });
 });
 </script>
@@ -142,8 +169,7 @@ $(document).ready(function () {
   	} else if (selectedClass === "classC" && classLimitCValue >= 20) {
       alert("classC 정원이 초과되었습니다. 수강신청이 불가합니다.");
       event.preventDefault();
-  	}
-  }
+  	} 
      </script>
 
 

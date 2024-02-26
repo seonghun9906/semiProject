@@ -75,7 +75,7 @@ public class ClassService {
 		} catch (Exception e) { // 저장 실패
 			e.printStackTrace();
 			view = "redirect:/?";
-			msg = "수강신청 실패";
+			msg = "수강신청 실패 선택사항을 다시 한번 확인 해 주세요";
 			rttr.addFlashAttribute("msg", msg);
 			return view;
 		}	

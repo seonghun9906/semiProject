@@ -53,7 +53,13 @@ public class HomeController {
 	@GetMapping("instructors")
 	public String instructors() {
 		log.info("instructors()");
-		return "instructors";
+		return "headerMenu/instructors";
+	}
+	
+	@GetMapping("about")
+	public String about() {
+		log.info("about()");
+		return "headerMenu/about";
 	}
 	// --------------------------------------------------------------------------------//
 	@GetMapping("signUp")
