@@ -67,14 +67,14 @@ public class ClassService {
 			
 			cDao.PlusMemberClassName(className, m_id);
 			cDao.PlusClassNameMember(className, m_id);
-			view = "redirect:/?";
+			view = "redirect:class1";
 			msg = "수강신청 성공";
 			rttr.addFlashAttribute("msg", msg);
 			return view;
 			
 		} catch (Exception e) { // 저장 실패
 			e.printStackTrace();
-			view = "redirect:/?";
+			view = "redirect:class1";
 			msg = "수강신청 실패 선택사항을 다시 한번 확인 해 주세요";
 			rttr.addFlashAttribute("msg", msg);
 			return view;

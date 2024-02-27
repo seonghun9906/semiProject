@@ -1,9 +1,0 @@
-package com.icia.drawAcademy.dao.classdao;
-
-import com.icia.drawAcademy.dto.ClassDto;
-
-
-public interface ClassDao {
-
-	void signUp(ClassDto classdto);
-}

@@ -44,7 +44,7 @@ body {
 }
 
 .middle-part {
-   width: 100%; /* 컨테이너의 너비를 화면 전체로 설정 */
+   width: 85%; /* 컨테이너의 너비를 화면 전체로 설정 */
    position: absolute; /* 화면 아래에 고정시킵니다. */
    text-align: left; /* 내부 텍스트를 가운데 정렬합니다. */
    padding: 10px; /* 내부 여백 설정 (예시) */
@@ -54,6 +54,41 @@ body {
    font-weight: bold;
    margin: 5%;
     z-index: 9999;
+}
+.middlemiddle-part{
+	display: flex;
+	justify-content: space-between;
+   align-items: flex-start;
+   text-align: left; /* 내부 텍스트를 가운데 정렬합니다. */
+   padding: 5px; /* 내부 여백 설정 (예시) */
+   color: #ffffff;
+   font-size: 80px;
+   font-weight: bold;
+   margin: 3%;
+    z-index: 9999;
+	
+}
+.low-part,s
+.cancel-part {
+    width: 50%; /* 조절 가능한 너비 */
+}
+
+.cancel-part{
+	width : auto;
+  	text-align: left;
+  	color : white;
+  	letter-spacing : 10px;
+  	font-size: 20px;
+	
+}
+
+.cancel-part p {
+	width : auto;
+  	text-align: left;
+  	color : white;
+  	letter-spacing : 10px;
+  	font-size: 30px;
+	
 }
 
 .headerMenu .Home-btn {

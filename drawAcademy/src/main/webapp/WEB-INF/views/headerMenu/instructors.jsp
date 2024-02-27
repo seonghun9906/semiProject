@@ -16,6 +16,7 @@ jsp :
 </head>
 <body>
    <div class="bodyMain">
+   <img src="resources/images/demitasse3.PNG" class=demitasse>
       <div class="title">INSTRUCTORS</div>
       <div class="middle-part">
          <p>DRAW DANCE에서</p>

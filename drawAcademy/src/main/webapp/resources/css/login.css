@@ -1,3 +1,151 @@
+@charset "UTF-8";
+
+.header {
+   position: absolute; background-color : #000000;
+   width: 100%;
+   height: 10%;
+   background-color: #000000;
+}
+
+
+.bodyMain {
+   position: absolute;
+   background-color: #000000;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   width: 100%;
+   height: 100%;
+}
+
+.headerMenu .Home-btn {
+   position: absolute;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: auto; /* 이미지 크기에 맞게 자동으로 조정됨 */
+    z-index: 9999;
+}
+.headerMenu .logo {
+    width: 120px; /* 이미지가 버튼 내에서 꽉 차도록 설정 */
+    height: auto; /* 이미지의 가로 세로 비율을 유지하면서 버튼에 맞게 조정 */
+}
+
+.facebook {
+   width: 20px;
+   height: 30px;
+   z-index: 9999;
+}
+
+.youtube {
+   width: 30px;
+   height: 20px;
+   z-index: 9999;
+}
+
+.instagram {
+   width: 30px;
+   height: 30px;
+   z-index: 9999;
+}
+
+.video-container {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height:  100vh;
+   z-index: 9995;
+   overflow : hidden;
+}
+
+.video-container video {
+   width: 100%;
+   height: 100%;
+    opacity: 0.8;
+    /*transform: scaleX(1.5); /* 가로로 1.2배 확대 */
+    object-fit: cover;
+}
+
+#menu-container {
+   position: relative;
+   z-index: 9999;
+}
+
+#menuButton {
+   cursor: pointer;
+   position: absolute;
+   top: 25px;
+   right: 30px; /* 오른쪽으로 이동 */
+   display: flex;
+   width: 50px;
+   height: 50px;
+   z-index: 9999;
+}
+
+#icon-container {
+   position: absolute;
+   top: 110px;
+   right: 40px;
+   display: flex;
+   flex-direction: column; /* 세로 방향으로 아이콘을 나열 */
+   align-items: center; /* 아이콘을 수직 중앙으로 정렬 */
+   gap: 15px; /* 아이콘 사이의 간격 설정 */
+   z-index: 9998;
+}
+
+#rectangle {
+   /* 처음엔 숨겨져 있음 */
+   position: absolute;
+   top: 110px; /* toggleButton 바로 아래 위치 */
+   right: 30px; /* menuButton과 같게 */
+   width: 10.5%;
+   min-height: 200px;
+   color: black; 
+   background-color : black;
+   display: none;
+   border: 2px solid white;
+   background-color: black;
+   z-index: 9999;
+}
+
+#rectangle button {
+   cursor: pointer;
+    background-color: black;
+    border: none;
+    padding: 0.5em 0.5em; /* 위아래 0.5em, 좌우 1em으로 설정하여 버튼 크기를 내용에 맞게 조정 */
+    color: white;
+    font-size: 24px;
+    gap: 15px;
+}
+
+#rectangle p {
+   color: white;
+   text-align: left;
+   font-size: 25px;
+   text-decoration: underline; /* 밑줄 */
+   margin: 0px;   
+}
+
+.smallWord {
+   color: white;
+   margin: 10px;
+}
+
+#icon-container2 {
+   position: relative;
+   right: -30px;
+   display: flex;
+   margin-bottom: 30px;
+   flex-direction: row; /* 가로 방향으로 아이콘을 나열 */
+   align-items: center; /* 아이콘을 수직 중앙으로 정렬 */
+   gap: 15px; /* 아이콘 사이의 간격 설정 */
+   z-index: 9998;
+}
+
+
 html {
   height: 100%;
 }
@@ -15,15 +163,15 @@ body {
     border: none;
     padding: 0;
     cursor: pointer;
-    width: auto; /* �̹��� ũ�⿡ �°� �ڵ����� ������ */
-    top: 60px; /* �̹��� ���� ���� */
+    width: auto; /* 이미지 크기에 맞게 자동으로 조정됨 */
+    top: 60px; /* 이미지 높이 조정 */
     left: 50%;
     transform: translateX(-50%);
 }
 
 .logo-home .logo {
-    width: 120px; /* �̹����� ��ư ������ �� ������ ���� */
-    height: auto; /* �̹����� ���� ���� ������ �����ϸ鼭 ��ư�� �°� ���� */
+    width: 120px; /* 이미지가 버튼 내에서 꽉 차도록 설정 */
+    height: auto; /* 이미지의 가로 세로 비율을 유지하면서 버튼에 맞게 조정 */
 }
 
 .login-box {
@@ -31,7 +179,9 @@ body {
   top: 50%;
   left: 50%;
   width: 400px;
-  padding: 40px;
+ 	padding-Top:40px;
+ 	padding-left:40px;
+ 	padding-right:40px;
   transform: translate(-50%, -50%);
   background: rgba(0,0,0,.5);
   box-sizing: border-box;
@@ -93,7 +243,8 @@ body {
   overflow: hidden;
   transition: .5s;
   margin-left: 100px;
-  margin-top: 40px;
+  margin-top: 10px;
+  margin: 20px 5px; /* 좌우 여백을 조절 */
   letter-spacing: 4px;
   border: none;
   background-color: transparent;
@@ -187,4 +338,10 @@ body {
   50%,100% {
     bottom: 100%;
   }
+}
+
+.button-container {
+	  display: flex;
+    justify-content: space-between;
+	
 }

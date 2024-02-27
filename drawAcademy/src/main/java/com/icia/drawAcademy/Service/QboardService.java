@@ -135,7 +135,7 @@ public class QboardService {
          msg = "수정 실패.";
 
       }
-      view = "redirect:qboard?b_code=" + qboard.getB_code();
+      view = "redirect:qboard";
       return view;
    }
 

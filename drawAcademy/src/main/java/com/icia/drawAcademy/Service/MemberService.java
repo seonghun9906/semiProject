@@ -109,11 +109,11 @@ public class MemberService {
 			session.setAttribute("login", loggedInMember);
 
 			msg = "수정 성공";
-			view = "redirect:/mypage?m_id=" + loggedInMember.getM_id();
+			view = "redirect:/mypage";
 		} catch (Exception e) {
 			e.printStackTrace();
 			msg = "수정 실패";
-			view = "redirect:/setting?m_id=" + loggedInMember.getM_id();
+			view = "redirect:/setting";
 		}
 
 		rttr.addFlashAttribute("msg", msg);
@@ -177,11 +177,6 @@ public class MemberService {
 		model.addAttribute("memberDto", memberDto);
 		model.addAttribute("cList", cList);
 		System.out.println("service memberDto = " + memberDto);
-	}
-
-	public void classCancle(Integer m_id, Model model) {
-		List<ClassDto> cList = mDao.getClasslist(m_id);
-		model.addAttribute("cList", cList);
 	}
 
 	public String classCancleProc(ClassDto classDto, RedirectAttributes rttr ) {

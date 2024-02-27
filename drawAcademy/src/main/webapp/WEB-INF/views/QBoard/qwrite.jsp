@@ -22,8 +22,7 @@
          <h2>게시물 등록</h2>
          <input type="hidden" value="${sessionScope.login.m_id}" name="m_id">
          <input type="text" placeholder="제목" name="b_title"> <input
-            type="text" placeholder="내용" name="b_contents"> <input
-            type="text" placeholder="비밀번호" name="b_password">
+            type="text" placeholder="내용" name="b_contents">
          <button value="submit">등록</button>
       </form>
    

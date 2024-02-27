@@ -11,7 +11,7 @@
 <script>
  $(function () {
             let m = "${msg}"";
-            if(m != "df"){
+            if(m != ""){
                 alert(m);
             });
 </script>
@@ -27,9 +27,7 @@
             <input type="text" class="write-input" value="${qboard.b_title}"
                name="b_title" autofocus placeholder="제목" required> <input
                type="text" class="write-input" value="${qboard.b_contents}"
-               name="b_contents" placeholder="내용" required> <input
-               type="text" class="write-input" value="${qboard.b_password}"
-               name="b_password" placeholder="비밀번호" required>
+               name="b_contents" placeholder="내용" required>
             <button value="submit">수정</button>
          </form>
       </c:if>

@@ -10,16 +10,15 @@
    </select>
 
    <insert id="insertQBoard" parameterType="QueDTO">
-      INSERT INTO Qboard (b_title, b_contents, b_password, m_id)
-      VALUES (#{b_title}, #{b_contents}, #{b_password}, #{m_id})
+      INSERT INTO Qboard (b_title, b_contents, m_id)
+      VALUES (#{b_title}, #{b_contents}, #{m_id})
    </insert>
 
 
    <update id="updateQBoard" parameterType="QueDTO">
       UPDATE Qboard
       SET
-      b_title=#{b_title}, b_contents=#{b_contents},
-      b_password=#{b_password}
+      b_title=#{b_title}, b_contents=#{b_contents}
       WHERE b_code=#{b_code}
    </update>
 

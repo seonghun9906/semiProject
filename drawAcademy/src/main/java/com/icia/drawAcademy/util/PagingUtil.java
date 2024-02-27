@@ -30,7 +30,7 @@ public class PagingUtil {
 
       // 5.이전 버튼 처리
       if (start != 1) {
-         sb.append("<a class='pno' href='./?pageNum");
+         sb.append("<a class='pno' href='./qboard?pageNum");
          sb.append((start - 1) + "'>");
          sb.append("이전</a>");
       }
@@ -38,7 +38,7 @@ public class PagingUtil {
       // 6. 중간 번호 버튼 처리
       for (int i = start; i <= end; i++) {
          if (pageNum != i) {
-            sb.append("<a class='pno' href='./?pageNum=");
+            sb.append("<a class='pno' href='./qboard?pageNum=");
             sb.append(i + "'>" + i + "</a>");
          } else {
             sb.append("<font class='pno'>" + i + "</font>");
@@ -47,7 +47,7 @@ public class PagingUtil {
 
       // 7. 다음 버튼 처리
       if (end != totalPage) {
-         sb.append("<a class='pno' href='./?pageNum=");
+         sb.append("<a class='pno' href='./qboard?pageNum=");
          sb.append((end + 1) + "'>");
          sb.append("다음</a>");
       }

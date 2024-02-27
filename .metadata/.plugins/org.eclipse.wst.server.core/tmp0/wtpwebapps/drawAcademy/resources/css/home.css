@@ -19,6 +19,20 @@
    height: 100%;
 }
 
+.TitleLogo{
+	top : 50%;
+	left : 48.3%;	
+	z-index: 9999;	
+	position :absolute;
+}
+.drawDance {
+	width : 700px;
+	 height: 200px;
+	margin-top : -25%;
+	margin-left : -50%;
+	 z-index: 9999;
+}
+
 .headerMenu .Home-btn {
    position: absolute;
     background: none;
@@ -52,17 +66,21 @@
 }
 
 .video-container {
-   position: fixed;
+   position: absolute;
    top: 0;
-   left: 5%;
+   left: 0;
    width: 100vw;
-   height:   100vh;
-   z-index: 9995;
+   height:  100vh;
+   z-index: 9994;
+   overflow : hidden;
 }
 
 .video-container video {
-   width: 90%;
+   width: 100%;
    height: 100%;
+    opacity: 0.8;
+    /*transform: scaleX(1.5); /* 가로로 1.2배 확대 */
+    object-fit: cover;
 }
 
 #menu-container {

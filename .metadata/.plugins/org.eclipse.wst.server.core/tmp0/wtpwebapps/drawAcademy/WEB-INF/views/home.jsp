@@ -9,8 +9,7 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
    crossorigin="anonymous"></script>
-<script
-   src="https://unpkg.com/youtube-background@1.0.14/jquery.youtube-background.min.js"></script>
+
 <script>
    $(function() {
       let m = "${msg}";
@@ -91,10 +90,13 @@
             src="resources/images/instagramIcon.png" class="instagram">
          </a>
       </div>
+      <div class="TitleLogo">
+      <img src="resources/images/TitleLogo.png" class="drawDance">
+      </div>
       <div class="video-container">
          <video id="video1" autoplay muted loop>
             <!-- autoplay : 자동재생, muted : 음소거, loop : 끝난 후 반복재생 <video>요소 기능 -->
-            <source src="resources/video/nozeTest.mp4" type="video/mp4">
+            <source src="resources/video/TestHome.MP4" type="video/mp4">
          </video>
       </div>
       <!-- 
@@ -149,8 +151,5 @@ document.addEventListener("DOMContentLoaded", function() {
     myPageBtn.style.display="none";
   }
 });
-</script>
-<script>
-  console.log("classLimitB 값: ${classLimitB}");
 </script>
 </html>

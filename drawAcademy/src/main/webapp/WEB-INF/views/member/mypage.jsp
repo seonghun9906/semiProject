@@ -23,26 +23,51 @@
     </div>
     <div class="title">
         My Page
+        
     </div>
     <div class="middle-part">
         <p>내 정보</p>
+     
+        <div class="middlemiddle-part">
         <div class="low-part">
             <form action="mypage" method="get">
-                <p>이름 : ${memberDto.m_name}</p>
+                <p>이름 : ${memberDto.m_name}</p> 
                 <p>이메일 : ${memberDto.m_email}</p>
                 <p>전화번호 : ${memberDto.m_phoneNumber}</p>
+                <p>생년월일 : ${memberDto.m_age}</p>
                 <p>주소 : ${memberDto.m_address}</p>
-                <p>나이 : ${memberDto.m_age}</p>
-                <p>내 수강신청 확인</p>
-                <ul>
-                    <c:forEach var="cl" items="${cList}">
-                        <li>${cl.className} : ${cl.day} ${cl.date} ${cl.time}</li>
-                    </c:forEach>
-                </ul>
+                <p>구분 : ${memberDto.sort}</p>
             </form>
     </div><!-- low-part-->
-  
-     <div class="btn-con">
+    
+    <div class="cancel-part">
+            	   <p>내 수강신청 목록</p>
+        <c:forEach var="cl" items="${cList}">
+           <div class="classCancle">
+            <form action="classCancelProc" method="post">
+                <li>${cl.className} : ${cl.day} ${cl.date} ${cl.time}
+                    <button type="submit">
+                     <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    취소
+                    </button>
+                </li>
+                
+                <input type="hidden" value="${sessionScope.login.m_id}" name="m_id">
+                <input type="hidden" value="${cl.c_id}" name="c_id">
+                <input type="hidden" value="${cl.className}" name="className">
+                <input type="hidden" value="${cl.day}" name="day">
+                <input type="hidden" value="${cl.date}" name="date">
+                <input type="hidden" value="${cl.time}" name="time">
+            </form>
+            </div>
+        </c:forEach>
+    </div><!-- cancel-part -->
+    
+   </div>
+   <!--   <div class="btn-con">
         <div class="classCancle">
             <form action="classCancle" method="get" class="cancleBtn">
                 <button type="submit">
@@ -53,7 +78,7 @@
                     수강신청취소
                 </button>
             </form>
-        </div>
+        </div>  -->
         
         <div class="classCancle">
             <form action="setting" method="get" class="settingBtn">
@@ -69,7 +94,7 @@
 
         <div class="classCancle">
             <form action="memout" method="get" class="memoutBtn">
-                <button type="submit">
+                <button type="submit" onclick="memoutBtn()">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -78,12 +103,13 @@
                 </button>
             </form>
         </div>
-
+	
        	 
-    </div><!-- btn-con -->
+   
     </div> <!-- bodymain -->
       
-   </div><!-- middle-part -->
+   
+   </div>
    <div class="headerMenu">
          <button class="Home-btn" onclick="location.href='./'">
             <img src="resources/images/lg.png" class="logo">
@@ -207,6 +233,22 @@ document.addEventListener("DOMContentLoaded", function() {
          myPageBtn.style.display = "none";
       }
    });
+</script>
+<script>
+    function memoutBtn() {
+        // 확인 창을 띄우고 사용자의 선택에 따라 동작을 수행
+        var memBtn = confirm("정말 회원탈퇴를 하시겠습니까?");
+        
+        if (memBtn) {
+            // 사용자가 확인을 선택한 경우, 실제 회원탈퇴 동작 수행
+            alert("회원탈퇴가 완료되었습니다.");
+            // 여기에 실제 회원탈퇴 동작을 수행하는 코드를 추가할 수 있습니다.
+        } else {
+            // 사용자가 취소를 선택한 경우
+            alert("회원탈퇴가 취소되었습니다.");
+            event.preventDefault();
+        }
+    }
 </script>
 
 </html>

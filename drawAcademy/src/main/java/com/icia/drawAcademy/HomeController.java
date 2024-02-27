@@ -138,16 +138,7 @@ public class HomeController {
 		}
 	}
 	
-	@GetMapping("classCancle")
-	public String classCancle(Model model,HttpSession session) {
-		log.info("classCancle()");
-		MemberDto loggedInMember = (MemberDto) session.getAttribute("login");
-		mServ.classCancle(loggedInMember.getM_id(),model);
-		
-		return "member/classCancle";
-	}
-	
-	@PostMapping("classCancleProc")
+	@PostMapping("classCancelProc")
 	public String cancelClass(ClassDto classDto, RedirectAttributes rttr) {
 		log.info("classCancleProc()");
 		
@@ -207,6 +198,8 @@ public class HomeController {
 		model.addAttribute("classLimitA", cServ.getClassLimit("classA"));
 		model.addAttribute("classLimitB", cServ.getClassLimit("classB"));
 		model.addAttribute("classLimitC", cServ.getClassLimit("classC"));
+		model.addAttribute("classLimitD", cServ.getClassLimit("classD"));
+		model.addAttribute("classLimitE", cServ.getClassLimit("classE"));
 		MemberDto loggedInMember = (MemberDto) session.getAttribute("login");
 			
 		cServ.class1(loggedInMember.getM_id(), model);
