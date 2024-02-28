@@ -61,6 +61,14 @@ public class HomeController {
 		log.info("about()");
 		return "headerMenu/about";
 	}
+	
+	@GetMapping("test")
+	public String test() {
+	log.info("test()");
+	return "test";
+	}
+	
+	
 	// --------------------------------------------------------------------------------//
 	@GetMapping("signUp")
 	public String signUp() {
@@ -195,15 +203,20 @@ public class HomeController {
 	@GetMapping("class1")
 	public String class1(Model model,HttpSession session, Integer m_id) {
 		log.info("class1()");
+		MemberDto loggedInMember = (MemberDto) session.getAttribute("login");
 		model.addAttribute("classLimitA", cServ.getClassLimit("classA"));
 		model.addAttribute("classLimitB", cServ.getClassLimit("classB"));
 		model.addAttribute("classLimitC", cServ.getClassLimit("classC"));
 		model.addAttribute("classLimitD", cServ.getClassLimit("classD"));
 		model.addAttribute("classLimitE", cServ.getClassLimit("classE"));
-		MemberDto loggedInMember = (MemberDto) session.getAttribute("login");
-			
-		cServ.class1(loggedInMember.getM_id(), model);
+		
+		if(loggedInMember != null) {
+			cServ.class1(loggedInMember.getM_id(),model, session);
 		return "Class/class1";
+		}else {
+			return "redirect:login";
+		}
+	
 	}
 
 	@PostMapping("class1proc")

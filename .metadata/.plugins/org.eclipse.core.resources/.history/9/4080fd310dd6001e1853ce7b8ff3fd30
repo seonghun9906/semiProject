@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+	<div class="mapInfo">
+		<div class="mapHeader">
+			<h4>오시는 길</h4>
+			<img src="resources/images/Map.png" class="map">
+		</div>
+	</div>
+</body>
+</html>

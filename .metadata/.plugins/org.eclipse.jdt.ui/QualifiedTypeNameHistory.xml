@@ -30,11 +30,9 @@
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="javax.inject.Qualifier"/>
     <fullyQualifiedTypeName name="com.icia.drawAcademy.Service.QboardService"/>
     <fullyQualifiedTypeName name="com.icia.drawAcademy.dto.QboardDto"/>
-    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="com.icia.drawAcademy.dto.MemberDto"/>
     <fullyQualifiedTypeName name="com.icia.drawAcademy.Service.CmtService"/>
     <fullyQualifiedTypeName name="com.icia.drawAcademy.dto.CmtDto"/>
@@ -44,5 +42,9 @@
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="com.icia.drawAcademy.dto.ClassDto"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="com.mysql.cj.Session"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+    <fullyQualifiedTypeName name="java.lang.ProcessBuilder.Redirect"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
 </qualifiedTypeNameHistroy>

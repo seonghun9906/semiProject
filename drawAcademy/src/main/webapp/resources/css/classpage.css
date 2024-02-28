@@ -9,6 +9,65 @@ body {
    background: linear-gradient(#000000, #111111);
 }
 
+h2{
+	color : white;
+	font-weight: bold;
+	margin-left : 47.25%;	
+}
+ 		.cal {	
+         table-layout: fixed;
+         width: 85%;
+         border-collapse: collapse;
+         color : white;
+         margin-top : 5%;
+         margin-left : 7%;
+        }
+        
+		
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            
+        }
+
+        th {
+            background-color: #ffffff;
+            color : black;
+            font-weight: bold;
+            font-size:20px;
+        }
+
+        td {
+       		width : 255px;
+        	height : 200px;
+            cursor: pointer;
+            color : white;
+            text-align: center;
+            vertical-align: top; 
+            font-size: 20px;
+ 		font-weight: bold; 
+        }
+
+        td:hover {
+            background-color: white;
+            color : black;
+            
+        }
+        
+          td:hover a {
+            background-color: white;
+            color : black;
+            
+        }
+        
+ .Testclass{
+ 	color: white;
+        text-decoration: none;
+ 	font-size: 20px;
+ 	font-weight: bold; 
+ }
+ 
 .bodyMain {
    position: absolute;
    background-color: #000000;
@@ -22,7 +81,7 @@ body {
 
 .title {
    width: 100%; /* 컨테이너의 너비를 화면 전체로 설정 */
-   position: fixed; /* 화면 아래에 고정시킵니다. */
+   position: absolute; /* 화면 아래에 고정시킵니다. */
    text-align: center; /* 내부 텍스트를 가운데 정렬합니다. */
    padding: 20px; /* 내부 여백 설정 (예시) */
    box-sizing: border-box; /* 패딩이 포함된 전체 너비/높이 계산 */
@@ -33,7 +92,7 @@ body {
 
 .middle-part {
    width: 100%; /* 컨테이너의 너비를 화면 전체로 설정 */
-   position: fixed; /* 화면 아래에 고정시킵니다. */
+   position: absolute; /* 화면 아래에 고정시킵니다. */
    text-align: left; /* 내부 텍스트를 가운데 정렬합니다. */
    padding: 20px; /* 내부 여백 설정 (예시) */
    box-sizing: border-box; /* 패딩이 포함된 전체 너비/높이 계산 */
@@ -44,7 +103,7 @@ body {
 }
 
 .headerMenu .Home-btn {
-   position: absolute;
+   position: fixed;
    background: none;
    border: none;
    padding: 0;
@@ -83,7 +142,7 @@ body {
 
 #menuButton {
    cursor: pointer;
-   position: absolute;
+   position: fixed;
    top: 25px;
    right: 30px; /* 오른쪽으로 이동 */
    display: flex;
@@ -93,7 +152,7 @@ body {
 }
 
 #icon-container {
-   position: absolute;
+   position: fixed;
    top: 110px;
    right: 40px;
    display: flex;
@@ -105,7 +164,7 @@ body {
 
 #rectangle {
    /* 처음엔 숨겨져 있음 */
-   position: absolute;
+   position: fixed;
    top: 110px; /* toggleButton 바로 아래 위치 */
    right: 30px; /* menuButton과 같게 */
    width: 10.5%;

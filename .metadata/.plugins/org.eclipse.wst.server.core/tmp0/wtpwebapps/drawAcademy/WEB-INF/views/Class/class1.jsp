@@ -25,6 +25,9 @@
 <!--<h1> Home Page</h1>   -->
 <body>
    <div class="bodyMain">
+    <div class="title">
+         TeacherName1
+      </div>
     <img src="resources/images/demitasse2.PNG" class=demitasse>
       <div class="headerMenu">
          <button class="Home-btn" onclick="location.href='./'">

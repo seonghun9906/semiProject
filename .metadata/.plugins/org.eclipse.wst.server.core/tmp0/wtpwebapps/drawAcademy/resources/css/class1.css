@@ -16,7 +16,16 @@
     object-fit: cover;
     opacity: 0.5; /* 0부터 1까지의 값으로 투명도를 지정합니다. 0은 완전 투명, 1은 완전 불투명입니다. */	
 }
-
+.title {
+   width: 100%; /* 컨테이너의 너비를 화면 전체로 설정 */
+   position: absolute; /* 화면 아래에 고정시킵니다. */
+   text-align: center; /* 내부 텍스트를 가운데 정렬합니다. */
+   padding: 20px; /* 내부 여백 설정 (예시) */
+   box-sizing: border-box; /* 패딩이 포함된 전체 너비/높이 계산 */
+   color: #ffffff;
+   font-size: 50px;
+   font-weight: bold;
+}
 .bodyMain {
    position: absolute;
    background-color: #000000;

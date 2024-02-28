@@ -92,7 +92,7 @@
             src="resources/images/instagramIcon.png" class="instagram">
          </a>
       </div>
-      <form action="updateMember" method="post" class="joinForm">
+      <form action="updateMember" method="post" class="joinForm" id="settingForm">
       <h2>개인 정보 수정</h2>
       <div class="textForm">
       <p> 이메일 (수정이 불가합니다.)
@@ -111,7 +111,8 @@
       </div>
       <div class="textForm">
       <p> 휴대전화 번호
-         <input type="text" class="phoneNumber" name="m_phoneNumber" placeholder="${loggedInMember.m_phoneNumber}" required>
+        <input type="text" class="phoneNumber" name="m_phoneNumber" id="phoneNumber" placeholder="전화번호 : 010-0000-0000 " required>
+         <span id="phoneNumberCheck" class="checkResult"></span>
          </p>
       </div>
       <div class="textForm">
@@ -200,5 +201,30 @@ $(document).ready(function() {
         showDay: true // 일(day) 표시
     });
 });
+</script>
+<script>
+    // 전화번호 검증 함수
+    	$(document).ready(function() {
+    	    // 문서가 준비되면 실행되는 함수
+    	    $("#settingForm").submit(function(){
+    	    
+    	        var phoneNumberInput = $('#phoneNumber');
+    	        var errorMessage = $('#phoneNumberCheck');
+    	        var phoneNumberPattern =  /^010-\d{4}-\d{4}$/;
+
+    	        
+    	        if (!phoneNumberPattern.test(phoneNumberInput.val())) {
+    	            errorMessage.text('(형식 : 010-0000-0000)');
+    	            alert("전화번호 형식을 다시 확인해주세요.")
+    	            errorMessage.css('color', 'white'); // 스타일을 동적으로 변경
+    	            event.preventDefault();
+    	            return false;
+    	        } else {
+    	            errorMessage.text('');
+    	            return true;
+    	        }
+    	    });
+    
+    	});
 </script>
 </html>

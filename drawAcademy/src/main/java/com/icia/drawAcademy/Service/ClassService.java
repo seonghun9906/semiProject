@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.icia.drawAcademy.dao.classdao.ClassDao;
 import com.icia.drawAcademy.dto.ClassDto;
 import com.icia.drawAcademy.dto.MemberDto;
+import com.mysql.cj.Session;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -90,12 +91,13 @@ public class ClassService {
 	}
 		// 이메일 중복체크 
 
-	public void class1(Integer m_id, Model model) {
+	public void class1(Integer m_id, Model model, HttpSession session) {
 		log.info("class1()");
+
 		List<ClassDto> cList = cDao.checkClass(m_id);
 		System.out.println(m_id);
 		model.addAttribute("cList", cList);
 		System.out.println("class1 serv = " + cList);
+		
 	}
-
 }

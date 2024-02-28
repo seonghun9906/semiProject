@@ -17,10 +17,11 @@
       <div class="title">
          CLASS
       </div>
-      <div class="middle-part">
+     <!--   <div class="middle-part">
          <p>DRAW DANCE에서</p>
          <p>같이 춤을 그려갈 강사진을 선택하세요.</p>
       </div>
+      -->
       <div class="headerMenu">
          <button class="Home-btn" onclick="location.href='./'">
             <img src="resources/images/lg.png" class="logo">
@@ -91,7 +92,7 @@
             src="resources/images/instagramIcon.png" class="instagram">
          </a>
       </div>
-      <div class="instructor-container">
+     <!--  <div class="instructor-container">
          <div class="instructor1">
             <a href="class1"> <img src="resources/images/강사 프로필 사진.PNG"
                alt="강사1">
@@ -108,7 +109,115 @@
             </a>
          </div>
       </div>
-   </div>
+       -->
+      
+   
+   <div class = cal>
+	<h2>2024년 3월</h2>
+	<table>
+    	<thead>
+        <tr>
+            <th>SUN</th>
+            <th>MON</th>
+            <th>TUE</th>
+            <th>WED</th>
+            <th>THU</th>
+            <th>FIR</th>
+            <th>SAT</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1
+            	<ul>
+            <li><a href="class1" class="Testclass">TeacherName1</a></li>
+            <br>
+            <li><a href="class2" class="Testclass">TeacherName2</a></li>
+            <br>
+            <li><a href="class3" class="Testclass">TeacherName3</a></li>
+            </ul>
+            </td>
+            <td>2
+             <p><a href="class1" class="Testclass">TeacherName1</a></p>
+            <p><a href="class2" class="Testclass">TeacherName2</a></p>
+            </td>
+        </tr>
+        <tr>
+            <td>3
+              <p><a href="class1" class="Testclass">TeacherName1</a></p>
+           
+            <p><a href="class3" class="Testclass">TeacherName3</a></p></td>
+            <td>4
+              <p><a href="class1" class="Testclass">TeacherName1</a></p>
+            <p><a href="class2" class="Testclass">TeacherName2</a></p>
+          
+            <td>5
+              <p><a href="class1" class="Testclass">TeacherName1</a></p>
+            <p><a href="class2" class="Testclass">TeacherName2</a></p>
+            <p><a href="class3" class="Testclass">TeacherName3</a></p></td>
+            <td>6
+              
+            <p><a href="class2" class="Testclass">TeacherName2</a></p>
+            <p><a href="class3" class="Testclass">TeacherName3</a></p></td>
+            <td>7
+              <p><a href="class1" class="Testclass">TeacherName1</a></p>
+            <p><a href="class2" class="Testclass">TeacherName2</a></p>
+            <p><a href="class3" class="Testclass">TeacherName3</a></p></td>
+            <td>8
+              <p><a href="class1" class="Testclass">TeacherName1</a></p>
+            
+            <p><a href="class3" class="Testclass">TeacherName3</a></p></td>
+            <td>9
+          
+            <p><a href="class3" class="Testclass">TeacherName3</a></p></td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+        </tr>
+        <tr>
+            <td>31</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div><!-- bodymain -->
+
 
 </body>
 <script>

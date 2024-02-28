@@ -105,8 +105,38 @@
             href="mypage">[마이페이지]</a>
       </div> 
       -->
-   </div>
+      
+      <div class="bottominfo">
+      
+      <div class="aboutAcademy">
+      <img src="resources/images/infoBlack.png" class="infoblack">
+      <div class="aboutAcademyText">
+      <p><a href ="about">학원소개 ▶</a></p>
+      </div>
+      </div>
+      
+      <div class="TodayClassInfo">
+      <img src="resources/images/todayClass.PNG" class="TodayClass">
+      <div class="TodayClassText">
+      <p><a href ="class1">오늘의 수업 ▶</a></p>
+      </div>
+      </div>
+      
+      <div class="mapInfo">
+      <img src="resources/images/Map.png" class="map">
+      <div class="comeText">
+      <p><a href ="about#mapSection">오시는 길 ▶</a></p>
+     </div>
+     </div>
+     
+     
+     
+     
+      </div>
+      
+      </div>
    
+  
 </body>
 <script>
    var rectangle = document.getElementById('rectangle');

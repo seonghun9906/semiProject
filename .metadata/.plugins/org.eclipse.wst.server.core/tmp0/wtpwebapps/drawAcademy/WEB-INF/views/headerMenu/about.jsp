@@ -24,13 +24,36 @@
          <p>학원소개</p>
          </div>
          <div class="lowLow-part">
-         <p>저희 DRAW DANCE ACADEMY는 현역으로 뛰고 있는 댄서들과 수많은 경력이 있는<br> 강사진으로
+         <p>저희 DRAW DANCE ACADEMY는 현역으로 뛰고 있는 댄서들과 수많은 경력이 있는<br><br> 강사진으로
           이루어져 있어
-         	한사람 한사람의 머리속에 있는 그림을 몸으로 표현할 수 있는<br> 마치 도화지에 본인의 생각들을 그릴 수 있는 
+         	한사람 한사람의 머리속에 있는 그림을 몸으로 표현할 수 있는<br><br> 마치 도화지에 본인의 생각들을 그릴 수 있는 
          	ACADEMY 입니다.</p>
          </div>
+         <div class="low-part">
+         <br>
+         <br>
+         <p>학원정보</p>
+         </div>
+         <div class="lowLow-part">
+         <p>전화번호 : +82 32 123 4567</p>
+         <p>이메일 : DrawDance@semiproject.com</p>
+         <p>주소 : 인천광역시 0000번길 000 00빌딩 0층</p>
+         </div>
       </div>
+       <!-- 오시는길  -->
+      <div id="mapSection" class="mapInfo">
+      	<div class="mapInfoText">
+      		<p>오시는 길</p>
+      <img src="resources/images/Map.png" class="map">
+      		<div class="mapInfoTextImport">
+      		<p>신동아아파트에서 하차 후 파리바게트 기준으로 오른쪽 골목</p>
+      		</div>
+      	</div>
       </div>
+      <!-- 오시는길  end-->
+      </div>
+     
+       
       <div class="headerMenu">
          <button class="Home-btn" onclick="location.href='./'">
             <img src="resources/images/lg.png" class="logo">
@@ -102,7 +125,7 @@
          </a>
       </div>
      
-   
+  
 
 </body>
 <script>

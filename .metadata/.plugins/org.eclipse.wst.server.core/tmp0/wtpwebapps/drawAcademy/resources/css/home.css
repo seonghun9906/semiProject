@@ -7,7 +7,6 @@
    background-color: #000000;
 }
 
-
 .bodyMain {
    position: absolute;
    background-color: #000000;
@@ -70,7 +69,7 @@
    top: 0;
    left: 0;
    width: 100vw;
-   height:  100vh;
+   height:  97.5vh;
    z-index: 9994;
    overflow : hidden;
 }
@@ -158,3 +157,124 @@
    gap: 15px; /* 아이콘 사이의 간격 설정 */
    z-index: 9998;
 }
+
+.bottominfo {
+	margin-top : 45%;
+	display : flex;
+	
+}
+
+.aboutAcademy{
+	width: 33.4%;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+	
+}
+.infoblack{
+	width: 100%;
+    height: 100%;
+    filter: brightness(50%); /* 초기에는 어두운 상태로 설정합니다 */
+    transition: filter 0.3s;
+}
+.aboutAcademy:hover .infoblack {
+    filter: brightness(100%); /* 이미지 위에 마우스를 올렸을 때 밝아지는 효과를 적용합니다 */
+}
+
+.aboutAcademyText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: gray;
+    font-weight: bold;
+    font-size: 25px;
+     background-color: rgba(0, 0, 0, 0.2); /* 투명 검정 배경 추가 */
+}
+.aboutAcademyText a {
+	color : white;
+    opacity: 1; 
+   
+     z-index: 9998; 
+}
+
+.mapInfo {
+    width: 33.4%;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+    filter: brightness(50%); /* 초기에는 어두운 상태로 설정합니다 */
+    transition: filter 0.3s; /* transition을 사용하여 부드럽게 변화하도록 합니다 */
+}
+
+.mapInfo:hover .map {
+    filter: brightness(100%); /* 이미지 위에 마우스를 올렸을 때 밝아지는 효과를 적용합니다 */
+}
+
+.comeText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: gray;
+    font-weight: bold;
+    font-size: 25px;
+     background-color: rgba(0, 0, 0, 0.2); /* 투명 검정 배경 추가 */
+  
+}
+
+.comeText a {
+	color : white;
+    opacity: 1; 
+   
+     z-index: 9998; 
+}
+
+
+.TodayClassInfo {
+    width: 33.4%;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.TodayClass {
+    width: 100%;
+    height: 100%;
+    filter: brightness(50%); /* 초기에는 어두운 상태로 설정합니다 */
+    transition: filter 0.3s; /* transition을 사용하여 부드럽게 변화하도록 합니다 */
+}
+
+.TodayClassInfo:hover .TodayClass {
+    filter: brightness(100%); /* 이미지 위에 마우스를 올렸을 때 밝아지는 효과를 적용합니다 */
+}
+
+.TodayClassText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: gray;
+    font-weight: bold;
+    font-size: 25px;
+     background-color: rgba(0, 0, 0, 0.2); /* 투명 검정 배경 추가 */
+  
+}
+
+.TodayClassText a {
+	color : white;
+    opacity: 1; 
+   
+     z-index: 9998; 
+}
+
+
+

@@ -99,7 +99,7 @@
             src="resources/images/instagramIcon.png" class="instagram">
          </a>
       </div>
-   <form action="signUpProc" method="post" enctype="multipart/form-data"
+   <form action="signUpProc" method="post" id="signUpFrom"
      onsubmit="return validateForm()" class="joinForm">
       <h2>SIGN UP</h2>
       <div class="textForm">
@@ -113,7 +113,8 @@
          <input type="text" class="name" name="m_name" placeholder="이름" required>
       </div>
       <div class="textForm">
-         <input type="text" class="phoneNumber" name="m_phoneNumber" placeholder="전화번호" required>
+         <input type="text" class="phoneNumber" name="m_phoneNumber" id="phoneNumber" placeholder="전화번호 : 010-0000-0000 " required>
+         <span id="phoneNumberCheck" class="checkResult"></span>
       </div>
       <div class="textForm">
          <input type="text" class="address" name="m_address" placeholder="주소" required>
@@ -172,9 +173,9 @@ $(document).ready(function() {
     });
 </script>
 <script>
-   var rectangle = document.getElementById('rectangle');
-   var menuButton = document.getElementById('menuButton');
-   var iconContainer = document.getElementById('icon-container');
+   var rectangle = $('#rectangle');
+   var menuButton = $('#menuButton');
+   var iconContainer = $('#icon-container');
    var isRectangleVisible = false; // rectangle의 초기 상태를 정의 - 첫 메뉴 클릭 때 실행되지 않는 현상 해결
 
    menuButton.addEventListener('click', function() {
@@ -192,10 +193,10 @@ $(document).ready(function() {
 <script>
  
 document.addEventListener("DOMContentLoaded", function() {
-  var loginBtn = document.getElementById("loginBtn");
-  var logoutForm = document.getElementById("logoutForm");
-  var signupBtn = document.getElementById("signupBtn");
-  var myPageBtn = document.getElementById("myPage");
+  var loginBtn = $("#loginBtn");
+  var logoutForm = $("#logoutForm");
+  var signupBtn = $("#signupBtn");
+  var myPageBtn = $("#myPage");
 
   var loggedInMember = '<%= session.getAttribute("login") %>';
   console.log("세션에 저장된 값: " + loggedInMember);
@@ -229,5 +230,30 @@ $(document).ready(function() {
         showDay: true // 일(day) 표시
     });
 });
+</script>
+<script>
+    // 전화번호 검증 함수
+    	$(document).ready(function() {
+    	    // 문서가 준비되면 실행되는 함수
+    	    $("#signUpFrom").submit(function(){
+    	    
+    	        var phoneNumberInput = $('#phoneNumber');
+    	        var errorMessage = $('#phoneNumberCheck');
+    	        var phoneNumberPattern =  /^010-\d{4}-\d{4}$/;
+
+    	        
+    	        if (!phoneNumberPattern.test(phoneNumberInput.val())) {
+    	            errorMessage.text('(010-0000-0000 형식으로 입력해주세요)');
+    	            alert("전화번호 형식을 다시 확인해주세요.")
+    	            errorMessage.css('color', 'white'); // 스타일을 동적으로 변경
+    	            event.preventDefault();
+    	            return false;
+    	        } else {
+    	            errorMessage.text('');
+    	            return true;
+    	        }
+    	    });
+    
+    	});
 </script>
 </html>

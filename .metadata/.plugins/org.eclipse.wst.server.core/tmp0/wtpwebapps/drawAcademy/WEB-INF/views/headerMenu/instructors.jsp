@@ -94,14 +94,16 @@ jsp :
       </div>
       <div class="instructor-container">
          <div class="instructor1">
-            <a href="class1"> <img src="resources/images/강사 프로필 사진.PNG"
+            <form action="class1" method="get"> <img src="resources/images/강사 프로필 사진.PNG"
                alt="강사1">
+               <button type="submit">
                <div class="overlay">
                   - 2020 icia대학 실용무용 전공<br>
                   - 2022 icia댄스아카데미 강사<br>
                   - 2024 icia댄스아카데미 부원장
                </div>
-            </a>
+               </button>
+            </form>
          </div>
          <div class="instructor2">
             <a href="class2"> <img src="resources/images/강사 프로필 사진.PNG"
