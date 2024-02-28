@@ -159,7 +159,7 @@
 }
 
 .bottominfo {
-	margin-top : 938px;;
+	margin-top : 940px;;
 	display : flex;
 	
 }

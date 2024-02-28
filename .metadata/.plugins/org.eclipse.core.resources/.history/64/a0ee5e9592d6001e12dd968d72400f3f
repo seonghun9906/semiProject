@@ -68,8 +68,8 @@
    position: absolute;
    top: 0;
    left: 0;
-   width: 2020px;
-   height:  940px;
+   width: 100vw;
+   height:  97.5vh;
    z-index: 9994;
    overflow : hidden;
 }
@@ -159,7 +159,7 @@
 }
 
 .bottominfo {
-	margin-top : 938px;;
+	margin-top : 680px;;
 	display : flex;
 	
 }
