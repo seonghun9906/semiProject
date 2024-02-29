@@ -21,8 +21,9 @@
       <form action="qwriteProc" method="post">
          <h2>게시물 등록</h2>
          <input type="hidden" value="${sessionScope.login.m_id}" name="m_id">
+         <input type="hidden" value="${sessionScope.login.m_name}" name="m_name">
          <input type="text" placeholder="제목" name="b_title"> <input
-            type="text" placeholder="내용" name="b_contents">
+            type="text" placeholder="내용" name="b_contents"> 
          <button value="submit">등록</button>
       </form>
    

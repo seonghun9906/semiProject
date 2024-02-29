@@ -35,6 +35,7 @@ public class CmtService {
       } catch (Exception e) {
          e.printStackTrace();
          msg = "등록 실패";
+         return "redirect:login";
       }
       
       view = "redirect:detail?b_code=" + cDto.getB_code();

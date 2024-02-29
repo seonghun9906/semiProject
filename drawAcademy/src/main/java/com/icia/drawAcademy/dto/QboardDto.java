@@ -16,4 +16,6 @@ public class QboardDto {
    private Integer m_id; // 회원 번호
    private String b_title; // 글 제목
    private String b_contents; // 글 내용
+   private String m_name;
+   
 }

@@ -262,10 +262,13 @@ public class HomeController {
 	      if (login != null) {
 	          // 가져온 값을 Integer로 변환하여 qboardDTO 객체에 저장
 	          //qboard.setM_id(Integer.parseInt(login));
-	         view = Qserv.insertQBoard(qboard, session, rttr);
+	       view =  Qserv.insertQBoard(qboard, session, rttr);
+	         return view;
+	      }else {
+	    	  return "redirect:login";
 	      }
 	             
-	      return view;
+	     
 	   }
 
 	   @GetMapping("detail")
@@ -319,10 +322,15 @@ public class HomeController {
 	                     //QboardDto qDto,
 	                     HttpSession session,
 	                     RedirectAttributes rttr) {
-	      
+		   MemberDto login = (MemberDto) session.getAttribute("login");
+		   
+		   if(login != null) {
 	      String view = cmtServ.insertCmt(cDto, session, rttr);
-	      
 	      return view;
+		   }else {
+			   return "redirect:login";
+			   
+		   }
 	   }
 
 }

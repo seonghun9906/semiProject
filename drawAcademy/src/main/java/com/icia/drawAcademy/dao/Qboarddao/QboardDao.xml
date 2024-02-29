@@ -3,15 +3,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.icia.drawAcademy.dao.Qboarddao.QboardDao">
-   <select id="getQboardList" resultType="QueDTO"
+  <select id="getQboardList" resultType="QueDTO"
       parameterType="HashMap">
       SELECT * FROM blist
       LIMIT #{pageNum}, #{listCnt}
    </select>
 
    <insert id="insertQBoard" parameterType="QueDTO">
-      INSERT INTO Qboard (b_title, b_contents, m_id)
-      VALUES (#{b_title}, #{b_contents}, #{m_id})
+      INSERT INTO Qboard (b_title, b_contents, m_id, m_name)
+      VALUES (#{b_title}, #{b_contents}, #{m_id}, #{m_name})
    </insert>
 
 
@@ -19,6 +19,7 @@
       UPDATE Qboard
       SET
       b_title=#{b_title}, b_contents=#{b_contents}
+      
       WHERE b_code=#{b_code}
    </update>
 
@@ -28,7 +29,7 @@
    </delete>
    
    <delete id="deleteMemQboard" parameterType="Integer">
-   		DELETE FROM Qboard WHERE m_id=#{m_id}
+         DELETE FROM Qboard WHERE m_id=#{m_id}
    </delete>
 
    <select id="selectQBoard" parameterType="Integer"
@@ -36,6 +37,7 @@
       SELECT * FROM blist
       WHERE b_code=#{b_code}
    </select>
+
 
 
 </mapper>
