@@ -32,16 +32,15 @@ public class CmtService {
          cDao.insertCmt(cDto);
          System.out.println("CmtDto" + cDto);
          msg = "등록 성공";
+         view = "redirect:detail?b_code=" + cDto.getB_code();
+         rttr.addFlashAttribute("msg", msg);
+         return view;
       } catch (Exception e) {
          e.printStackTrace();
          msg = "등록 실패";
+         rttr.addFlashAttribute("msg", msg);
          return "redirect:login";
       }
-      
-      view = "redirect:detail?b_code=" + cDto.getB_code();
-      rttr.addFlashAttribute("msg", msg);
-
-      return view;
    }
 
 }

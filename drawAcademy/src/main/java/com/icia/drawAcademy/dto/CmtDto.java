@@ -15,5 +15,5 @@ public class CmtDto {
    private int c_code;
    private String c_contents;
    private int b_code;
-   private int m_id;
+   private Integer m_id;
 }

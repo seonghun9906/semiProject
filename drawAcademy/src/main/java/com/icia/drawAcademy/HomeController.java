@@ -246,9 +246,15 @@ public class HomeController {
 
 	   // 게시물 작성---------------------------------------------------
 	   @GetMapping("qwrite")
-	   public String qBoardWrite() {
+	   public String qBoardWrite(HttpSession session) {
 	      log.info("qwirte()");
-	      return "QBoard/qwrite";
+	      MemberDto login = (MemberDto) session.getAttribute("login");
+	      if(login != null) {
+	    	  return "QBoard/qwrite";  
+	      } else {
+	    	  return "redirect:login";
+	      }
+	      
 	   }
 
 	   // 게시물 작성----------------------------------------------------------------
@@ -263,12 +269,10 @@ public class HomeController {
 	          // 가져온 값을 Integer로 변환하여 qboardDTO 객체에 저장
 	          //qboard.setM_id(Integer.parseInt(login));
 	       view =  Qserv.insertQBoard(qboard, session, rttr);
-	         return view;
-	      }else {
-	    	  return "redirect:login";
+	         
 	      }
 	             
-	     
+	      return view;
 	   }
 
 	   @GetMapping("detail")
@@ -321,16 +325,15 @@ public class HomeController {
 	   public String insertCmt (CmtDto cDto,
 	                     //QboardDto qDto,
 	                     HttpSession session,
-	                     RedirectAttributes rttr) {
-		   MemberDto login = (MemberDto) session.getAttribute("login");
-		   
-		   if(login != null) {
+	                     RedirectAttributes rttr) {		   
+		  MemberDto login = (MemberDto) session.getAttribute("login");
+		  if(login != null) {
 	      String view = cmtServ.insertCmt(cDto, session, rttr);
 	      return view;
-		   }else {
-			   return "redirect:login";
-			   
-		   }
+		  }else {
+			 return "redirect:login";
+		  }
+		  
 	   }
 
 }
