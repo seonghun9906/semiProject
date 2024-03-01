@@ -88,54 +88,59 @@
             src="resources/images/instagramIcon.png" class="instagram">
          </a>
       </div>
-      <main class=detail-main>
-         <!-- 게시글 상세 내용 출력(div) -->
-         <section class="detail">
-            <section class="detail-sub">
-               <section class="detail-title">
-                  <h2>FAQ</h2>
-                  <section class="detail-title2">
-                     <h2>${qboard.b_title}</h2>
-                     <h4 class="author">${qboard.m_name}</h4>
-                  </section>
-               </section>
-            </section>
-            <section class="detail-sub">
-               <section class="detail-content">
-                  <h4>${qboard.b_contents}</h4>
-               </section>
-            </section>
+      
+     		
+               <div class="detail-title">
+                  <h2 class="h2FAQ">FAQ</h2>
+                     <h2 class="h2title">제목 : ${qboard.b_title}</h2>
+                     <h4 class="author">작성자 : ${qboard.m_name}</h4>
+                  	<h4 class="author">CONTENTS : ${qboard.b_contents}</h4>
             <div class="btn-area">
 
-               <c:if test="${sessionScope.login.m_id eq qboard.m_id}">
                   <div class="btn-write1">
+               <c:if test="${sessionScope.login.m_id eq qboard.m_id}">
                      <a href="QBUpdate?b_code=${qboard.b_code}">
                         <button id="upbtn">
-                           <span></span> <span></span> <span></span> <span></span> 수정
+                           <span></span> 
+                           <span></span>
+                            <span></span>
+                             <span></span> 수정
                         </button>
                      </a>
-                  </div>
                </c:if>
+                  </div>
 
-               <div class="btn-write2">
+               <div class="btn-write1">
                   <c:if test="${sessionScope.login.m_id eq qboard.m_id}">
                      <form action="delete?b_code=${qboard.b_code}" method="post">
-                        <button  id="delbtn">
-                           <span></span> <span></span> <span></span> <span></span>삭제
+                        <button type="submit" id="delbtn">
+                           <span></span> 
+                           <span></span>
+                            <span></span>
+                             <span></span>삭제
                         </button>
                      </form>
                   </c:if>
                </div>
             </div>
-
+		
             <!-- 댓글 기능 -->
             <!-- 댓글 작성 -->
-            <div id="comment">
+            <div class="comment">
                <form action="inscProc" method="post" onsubmit="scrollToComment()">
                   <input type="hidden" name="b_code" value="${qboard.b_code}">
-                  <input type="hidden" name="m_id" value="${sessionScope.login.m_id}"> 
-                  <input type="text" placeholder="내용" name="c_contents">
-                  <button value="submit">등록</button>
+                  <input type="hidden" name="c_code" value="${ccc.c_code}">
+                  <input type="hidden" name="m_id" value="${sessionScope.login.m_id}">
+                  <h4 class ="h4Cmt">댓글 입력</h4>
+                  <div class="cmtInput"> 
+                  <input type="text" placeholder="내용" name="c_contents" class="cmtText"  required>
+                  </div>
+                  <button value="submit">
+                 	<span></span>
+                 	<span></span>
+                 	<span></span>
+                 	<span></span>
+                 	등록</button>
                </form>
                <c:choose>
                   <c:when test="${empty cmtList}">
@@ -148,16 +153,26 @@
                      <c:forEach var="ccc" items="${cmtList}">
                         <div>
                            <p id="author">작성자: ${sessionScope.login.m_name}</p>
-                           <p id="cContents">${ccc.c_contents}</p>
+                           <p id="cContents">내용 : ${ccc.c_contents}</p>
+                           <c:if test="${ccc.m_id eq sessionScope.login.m_id}">
+                              <form action="cDelete" method="post">
+                              <input type="hidden" name="m_id" value="${sessionScope.login.m_id}">
+                              <input type="hidden" name="c_code" value="${ccc.c_code}">
+                                 <button type="submit">
+                                 <span></span>
+                                 <span></span>
+                                 <span></span>
+                                 <span></span>
+                                 삭제</button>
+                              </form>
+                           </c:if>
                         </div>
                      </c:forEach>
                   </c:otherwise>
                </c:choose>
             </div>
-         </section>
-      </main>
    </div>
-
+</div>
 
 
    <!-- 메뉴 버튼 기능 -->
@@ -219,9 +234,6 @@
          adjustScreenSize();
       }
    </script>
-
-   <script>
-      //게시글 삭제
-   </script>
+   
 </body>
 </html>

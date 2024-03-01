@@ -14,7 +14,7 @@
    </select>
    
    <delete id="deleteMemCmt" parameterType="Integer" >
-   	DELETE FROM cmt WHERE m_id = #{m_id}
+      DELETE FROM cmt WHERE m_id = #{m_id} AND c_code = #{c_code}
    </delete>
    
 

@@ -1,5 +1,5 @@
 html {
-   height: 100%;
+   height: 150%;
 }
 
 body {
@@ -11,7 +11,7 @@ body {
 }
 
 .bodyMain {
-   position: absolute;
+   position: relative;
    background-color: #000000;
    top: 0;
    left: 0;
@@ -23,7 +23,7 @@ body {
 
 
 .headerMenu .Home-btn {
-   position: absolute;
+   position: fixed;
    background: none;
    border: none;
    padding: 0;
@@ -32,16 +32,15 @@ body {
    z-index: 9999;
 }
 .title{
-  width: 100%; /* 컨테이너의 너비를 화면 전체로 설정 */
-   position: fixed; /* 화면 아래에 고정시킵니다. */
+   width: 100%; /* 컨테이너의 너비를 화면 전체로 설정 */
+   position: absolute; /* 화면 아래에 고정시킵니다. */
    text-align: center; /* 내부 텍스트를 가운데 정렬합니다. */
    padding: 20px; /* 내부 여백 설정 (예시) */
    box-sizing: border-box; /* 패딩이 포함된 전체 너비/높이 계산 */
-   color: #ffffff;
-  
+   color: #ffffff;  
    font-size: 50px;
    font-weight: bold;
-     z-index: 9999;
+   z-index: 9999;
 }
 .headerMenu .logo {
    width: 120px; /* 이미지가 버튼 내에서 꽉 차도록 설정 */
@@ -73,7 +72,7 @@ body {
 
 #menuButton {
    cursor: pointer;
-   position: absolute;
+   position: fixed;
    top: 25px;
    right: 30px; /* 오른쪽으로 이동 */
    display: flex;
@@ -83,7 +82,7 @@ body {
 }
 
 #icon-container {
-   position: absolute;
+   position: fixed;
    top: 110px;
    right: 40px;
    display: flex;
@@ -142,31 +141,39 @@ body {
    z-index: 9998;
 }
 
-.middle-part {
-   width: 50%;
-   position: fixed; margin : 0 auto;
-   top: 55%;
+.content-box {
+   width: 70%;
+   position: absolute;
+   top: 100%;
    left: 50%;
+   height: 900px;
+   padding: 3%;
    transform: translate(-50%, -50%);
-   padding: 20px;
    box-sizing: border-box;
    color: #ffffff;
    font-size: 20px;
    font-weight: bold;
    margin: 0 auto;
-}
-
-.content-box {
    background: linear-gradient(#000000, #111111);
-   padding: 5px;
-   
    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.test1{
+   width: 100%;
+   display : flex;
+   border-bottom: 1px solid #cccccc; /* 리스트 사이의 간격을 조절하기 위한 패딩 추가 */
+   padding: 3%;
+}
+
+.test{
+   color :white;
+   font-size: 30px;
+   font-weight: bold;
+   
+   
+}
 .qboard-item {
-   margin: 3%;
-   border-bottom: 1px solid #cccccc; /* 각 리스트 아래에 회색 선 추가 */
-   padding-bottom: 20px;
+   padding : 3%;
    border-bottom: 1px solid #cccccc; /* 리스트 사이의 간격을 조절하기 위한 패딩 추가 */
 }
 
@@ -183,6 +190,7 @@ body {
    margin: 3%;
    text-align: left;
 }
+
 #qlist{
    color : white;
    text-decoration: none; /* 밑줄 제거 */
@@ -192,12 +200,78 @@ body {
 }
 .wr-btn {
     position: fixed;
-    bottom: 40px; /* 화면 하단에서 20px 떨어진 위치에 배치합니다. */
+    bottom: 5%;
     right: 30px; /* 화면 오른쪽에서 20px 떨어진 위치에 배치합니다. */
     z-index: 9999; /* 다른 요소 위에 표시될 수 있도록 z-index 값을 지정합니다. */
     font-size: 20px; /* 버튼의 글꼴 크기를 조정합니다. */
-    padding: 20px 10px; /* 버튼의 내부 여백을 조정합니다. */
+    border-radius: 3px;    
+}
 
-    border-radius: 3px;
-    
+#cklogin {
+   
+   margin-left: auto; /* 오른쪽으로 이동 */ 
+   cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/** 하민 작업 **/
+
+.frequent-title {
+   width: 70%;
+   position: absolute;
+   top: 25%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   box-sizing: border-box;
+      padding: 3%;
+   color: white;
+   font-size: 30px;
+   font-weight: bold;
+}
+
+.frequent-question {
+   width: 70%;
+   position: absolute;
+   top: 45%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   box-sizing: border-box;
+   color: #ffffff;
+   font-size: 20px;
+   font-weight: bold;
+   margin: 0 auto;
+   padding: 3%;
+   background: linear-gradient(#000000, #111111);
+}
+
+.faqCard {
+   height: 80px;
+   overflow: hidden;
+}
+
+.question {
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.downButton {
+    margin-left: auto; /* 오른쪽으로 이동 */
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.answer {
+   margin-top: 10px;
+   display: none; /* 초기에는 숨김 */
+   box-sizing: border-box;
 }

@@ -1,6 +1,8 @@
 package com.icia.drawAcademy.dao.Qboarddao;
 
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -17,5 +19,7 @@ public interface CmtDao {
    int cntcmt();
    
    void deleteMemCmt(Integer m_id);
+
+   void deleteMemCmt(@Param("m_id")Integer m_id,@Param("c_code") Integer c_code);
    
 }

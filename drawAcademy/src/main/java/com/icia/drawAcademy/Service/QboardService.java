@@ -17,10 +17,10 @@ import com.icia.drawAcademy.dto.MemberDto;
 import com.icia.drawAcademy.dto.QboardDto;
 import com.icia.drawAcademy.util.PagingUtil;
 
-import lombok.extern.log4j.Log4j;
+
 import lombok.extern.slf4j.Slf4j;
 
-
+@Slf4j
 @Service("Qserv")
 public class QboardService {
 
@@ -76,15 +76,18 @@ public class QboardService {
 
    // 게시물 작성
    public String insertQBoard(QboardDto qboard, HttpSession session, RedirectAttributes rttr) {
-
+	   			log.info("insertQBoard()");
       String msg = "";
       String view = "";
       MemberDto loggedInMember = (MemberDto) session.getAttribute("login");
       Integer m_id = loggedInMember.getM_id();
-      try {
+      String m_name = loggedInMember.getM_name();
+      
+      try {  
+    	 System.out.println("qboardServ = " + qboard);
+    	 qboard.setM_name(m_name);
     	 qboard.setM_id(m_id);
          qDao.insertQBoard(qboard);
-         System.out.println("qboard" + qboard);
          
          view = "redirect:qboard";
          msg = "게시물 등록 성공";
@@ -106,6 +109,7 @@ public class QboardService {
       System.out.println(b_code);
       
       List<CmtDto> cmtList = cDao.getCommentList(b_code);
+      
       
       model.addAttribute("qboard", qboard);
       model.addAttribute("cmtList", cmtList);

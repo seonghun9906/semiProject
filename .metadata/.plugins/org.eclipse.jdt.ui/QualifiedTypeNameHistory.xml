@@ -17,8 +17,6 @@
     <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
-    <fullyQualifiedTypeName name="lombok.Getter"/>
-    <fullyQualifiedTypeName name="lombok.Setter"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.type.Alias"/>
     <fullyQualifiedTypeName name="com.icia.drawAcademy.dao.classdao.ClassDao"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
@@ -27,13 +25,10 @@
     <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.support.RedirectAttributes"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="javax.inject.Qualifier"/>
-    <fullyQualifiedTypeName name="com.icia.drawAcademy.Service.QboardService"/>
     <fullyQualifiedTypeName name="com.icia.drawAcademy.dto.QboardDto"/>
-    <fullyQualifiedTypeName name="com.icia.drawAcademy.dto.MemberDto"/>
     <fullyQualifiedTypeName name="com.icia.drawAcademy.Service.CmtService"/>
     <fullyQualifiedTypeName name="com.icia.drawAcademy.dto.CmtDto"/>
     <fullyQualifiedTypeName name="com.icia.drawAcademy.dao.Qboarddao.CmtDao"/>
@@ -46,5 +41,11 @@
     <fullyQualifiedTypeName name="java.lang.ProcessBuilder.Redirect"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="lombok.extern.log4j.Log4j"/>
+    <fullyQualifiedTypeName name="com.icia.drawAcademy.Service.QboardService"/>
+    <fullyQualifiedTypeName name="lombok.Getter"/>
+    <fullyQualifiedTypeName name="lombok.Setter"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
+    <fullyQualifiedTypeName name="com.icia.drawAcademy.dto.MemberDto"/>
 </qualifiedTypeNameHistroy>

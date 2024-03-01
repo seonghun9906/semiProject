@@ -114,8 +114,8 @@
             LOGIN
          </button>
          
-             <button onclick="location.href='./signUp'">
-            <span></span>
+           <button onclick="location.href='./signUp'">
+          <span></span>
          <span></span>
          <span></span>
          <span></span>

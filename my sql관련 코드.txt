@@ -1,15 +1,3 @@
--- eezy academyProject
-create database if not exists eezy_db;
-create user if not exists eezy_user@localhost identified by '1234';
-grant all privileges on eezy_db.* to eezy_user@localhost;
-ALTER USER 'eezy_user'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';
-FLUSH PRIVILEGES;
-
-
-
-
-
-
 use eezy_db;
 
 DROP VIEW IF EXISTS memeberlist;
@@ -23,28 +11,95 @@ CREATE TABLE IF NOT EXISTS membertbl (
     m_password varchar(100) NOT NULL,
     m_address varchar(100) NOT NULL,
     m_age varchar(10) NOT NULL,
-    p_sysname varchar(50) default null,
-    classCode varchar(20) default null
+	sORt varchar(20) Not null,
+    className varchar(20) default null
 );
 
 CREATE OR REPLACE VIEW memberlist AS
 SELECT * FROM membertbl
 ORDER BY m_id DESC;
-
-INSERT INTO membertbl 
-value (null, 
-		'manager', 
-        '000', 
-        'manager',
-        'manager123',
-        'managerAddress',
-        '00',
-        null,
-        null);
         
-COMMIT; -- comit은 마지막에 필수로 해야함(안하면 리스트가 안보임)
+COMMIT; -- commit 을 안하면 안보임.
 
 SELECT * FROM memberlist;
+SELECT * FROM membertbl order by m_id DESC;
 
 delete from memberlist;
 commit;
+
+
+-- Class table
+
+DROP VIEW IF EXISTS teacherName1list;
+DROP TABLE IF EXISTS teacherName1;
+
+CREATE TABLE IF NOT EXISTS teacherName1 (
+   c_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	className varchar(50) NOT NULL,
+    day varchar(50) not null,
+    date varchar(50) NOT NULL,
+    time varchar(50) Not null,
+    m_id int(50) default null
+);
+
+CREATE OR REPLACE VIEW teacherName1list AS
+SELECT * FROM teacherName1
+ORDER BY c_id desc;
+
+        
+COMMIT; -- commit 을 안하면 안보임.
+
+SELECT * FROM teacherName1list;
+SELECT * FROM teacherName1 order by c_id desc;
+
+SElect COUNT(*) FROM teacherName1 where className = "classB";
+
+
+delete from teacherName1list;
+commit;
+
+
+SELECT * FROM teacherName1 WHERE m_email='asd@asd';
+
+SELECT * FROM membertbl WHERE className = 'classB';
+
+
+-- ---------------------------------------------------------------------------------------------------------------------------------
+DROP VIEW IF EXISTS blist;
+DROP TABLE IF EXISTS Qboard;
+CREATE TABLE IF NOT EXISTS Qboard (
+   b_code int not null primary key auto_increment,
+    m_id int,
+    m_name varchar(100) NOT NULL,
+    b_title varchar (20) not null,
+    b_contents varchar (1000) not null,
+    foreign key (m_id) references membertbl (m_id) on delete cascade
+);
+
+DROP VIEW IF EXISTS clist;
+drop table if exists cmt;
+CREATE TABLE IF NOT EXISTS cmt (
+   c_code int not null primary key auto_increment,
+    c_contents varchar (500) not null,
+    b_code int,
+    m_id int,
+    foreign key (m_id) references membertbl (m_id) on delete cascade,
+   FOREIGN KEY (b_code) REFERENCES Qboard(b_code) on delete cascade
+    );
+
+SELECT * FROM cmt;
+
+COMMIT;
+
+select * from Qboard;
+
+CREATE OR REPLACE VIEW blist AS
+SELECT * FROM Qboard ORDER BY b_code DESC;
+
+CREATE OR REPLACE VIEW clist AS
+SELECT * FROM cmt ORDER BY c_code DESC;
+
+SElect * from memberlist;
+
+select * from clist;
+

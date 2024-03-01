@@ -12,8 +12,8 @@ import lombok.ToString;
 @Alias("CmtDTO")
 public class CmtDto {
    
-   private int c_code;
+   private Integer c_code;
    private String c_contents;
-   private int b_code;
+   private Integer b_code;
    private Integer m_id;
 }

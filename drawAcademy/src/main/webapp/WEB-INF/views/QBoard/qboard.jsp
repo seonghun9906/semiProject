@@ -13,9 +13,7 @@
 </head>
 
 <body>
-
-<!-- 메뉴 버튼 -->
-      <div class=title>FAQ</div>
+   <div class=title>FAQ</div>
    <header class="headerMenu">
       <button class="Home-btn" onclick="location.href='./'">
          <img src="resources/images/lg.png" class="logo">
@@ -85,42 +83,63 @@
             src="resources/images/instagramIcon.png" class="instagram">
          </a>
       </div>
-      
+
    </header>
-
-   <!-- 게시물 -->
-   <main class="middle-part">
-      <section class="content-box">
-         <div class="commentList">
-            <c:if test="${empty qList}">
-               <section class="qboard-item">
-                  <span class="none-content">등록된 게시물이 없습니다.</span>
-               </section>
-            </c:if>
-
-            <c:if test="${qList ne null}">
-               <c:forEach var="qqq" items="${qList}">
-                  <section class="qboard-item">
-                     <a id="qlist" href="./detail?b_code=${qqq.b_code}">제목 : "${qqq.b_title}"
-                     </a>
-                  </section>
-               </c:forEach>
-            </c:if>
-            <!-- 페이지 기능 -->
+   <div class="frequent-title">자주 묻는 질문</div>
+   <div class="middle-box">
+   <div class="frequent-question">
+      <div class="faqCard">
+         <div class="question">
+            Q: 개인 레슨은 가능한가요?
+            <button class="downButton">+</button>
          </div>
-         <section class="paging-area">
-            <section class="paging">${paging}</section>
-         </section>
-         <section class="wr-btn">
-            <button id="cklogin" onclick="location.href='./qwrite'">질문등록</button>
-         </section>
-      </section>
-   </main>
+         <div class="answer">A: 강사와 조율하면 개인 레슨이 가능합니다.</div>
+      </div>
+      <div class="faqCard">
+         <div class="question">
+            Q: 처음 춤을 출 수 있나요?
+            <button class="downButton">+</button>
+         </div>
+         <div class="answer">A: 네, 누구나 춤을 출 수 있습니다. 본인의 노력에 따라 결과가
+            달라집니다.</div>
+      </div>
+      <div class="faqCard">
+         <div class="question">
+            Q: 수업 별 가격은 어떻게 되나요?
+            <button class="downButton">+</button>
+         </div>
+         <div class="answer">A: k-pop 25,000원, girlish 30,000원, hip-hop
+            25,000원입니다.</div>
+      </div>
+   </div>
+   <!-- 게시물 -->
+   <div class="content-box">
+      <div class="commentList">
+               <div  class="test1">
+               <p class="test">게시물 목록</p>
+               <button id="cklogin" onclick="location.href='./qwrite'">질문등록</button>
+               </div>
+         <c:if test="${empty qList}">
+            <div class="qboard-item">
+               <span class="none-content">등록된 게시물이 없습니다.</span>
+            </div>
+         </c:if>
 
-
-   -----------------------------
-
-
+         <c:if test="${qList ne null}">
+            <c:forEach var="qqq" items="${qList}">
+               <div class="qboard-item">
+                  <a id="qlist" href="./detail?b_code=${qqq.b_code}">제목 :
+                     "${qqq.b_title}" </a>
+               </div>
+            </c:forEach>
+         </c:if>
+         <!-- 페이지 기능 -->
+      </div>
+      <div class="paging-area">
+         <div class="paging">${paging}</div>
+      </div>
+   </div>
+   </div>
 </body>
 <!-- 메뉴 버튼 기능 -->
 <script>
@@ -141,28 +160,23 @@
       }
    });
 </script>
-
-
-
-
-
 <script>
-    $(document).ready(function() {
-            // JSP에서 가져온 값을 JavaScript 변수에 할당
-            var loggedInUserId = "<%=session.getAttribute("login.m_id")%>";
-         
-            // 질문 등록 버튼 클릭 이벤트 핸들러
-            $("#cklogin").click(function() {
-                // JavaScript 변수를 사용하여 로그인 여부 확인
-                if (!loggedInUserId) {
-                    alert("로그인 후 이용해주세요.");
-                } else {
-                    location.href = './qwrite';
-                }
-            });
+   var downButtons = document.querySelectorAll('.downButton');
 
-   $("#upbtn").click(function() {
-      location.href = `./QBUpdate?b_code=${qqq.b_code}`;
+   downButtons.forEach(function(button) {
+      button.addEventListener('click', function(event) {
+         var question = event.target.closest('.question');
+         var answer = question.nextElementSibling;
+
+         // 현재 표시 여부를 확인하여 토글
+         if (answer.style.display === 'block') {
+            answer.style.display = 'none';
+            button.textContent = '+';
+         } else {
+            answer.style.display = 'block';
+            button.textContent = '-';
+         }
+      });
    });
 </script>
 </html>

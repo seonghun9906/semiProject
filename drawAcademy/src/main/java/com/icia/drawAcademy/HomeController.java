@@ -262,7 +262,7 @@ public class HomeController {
 	   public String qwriteProc(QboardDto qboard, HttpSession session, RedirectAttributes rttr) {
 	         log.info("qwritePoec()");
 	      MemberDto login = (MemberDto) session.getAttribute("login");
-	      System.out.println("qwriteProc Login" + login);
+	      System.out.println("qwriteProc Login = " + qboard);
 	      String view = null;
 	      // 가져온 값이 null이 아니라면
 	      if (login != null) {
@@ -335,5 +335,14 @@ public class HomeController {
 		  }
 		  
 	   }
-
+	   
+	   //댓글 삭제
+	   @PostMapping("cDelete")
+	      public String commentDelete(HttpSession session,CmtDto cmtDto ,RedirectAttributes rttr, Model model) {
+	         
+	         String view= cmtServ.commentDelete(session ,rttr, cmtDto, model);
+	         
+	         
+	         return view;
+	      }
 }
