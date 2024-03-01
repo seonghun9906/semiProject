@@ -234,6 +234,32 @@
          adjustScreenSize();
       }
    </script>
-   
+
+<script>
+ 
+document.addEventListener("DOMContentLoaded", function() {
+  var loginBtn = document.getElementById("loginBtn");
+  var logoutForm = document.getElementById("logoutForm");
+  var signupBtn = document.getElementById("signupBtn");
+  var myPageBtn = document.getElementById("myPage");
+
+  var loggedInMember = '<%= session.getAttribute("login") %>';
+  console.log("세션에 저장된 값: " + loggedInMember);
+  // 여기서 로그인 여부를 확인하고 그에 따라 버튼을 표시하거나 숨깁니다.
+  var isLoggedIn = loggedInMember !== 'null' && loggedInMember !== '';
+
+  if (isLoggedIn) {
+    loginBtn.style.display = "none";
+    logoutForm.style.display = "block";
+    signupBtn.style.display = "none";
+    myPageBtn.style.display ="block";
+  } else {
+    loginBtn.style.display = "block";
+    logoutForm.style.display = "none";
+    signupBtn.style.display= "block";
+    myPageBtn.style.display="none";
+  }
+});
+</script>
 </body>
 </html>

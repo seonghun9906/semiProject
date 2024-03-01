@@ -23,7 +23,7 @@ body {
 
 
 .headerMenu .Home-btn {
-   position: fixed;
+   position: absolute;
    background: none;
    border: none;
    padding: 0;
