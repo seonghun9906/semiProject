@@ -27,5 +27,7 @@ public interface MemberDao {
 	List<ClassDto> getClasslist(Integer m_id);
 	
 	void classCancleProc(ClassDto classDto);
+	
+	
 
 } // interface end
