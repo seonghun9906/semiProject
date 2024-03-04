@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -76,7 +74,7 @@ public class QboardService {
 
    // 게시물 작성
    public String insertQBoard(QboardDto qboard, HttpSession session, RedirectAttributes rttr) {
-	   			log.info("insertQBoard()");
+               log.info("insertQBoard()");
       String msg = "";
       String view = "";
       MemberDto loggedInMember = (MemberDto) session.getAttribute("login");
@@ -84,9 +82,9 @@ public class QboardService {
       String m_name = loggedInMember.getM_name();
       
       try {  
-    	 System.out.println("qboardServ = " + qboard);
-    	 qboard.setM_name(m_name);
-    	 qboard.setM_id(m_id);
+        System.out.println("qboardServ = " + qboard);
+        qboard.setM_name(m_name);
+        qboard.setM_id(m_id);
          qDao.insertQBoard(qboard);
          
          view = "redirect:qboard";
@@ -139,11 +137,12 @@ public class QboardService {
          msg = "수정 실패.";
 
       }
+      rttr.addFlashAttribute("msg", msg);
       view = "redirect:qboard";
       return view;
    }
 
-   public String boardDelete(Integer b_code, HttpSession session, RedirectAttributes rttr) {
+   public String boardDelete(Integer b_code, RedirectAttributes rttr) {
       
       System.out.println("삭제중");
       

@@ -21,52 +21,52 @@ public class CmtService {
    private CmtDao cDao;
 
    public String insertCmt(CmtDto cDto, HttpSession session, RedirectAttributes rttr) {
-	      log.info("insertCmt()");
-	      System.out.println("´ñ±Û");
-	      MemberDto loggedInMember = (MemberDto) session.getAttribute("login");
+         log.info("insertCmt()");
+         System.out.println("´ñ±Û");
+         MemberDto loggedInMember = (MemberDto) session.getAttribute("login");
 
-	      Integer m_id = loggedInMember.getM_id();
+         Integer m_id = loggedInMember.getM_id();
 
-	      String view = null;
-	      String msg = "";
+         String view = null;
+         String msg = "";
 
-	      try {
-	         cDto.setM_id(m_id);
-	         cDao.insertCmt(cDto);
-	         System.out.println("cmtDTO SERV =  "+cDto.getM_id());
-	         System.out.println("CmtDto" + cDto);
-	         msg = "µî·Ï ¼º°ø";
-	      } catch (Exception e) {
-	         e.printStackTrace();
-	         msg = "µî·Ï ½ÇÆÐ";
-	      }
+         try {
+            cDto.setM_id(m_id);
+            cDao.insertCmt(cDto);
+            System.out.println("cmtDTO SERV =  "+cDto.getM_id());
+            System.out.println("CmtDto" + cDto);
+            msg = "µî·Ï ¼º°ø";
+         } catch (Exception e) {
+            e.printStackTrace();
+            msg = "µî·Ï ½ÇÆÐ";
+         }
 
-	      view = "redirect:detail?b_code=" + cDto.getB_code();
-	      rttr.addFlashAttribute("msg", msg);
+         view = "redirect:detail?b_code=" + cDto.getB_code();
+         rttr.addFlashAttribute("msg", msg);
 
-	      return view;
-	   }
+         return view;
+      }
 
    public String commentDelete(HttpSession session ,RedirectAttributes rttr, CmtDto cmtDto, Model model) {
 
-	      String view = null;
-	      log.info("commentDelete()");
-	      
-	      MemberDto login = (MemberDto) session.getAttribute("login");
-	      Integer m_id = login.getM_id();
-	      try {
-	         cDao.deleteMemCmt(m_id, cmtDto.getC_code());
-	         System.out.println("´ñ»è¼º°ø");
-	         System.out.println(m_id);
-	         
-	      } catch (Exception e) {
-	         e.printStackTrace();
-	         System.out.println("´ñ±Û »èÁ¦ ½ÇÆÐ");
-	         
-	      }
+         String view = null;
+         log.info("commentDelete()");
+         
+         MemberDto login = (MemberDto) session.getAttribute("login");
+         Integer m_id = login.getM_id();
+         try {
+            cDao.deleteMemCmt(m_id, cmtDto.getC_code());
+            System.out.println("´ñ»è¼º°ø");
+            System.out.println(m_id);
+            
+         } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("´ñ±Û »èÁ¦ ½ÇÆÐ");
+            
+         }
 
-	      view = "redirect:qboard?b_code=";
-	      return view;
-	   }
+         view = "redirect:qboard?b_code=";
+         return view;
+      }
 
 }

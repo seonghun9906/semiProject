@@ -138,7 +138,7 @@
 </p>
 </div>
 	<div class="selectOption">
-<form action="class1proc" method="post" id="class1proc" onsubmit="checkClass()">
+<form action="class1proc" method="post" id="class1proc" onsubmit="return checkClass(event);">
     <label for="selectOption">수강신청 :</label>
     <select id="selectOption" class="selected" name="className">
     	<option value="none" id="none"  selected>선택</option>
@@ -201,7 +201,7 @@ $(document).ready(function () {
         for(var classCheckItem of classCheckElement){
         	//console.log(classCheckItem);
         	var classCheck = classCheckItem ? classCheckItem.value : null;
-        	console.log("consolelog = " + classCheck);
+        	console.log("중복된 클래스 = " + classCheck);
         	
         	if (classCheck == selectedClass) {
                 alert("이미 수강신청한 CLASS입니다.");
@@ -214,6 +214,8 @@ $(document).ready(function () {
                 $("#timeField").val("");
                 return;
                 break;
+                
+                
             }else if (selectedClass == "none"){
             	 $("#dateField, #dayField, #timeField").prop("disabled", true);
                  
@@ -265,38 +267,52 @@ $(document).ready(function () {
             alert("이미 수강신청한 CLASS입니다.");
             event.preventDefault();
         }
+        
+        
+        
     });
 });
 </script>
-  <script>
-  function checkClass() {
-	    var selectedClass = $("#selectOption").val();
-  		var classLimitAValue = ${classLimitA};
-  		var classLimitBValue = ${classLimitB};
-  		var classLimitCValue = ${classLimitC};
-  		var classLimitDValue = ${classLimitD};
-  		var classLimitEValue = ${classLimitE};
-		
-		
-  	// 정원 초과 체크
- 	 if (selectedClass === "classA" && classLimitAValue >= 20) {
+
+<script>
+  function checkClass(event) {
+    var selectedClass = $("#selectOption").val();
+    var classLimitAValue = ${classLimitA};
+    var classLimitBValue = ${classLimitB};
+    var classLimitCValue = ${classLimitC};
+    var classLimitDValue = ${classLimitD};
+    var classLimitEValue = ${classLimitE};
+
+    console.log("선택한 클래스 " + selectedClass);
+    console.log("클래스 정원 " + classLimitEValue);
+
+    // 정원 초과 체크
+    if (selectedClass === "classA" && classLimitAValue >= 20) {
       alert("classA 정원이 초과되었습니다. 수강신청이 불가합니다.");
-      event.preventDefault();
- 	 } else if (selectedClass === "classB" && classLimitBValue >= 20) {
+     
+      return false;
+    } else if (selectedClass === "classB" && classLimitBValue >= 20) {
       alert("classB 정원이 초과되었습니다. 수강신청이 불가합니다.");
-      event.preventDefault();
-  	} else if (selectedClass === "classC" && classLimitCValue >= 20) {
+     
+      return false;
+    } else if (selectedClass === "classC" && classLimitCValue >= 20) {
       alert("classC 정원이 초과되었습니다. 수강신청이 불가합니다.");
-      event.preventDefault();
-  	} else if (selectedClass === "classD" && classLimitCValue >= 20) {
-        alert("classD 정원이 초과되었습니다. 수강신청이 불가합니다.");
-        event.preventDefault();
-    	} 
-  	else if (selectedClass === "classE" && classLimitCValue >= 20) {
-        alert("classE 정원이 초과되었습니다. 수강신청이 불가합니다.");
-        event.preventDefault();
-    	} 
-     </script>
+     
+      return false;
+    } else if (selectedClass === "classD" && classLimitDValue >= 20) {
+      alert("classD 정원이 초과되었습니다. 수강신청이 불가합니다.");
+      
+      return false;
+    } else if (selectedClass === "classE" && classLimitEValue >= 20) {
+      alert("classE 정원이 초과되었습니다. 수강신청이 불가합니다.");
+      
+      return false;
+    }
+	
+    return true;
+  }
+</script>
+
 <script>
    var rectangle = document.getElementById('rectangle');
    var menuButton = document.getElementById('menuButton');

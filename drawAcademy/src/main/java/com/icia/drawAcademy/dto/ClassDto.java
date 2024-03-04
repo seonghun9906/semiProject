@@ -1,7 +1,5 @@
 package com.icia.drawAcademy.dto;
 
-import java.util.List;
-
 import org.apache.ibatis.type.Alias;
 
 import lombok.Data;
