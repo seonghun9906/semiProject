@@ -2,12 +2,6 @@ html {
    height: 150%;
 }
 
-.search-item{
-	color : white;
-	font-size: 30px;
-	font-weight: bold;
-}
-
 body {
    margin: 0;
    padding: 0;
@@ -194,8 +188,7 @@ body {
    font-size: 20px;
    font-weight: bold;
    margin: 3%;
-   text-align: left;
-   
+   text-align: left;   
 }
 
 #qlist{
@@ -203,9 +196,9 @@ body {
    color : white;
    text-decoration: none; /* 밑줄 제거 */
    font-family: Arial, sans-serif; /* 얇은 글꼴 적용 */
-    font-weight: 300;
-    
+    font-weight: 300;    
 }
+
 .wr-btn {
     position: fixed;
     bottom: 5%;
@@ -216,20 +209,24 @@ body {
 }
 
 #cklogin {
-   
+   	height : 50px;
+   	margin-top: 25px;
    margin-left: auto; /* 오른쪽으로 이동 */ 
-   cursor: pointer;
-    background-color: transparent;
     border: none;
-    color: #fff;
     font-weight: bold;
     font-size: 20px;
+    
 }
-/*검색 버튼 스타일링*/
 
-
-
-
+ .header-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f0f0f0;
+            margin: 0 150px; /* 양옆 여백 조절 */
+            
+             
+ }
 
 /** 하민 작업 **/
 
@@ -246,6 +243,25 @@ body {
    font-weight: bold;
 }
 
+.frequent-title, form {
+		margin-left: auto; /* 나머지 공간을 오른쪽으로 이동 */
+    display: flex; /* flexbox 레이아웃 적용 */
+    align-items: center; /* 수직 중앙 정렬 */
+    font-weight: bold;
+     
+}
+
+input[type="text"] {
+
+            padding: 8px;
+            margin-right: 8px; /* 인풋과 버튼 사이 여백 조절 */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+.middle-box{
+	
+}
 .frequent-question {
    width: 70%;
    height: 30%;
@@ -289,3 +305,122 @@ body {
    display: none; /* 초기에는 숨김 */
    box-sizing: border-box;
 }
+
+.search {
+	position: absolute;
+}
+
+.searchlist {
+	color : white;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.search-item{
+	color : white;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.searchB {
+   cursor: pointer;
+    position: relative;
+   display: inline-flex;
+   padding: 10px 20px;
+   color: #ffffff;
+   font-size: 15px;
+   text-decoration: none;
+   text-transform: uppercase;
+   overflow: hidden;
+   transition: .5s;
+   letter-spacing: 4px;
+   border: none;
+   background-color: transparent;
+   z-index: 9999;
+ 
+}
+
+/* 버튼에 마우스를 올렸을 때 스타일 변경 */
+.searchB:hover {
+   background: #ffffff;
+   color: #000000;
+   border-radius: 5px;
+   box-shadow: 0 0 5px #ffffff, 0 0 25px #ffffff, 0 0 50px #ffffff, 0 0
+      100px #ffffff;
+}
+
+.searchB span {
+   position: absolute;
+   display: block;
+}
+
+..searchB span:nth-child(1) {
+   top: 0;
+   left: -100%;
+   width: 100%;
+   height: 2px;
+   background: linear-gradient(90deg, transparent, #ffffff);
+   animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+.searchB span:nth-child(2) {
+   top: -100%;
+   right: 0;
+   width: 2px;
+   height: 100%;
+   background: linear-gradient(180deg, transparent, #ffffff);
+   animation: btn-anim2 1s linear infinite;
+   animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+.searchB span:nth-child(3) {
+   bottom: 0;
+   right: -100%;
+   width: 100%;
+   height: 2px;
+   background: linear-gradient(270deg, transparent, #ffffff);
+   animation: btn-anim3 1s linear infinite;
+   animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+.searchB span:nth-child(4) {
+   bottom: -100%;
+   left: 0;
+   width: 2px;
+   height: 100%;
+   background: linear-gradient(360deg, transparent, #ffffff);
+   animation: btn-anim4 1s linear infinite;
+   animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }

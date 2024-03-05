@@ -96,7 +96,22 @@
 		</div>
 
 	</header>
-	<div class="frequent-title">자주 묻는 질문</div>
+	<div class="header-title">
+	<div class="frequent-title">자주 묻는 질문
+	<form action="searchProc" method="get">
+					<input type="text" name="searchText" placeholder="게시물검색">
+					<div class=btn-con>
+						<button class="searchB" type="submit">
+							<span></span> 
+							<span></span> 
+							<span></span> 
+							<span></span> 
+							검색
+						</button>
+					</div>
+				</form>
+	</div>
+	</div>
 	<div class="middle-box">
 		<div class="frequent-question">
 			<div class="faqCard">
@@ -123,12 +138,33 @@
 					25,000원입니다.</div>
 			</div>
 		</div>
+		<!-- 검색 목록 -->
+		<div class="search">
+			<h4 class="searchList">검색 목록</h4>
+			<c:if test="${not empty searchResult}">
+				<c:forEach var="search" items="${searchResult}">
+					<div class="search-item">
+						<ul>
+							<li>
+							<a href="./detail?b_code=${search.b_code}">제목 :
+								${search.b_title}</a>
+							</li>
+						</ul>
+					</div>
+				</c:forEach>
+			</c:if>
+		</div>
 		<!-- 게시물 -->
 		<div class="content-box">
 			<div class="commentList">
 				<div class="test1">
 					<p class="test">게시물 목록</p>
-					<button id="cklogin" onclick="location.href='./qwrite'">질문등록</button>
+					<button id="cklogin" class= "searchB" onclick="location.href='./qwrite'">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					질문등록</button>
 				</div>
 
 
@@ -148,29 +184,13 @@
 				</c:if>
 				<!-- 페이지 기능 -->
 			</div>
-			<div class="search">
-				<form action="searchProc" method="get">
-					<input type="text" name="searchText" placeholder="게시물검색">
-					<div class=btn-con>
-						<button class="searchB" type="submit">
-							<span></span> <span></span> <span></span> <span></span> 검색
-						</button>
-					</div>
-				</form>
-				<c:if test="${not empty searchResult}">
-					<c:forEach var="search" items="${searchResult}">
-						<div class="search-item">
-							<a href="./detail?b_code=${search.b_code}">제목 :
-								${search.b_title}</a>
-						</div>
-					</c:forEach>
-				</c:if>
-			</div>
+			
 			<div class="paging-area">
 				<div class="paging">${paging}</div>
 			</div>
 		</div>
 	</div>
+
 
 	<%
 	System.out.println("seachResultJSP : " + request.getAttribute("searchResult"));
@@ -179,7 +199,6 @@
 <!-- 메뉴 버튼 기능 -->
 <script>
 
-	console.log(${searchResult});
 	
    var rectangle = document.getElementById('rectangle');
    var menuButton = document.getElementById('menuButton');
