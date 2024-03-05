@@ -38,6 +38,8 @@
       WHERE b_code=#{b_code}
    </select>
 
-
+	<select id="searchProc" resultType="QueDto">
+    SELECT * FROM Qboard WHERE b_title LIKE CONCAT('%', #{b_title}, '%')
+	</select>
 
 </mapper>

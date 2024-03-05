@@ -168,5 +168,42 @@ public class QboardService {
       return view;
    }
 
+   public  String searchProcServ(String searchText,Model model) {
+	   log.info("searchProcServ()");
+	 
+	  String msg = null;
+	  
+	  try {
+		  System.out.println("searchText = " + searchText);
+		  List<QboardDto> searchResult = qDao.searchProc(searchText);		  
+
+	        if (!searchResult.isEmpty()) {	        	
+	            // 검색 결과가 있을 경우
+	            msg = "검색 성공";
+	            // 검색 결과를 JSP로 전달
+	            model.addAttribute("searchResult" , searchResult);
+	            System.out.println("searchProcServ Result : " + searchResult);
+	            model.addAttribute("msg", msg);
+	        
+	            return  "forward:/qboard";
+	        } else {
+	            // 검색 결과가 없을 경우
+	            msg = "검색된 게시물이 없습니다.";
+	            model.addAttribute("msg", msg);
+	            return  "forward:/qboard";
+	         
+	        }
+
+	        
+	  }catch (Exception e) {
+		  e.printStackTrace();
+		
+		msg = "검색 실패";
+		model.addAttribute("msg", msg);
+		  }
+	   
+	   return "foward:/qboard";
+	   }
+   
    
 }

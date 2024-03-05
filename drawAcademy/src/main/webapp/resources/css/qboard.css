@@ -2,6 +2,12 @@ html {
    height: 150%;
 }
 
+.search-item{
+	color : white;
+	font-size: 30px;
+	font-weight: bold;
+}
+
 body {
    margin: 0;
    padding: 0;
@@ -219,6 +225,11 @@ body {
     font-weight: bold;
     font-size: 20px;
 }
+/*검색 버튼 스타일링*/
+
+
+
+
 
 /** 하민 작업 **/
 

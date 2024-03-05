@@ -1,5 +1,7 @@
 package com.icia.drawAcademy;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -311,7 +313,14 @@ public class HomeController {
 
       return view;
    }
-
+   
+   @GetMapping("searchProc")
+   public String searchProc(@RequestParam(name = "searchText") String searchText,Model model ) {
+	   log.info("searchProc()");
+	   String view = Qserv.searchProcServ(searchText,model);
+	   return view;
+   }
+//-----------------------------------------------------------------------------------------------------------------------------
    // 게시물 댓글 달기
    @PostMapping("inscProc")
    public String insertCmt(CmtDto cDto,

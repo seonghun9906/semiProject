@@ -29,5 +29,5 @@ public interface QboardDao {
 
    void deleteMemQboard(Integer id);
    
-   
+   List<QboardDto> searchProc(String searchText);
 }
