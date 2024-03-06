@@ -28,29 +28,73 @@ public class PagingUtil {
       // 4.번호 그룹의 마지막 번호
       int end = (curGroup * pageCnt) >= totalPage ? totalPage : curGroup * pageCnt;
 
-      // 5.이전 버튼 처리
-      if (start != 1) {
-         sb.append("<a class='pno' href='./qboard?pageNum");
+   // 5.처음 버튼 처리
+      if (pageNum != 1) {
+          sb.append("<a class='pno active' href='./qboard?pageNum=");
+          sb.append((1) + "'>");
+          sb.append("처음</a>     ");
+       }
+      
+      if(pageNum==1) {
+          sb.append("<a class='pno active' href='./qboard?pageNum=");
+           sb.append((1) + "'>");
+           sb.append("처음 　<</a>");
+          
+       }
+      
+      
+      
+      if (pageNum != 1) {
+         sb.append("<a class='pno active' href='./qboard?pageNum=");
          sb.append((start - 1) + "'>");
-         sb.append("이전</a>");
+         sb.append("<</a>     ");
       }
 
+      
+      // 이전 버튼 처리
+//      if (pageNum !=1) {
+//         sb.append("<a class='pno active' href='./qboard?pageNum=");
+//         sb.append((pageNum - 1) + "'>");
+//          sb.append("< </a>");
+//      }
+//      
+//      
       // 6. 중간 번호 버튼 처리
       for (int i = start; i <= end; i++) {
          if (pageNum != i) {
-            sb.append("<a class='pno' href='./qboard?pageNum=");
+            sb.append("<a class='pno active' href='./qboard?pageNum=");
             sb.append(i + "'>" + i + "</a>");
          } else {
             sb.append("<font class='pno'>" + i + "</font>");
          }
       }
-
+//
+//     if (pageNum !=totalPage) {
+//        sb.append("<a class='pno active' href='./qboard?pageNum=");
+//         sb.append((pageNum + 1) + "'>");
+//         sb.append("> </a>");
+//     }
+      
+      
       // 7. 다음 버튼 처리
-      if (end != totalPage) {
-         sb.append("<a class='pno' href='./qboard?pageNum=");
+      if (pageNum != totalPage) {
+         sb.append("<a class='pno active' href='./qboard?pageNum=");
          sb.append((end + 1) + "'>");
-         sb.append("다음</a>");
+         sb.append("></a>");
       }
+      
+      if (pageNum != totalPage) {
+          sb.append("<a class='pno active' href='./qboard?pageNum=");
+          sb.append((totalPage) + "'>");
+          sb.append("마지막</a>");
+       }
+      
+      if(pageNum==totalPage) {
+          sb.append("<a class='pno active' href='./qboard?pageNum=");
+           sb.append((totalPage) + "'>");
+           sb.append(">  　마지막</a>");
+          
+       }
 
       // StringBuffer에 저장된 내용을 문자열로 변환
       pageStr = sb.toString();

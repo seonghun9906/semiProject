@@ -35,7 +35,7 @@ public class QboardService {
          pageNum = 1;
       }
 
-      int listCnt = 10; // 페이지당 보여지는 개수
+      int listCnt = 5; // 페이지당 보여지는 개수
 
       Map<String, Integer> pMap = new HashMap<String, Integer>();
       pMap.put("pageNum", (pageNum - 1) * listCnt);

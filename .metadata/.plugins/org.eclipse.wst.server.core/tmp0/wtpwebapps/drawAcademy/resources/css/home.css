@@ -226,8 +226,7 @@
     color: gray;
     font-weight: bold;
     font-size: 25px;
-     background-color: rgba(0, 0, 0, 0.2); /* 투명 검정 배경 추가 */
-  
+       
 }
 
 .comeText a {

@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="java.util.List" %>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -314,7 +313,7 @@ $(document).ready(function () {
 </script>
 
 <script>
-   var rectangle = document.getElementById('rectangle');
+   var rectangle = document.getElementById$('rectangle');
    var menuButton = document.getElementById('menuButton');
    var iconContainer = document.getElementById('icon-container');
    var isRectangleVisible = false; // rectangle의 초기 상태를 정의 - 첫 메뉴 클릭 때 실행되지 않는 현상 해결

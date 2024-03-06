@@ -23,23 +23,17 @@
     <fullyQualifiedTypeName name="lombok.Data"/>
     <fullyQualifiedTypeName name="com.icia.drawAcademy.Service.ClassService"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.support.RedirectAttributes"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="javax.inject.Qualifier"/>
-    <fullyQualifiedTypeName name="com.icia.drawAcademy.dto.QboardDto"/>
     <fullyQualifiedTypeName name="com.icia.drawAcademy.Service.CmtService"/>
     <fullyQualifiedTypeName name="com.icia.drawAcademy.dto.CmtDto"/>
     <fullyQualifiedTypeName name="com.icia.drawAcademy.dao.Qboarddao.CmtDao"/>
     <fullyQualifiedTypeName name="com.icia.drawAcademy.dao.Qboarddao.QboardDao"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="com.icia.drawAcademy.dto.ClassDto"/>
     <fullyQualifiedTypeName name="com.mysql.cj.Session"/>
-    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="java.lang.ProcessBuilder.Redirect"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="lombok.extern.log4j.Log4j"/>
     <fullyQualifiedTypeName name="com.icia.drawAcademy.Service.QboardService"/>
@@ -48,4 +42,10 @@
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
     <fullyQualifiedTypeName name="com.icia.drawAcademy.dto.MemberDto"/>
+    <fullyQualifiedTypeName name="com.icia.drawAcademy.dto.QboardDto"/>
+    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
 </qualifiedTypeNameHistroy>

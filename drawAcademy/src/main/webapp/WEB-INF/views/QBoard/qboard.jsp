@@ -96,51 +96,60 @@
 		</div>
 
 	</header>
-	<div class="header-title">
-	<div class="frequent-title">자주 묻는 질문
-	<form action="searchProc" method="get">
-					<input type="text" name="searchText" placeholder="게시물검색">
-					<div class=btn-con>
-						<button class="searchB" type="submit">
-							<span></span> 
-							<span></span> 
-							<span></span> 
-							<span></span> 
-							검색
-						</button>
-					</div>
-				</form>
-	</div>
-	</div>
+	
 	<div class="middle-box">
+	<div class="header-title">
+	<div>
+	<div class="frequent-title">자주 묻는 질문
+	<form action="searchProc" method="get"
+         onsubmit="return validateSearch()">
+         <input class="inputS" type="text" id="searchText" name="searchText"
+            placeholder="게시물검색">
+         <div class=btn-con>
+            <button class="searchB" type="submit">
+               <span></span> <span></span> <span></span> <span></span> 검색
+            </button>
+         </div>
+      </form>
+      </div>
+				
+				
+	</div>
+	</div>
+	<div class="boarder-box">
+	
+	
 		<div class="frequent-question">
 			<div class="faqCard">
 				<div class="question">
 					Q: 개인 레슨은 가능한가요?
 					<button class="downButton">+</button>
 				</div>
-				<div class="answer">A: 강사와 조율하면 개인 레슨이 가능합니다.</div>
+				<div class="answer">A: 강사님과 조율하면 개인 레슨이 가능합니다.</div>
 			</div>
 			<div class="faqCard">
 				<div class="question">
-					Q: 처음 춤을 출 수 있나요?
+					Q: 춤이 처음인데 수강을 들을 수 있나요?
 					<button class="downButton">+</button>
 				</div>
-				<div class="answer">A: 네, 누구나 춤을 출 수 있습니다. 본인의 노력에 따라 결과가
-					달라집니다.</div>
+				<div class="answer">A: 네, 처음 하시는 분을 위한 클래스도 준비되어 있습니다.
+				</div>
 			</div>
 			<div class="faqCard">
 				<div class="question">
 					Q: 수업 별 가격은 어떻게 되나요?
 					<button class="downButton">+</button>
 				</div>
-				<div class="answer">A: k-pop 25,000원, girlish 30,000원, hip-hop
+				<div class="answer">A: k-pop 25,000원, newbie 20,000원, hip-hop
 					25,000원입니다.</div>
 			</div>
 		</div>
+	</div>
 		<!-- 검색 목록 -->
 		<div class="search">
+		<div class="searchList1">
 			<h4 class="searchList">검색 목록</h4>
+			</div>
 			<c:if test="${not empty searchResult}">
 				<c:forEach var="search" items="${searchResult}">
 					<div class="search-item">
@@ -177,8 +186,12 @@
 				<c:if test="${qList ne null}">
 					<c:forEach var="qqq" items="${qList}">
 						<div class="qboard-item">
+						<ul>
+							<li>
 							<a id="qlist" href="./detail?b_code=${qqq.b_code}">제목 :
 								"${qqq.b_title}" </a>
+								</li>
+						</ul>
 						</div>
 					</c:forEach>
 				</c:if>
@@ -192,9 +205,6 @@
 	</div>
 
 
-	<%
-	System.out.println("seachResultJSP : " + request.getAttribute("searchResult"));
-	%>
 </body>
 <!-- 메뉴 버튼 기능 -->
 <script>
@@ -218,7 +228,6 @@
    });
 </script>
 <script>
- 
 document.addEventListener("DOMContentLoaded", function() {
   var loginBtn = document.getElementById("loginBtn");
   var logoutForm = document.getElementById("logoutForm");
@@ -242,6 +251,16 @@ document.addEventListener("DOMContentLoaded", function() {
     myPageBtn.style.display="none";
   }
 });
+</script>
+<script>
+    function validateSearch() {
+        var searchText = document.getElementById("searchText").value.trim(); // 검색어 입력란의 값을 가져와서 공백을 제거합니다.
+        if (searchText === "") { // 검색어가 비어있는 경우
+            //alert("검색어를 입력하세요."); // 경고 메시지를 표시합니다.
+            return false; // 검색을 막습니다.
+        }
+        return true; // 검색을 실행합니다.
+    }
 </script>
 <script>
    var downButtons = document.querySelectorAll('.downButton');

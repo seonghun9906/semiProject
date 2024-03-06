@@ -17,11 +17,6 @@
       <div class="title">
          CLASS
       </div>
-     <!--   <div class="middle-part">
-         <p>DRAW DANCE에서</p>
-         <p>같이 춤을 그려갈 강사진을 선택하세요.</p>
-      </div>
-      -->
       <div class="headerMenu">
          <button class="Home-btn" onclick="location.href='./'">
             <img src="resources/images/lg.png" class="logo">
@@ -92,24 +87,6 @@
             src="resources/images/instagramIcon.png" class="instagram">
          </a>
       </div>
-     <!--  <div class="instructor-container">
-         <div class="instructor1">
-            <a href="class1"> <img src="resources/images/강사 프로필 사진.PNG"
-               alt="강사1">
-            </a>
-         </div>
-         <div class="instructor2">
-            <a href="class2"> <img src="resources/images/강사 프로필 사진.PNG"
-               alt="강사2">
-            </a>
-         </div>
-         <div class="instructor3">
-            <a href="class3"> <img src="resources/images/강사 프로필 사진.PNG"
-               alt="강사3">
-            </a>
-         </div>
-      </div>
-       -->
       
    
    <div class = cal>

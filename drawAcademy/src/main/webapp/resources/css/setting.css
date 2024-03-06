@@ -52,24 +52,6 @@
    z-index: 9999;
 }
 
-.video-container {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100vw;
-   height:  100vh;
-   z-index: 9995;
-   overflow : hidden;
-}
-
-.video-container video {
-   width: 100%;
-   height: 100%;
-    opacity: 0.8;
-    /*transform: scaleX(1.5); /* 가로로 1.2배 확대 */
-    object-fit: cover;
-}
-
 #menu-container {
    position: relative;
    z-index: 9999;
@@ -206,24 +188,18 @@ body {
 
 .textForm {
   border-bottom: 2px solid #adadad;
-  margin: 20px;
-  padding: 10px 10px;
+  margin-left: 20px;
+}
+
+.textForm input {
+	padding-top: 20px;
+	padding-bottom: 12px;
 }
 
 .textForm p {
-	color : white;
-  	letter-spacing : 5px;
-  	 font-size: 15px;
-	
-}
-.name {
-  width: 100%;
-  border:none;
-  outline:none;
-  color: #ffffff;
-  font-size:16px;
-  height:25px;
-  background: none;
+   color : white;
+     letter-spacing : 5px;
+     font-size: 15px;   
 }
 
 .id {
@@ -246,6 +222,15 @@ body {
   background: none;
 }
 
+.name {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #ffffff;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
 
 .phoneNumber {
   width: 100%;
@@ -265,7 +250,7 @@ body {
   font-size:16px;
   height:25px;
   background: none;
-}
+ }
 
 .age {
   width: 100%;
@@ -275,6 +260,7 @@ body {
   font-size:16px;
   height:25px;
   background: none;
+  padding-top: 15px;
 }
 
 .joinForm select {
@@ -396,8 +382,10 @@ body {
   }
   
  .checkResult {
-	color: white;
+   color: white;
  }
  
-
-
+// video-container: 삭제
+// textForm : margin: 20px; => margin-left: 20px;
+           padding 삭제 
+// id ~ age : padding-top: 10px; 추가
