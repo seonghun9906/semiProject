@@ -9,6 +9,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/detail.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+   crossorigin="anonymous"></script>
 </head>
 <body>
    <div class="bodyMain">
@@ -174,74 +177,80 @@
    </div>
 </div>
 
-
+</body>
    <!-- 메뉴 버튼 기능 -->
-   <script>
-      var rectangle = document.getElementById('rectangle');
-      var menuButton = document.getElementById('menuButton');
-      var iconContainer = document.getElementById('icon-container');
+<script>
+   <!-- 메뉴 버튼 기능 -->
+   $(document).ready(function() {
+      var rectangle = $('#rectangle');
+      console.log("rectangle"+ rectangle);
+      var menuButton = $('#menuButton');
+      var iconContainer = $('#icon-container');
       var isRectangleVisible = false; // rectangle의 초기 상태를 정의 - 첫 메뉴 클릭 때 실행되지 않는 현상 해결
 
-      menuButton.addEventListener('click', function() {
+      menuButton.on('click', function() {
          if (!isRectangleVisible) {
-            rectangle.style.display = 'block';
-            iconContainer.style.display = 'none'; //메뉴 창이 나오면서 iconcontainer 사라지기
+            rectangle.show();
+            iconContainer.hide(); //메뉴 창이 나오면서 iconcontainer 사라지기
             isRectangleVisible = true; // rectangle이 보이는 상태로 설정
          } else {
-            rectangle.style.display = 'none';
-            iconContainer.style.display = 'flex';
+            rectangle.hide();
+            iconContainer.show();
             isRectangleVisible = false; // rectangle이 숨겨진 상태로 설정
          }
       });
 
-      // 댓글을 작성한 후 페이지 스크롤 위치를 유지
-      function scrollToComment() {
-         // 댓글 영역의 상단 좌표를 가져옴
-         var commentSection = document.getElementById("comment");
-         var commentSectionTop = commentSection.offsetTop;
 
-         // 페이지를 댓글 영역의 상단으로 스크롤
-         window.scrollTo(0, commentSectionTop);
-      }
+      $(document).ready(function() {
+         // 댓글을 작성한 후 페이지 스크롤 위치를 유지
+         function scrollToComment() {
+            // 댓글 영역의 상단 좌표를 가져옴
+            var commentSection = $("#comment");
+            var commentSectionTop = commentSection.offset().top;
 
-      // 댓글이 추가될 때 화면의 크기 조정
-      function adjustScreenSize() {
-         // 현재 문서의 전체 높이
-         var documentHeight = document.body.scrollHeight;
-
-         // 브라우저 높이
-         var windowHeight = window.innerHeight;
-
-         // 브라우저 높이보다 문서의 높이가 작을 경우
-         if (documentHeight < windowHeight) {
-            // 문서의 높이를 브라우저 높이로 조정
-            document.body.style.height = windowHeight + 'px';
-         } else {
-            // 문서의 높이를 기존 높이로 유지
-            document.body.style.height = documentHeight + 'px';
+            // 페이지를 댓글 영역의 상단으로 스크롤
+            window.scrollTo(0, commentSectionTop);
          }
-      }
 
-      // 페이지 로드 시 화면 크기 조정
-      window.onload = function() {
-         adjustScreenSize();
-      };
+         // 댓글이 추가될 때 화면의 크기 조정
+         function adjustScreenSize() {
+            // 현재 문서의 전체 높이
+            var documentHeight = $(document).height();
 
-      // 댓글이 추가될 때 화면 크기 조정
-      function addComment() {
-         // 댓글 추가 작업 수행 후
-         // 화면 크기 조정 함수 호출
-         adjustScreenSize();
-      }
+            // 브라우저 높이
+            var windowHeight = $(window).height();
+
+            // 브라우저 높이보다 문서의 높이가 작을 경우
+            if (documentHeight < windowHeight) {
+               // 문서의 높이를 브라우저 높이로 조정
+               $("body").height(windowHeight);
+            } else {
+               // 문서의 높이를 기존 높이로 유지
+               $("body").height(documentHeight);
+            }
+         }
+
+         // 페이지 로드 시 화면 크기 조정
+         $(window).on("load", function() {
+            adjustScreenSize();
+         });
+
+         // 댓글이 추가될 때 화면 크기 조정
+         function addComment() {
+            // 댓글 추가 작업 수행 후
+            // 화면 크기 조정 함수 호출
+            adjustScreenSize();
+         }
+      });
    </script>
 
 <script>
- 
-document.addEventListener("DOMContentLoaded", function() {
-  var loginBtn = document.getElementById("loginBtn");
-  var logoutForm = document.getElementById("logoutForm");
-  var signupBtn = document.getElementById("signupBtn");
-  var myPageBtn = document.getElementById("myPage");
+$(document).ready(function() {
+
+  var loginBtn = $("#loginBtn");
+  var logoutForm = $("#logoutForm");
+  var signupBtn = $("#signupBtn");
+  var myPageBtn = $("#myPage");
 
   var loggedInMember = '<%= session.getAttribute("login") %>';
   console.log("세션에 저장된 값: " + loggedInMember);
@@ -249,17 +258,17 @@ document.addEventListener("DOMContentLoaded", function() {
   var isLoggedIn = loggedInMember !== 'null' && loggedInMember !== '';
 
   if (isLoggedIn) {
-    loginBtn.style.display = "none";
-    logoutForm.style.display = "block";
-    signupBtn.style.display = "none";
-    myPageBtn.style.display ="block";
+    loginBtn.hide();
+    logoutForm.show();
+    signupBtn.hide();
+    myPageBtn.show();
   } else {
-    loginBtn.style.display = "block";
-    logoutForm.style.display = "none";
-    signupBtn.style.display= "block";
-    myPageBtn.style.display="none";
+    loginBtn.show();
+    logoutForm.hide();
+    signupBtn.show();
+    myPageBtn.hide();
   }
 });
 </script>
-</body>
+
 </html>

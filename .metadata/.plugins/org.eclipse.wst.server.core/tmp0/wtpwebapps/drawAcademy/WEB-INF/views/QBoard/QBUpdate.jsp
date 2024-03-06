@@ -7,6 +7,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/qupdate.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+   crossorigin="anonymous"></script>
 <script>
    $(function() {
       let m = "${msg2}";
@@ -110,46 +113,48 @@
    </div>
 </body>
 <script>
-   var rectangle = document.getElementById('rectangle');
-   var menuButton = document.getElementById('menuButton');
-   var iconContainer = document.getElementById('icon-container');
-   var isRectangleVisible = false; // rectangle의 초기 상태를 정의 - 첫 메뉴 클릭 때 실행되지 않는 현상 해결
+$(document).ready(function() {
+   var rectangle = $('#rectangle');
+   var menuButton = $('#menuButton');
+   var iconContainer = $('#icon-container');
+   var isRectangleVisible = false;
 
-   menuButton.addEventListener('click', function() {
+   menuButton.on('click', function() {
       if (!isRectangleVisible) {
-         rectangle.style.display = 'block';
-         iconContainer.style.display = 'none'; //메뉴 창이 나오면서 iconcontainer 사라지기
-         isRectangleVisible = true; // rectangle이 보이는 상태로 설정
+         rectangle.show();
+         iconContainer.hide();
+         isRectangleVisible = true;
       } else {
-         rectangle.style.display = 'none';
-         iconContainer.style.display = 'flex';
-         isRectangleVisible = false; // rectangle이 숨겨진 상태로 설정
+         rectangle.hide();
+         iconContainer.show();
+         isRectangleVisible = false;
       }
    });
+});
 </script>
+
 <script>
- 
-document.addEventListener("DOMContentLoaded", function() {
-  var loginBtn = document.getElementById("loginBtn");
-  var logoutForm = document.getElementById("logoutForm");
-  var signupBtn = document.getElementById("signupBtn");
-  var myPageBtn = document.getElementById("myPage");
+$(document).ready(function() {
+  var loginBtn = $("#loginBtn");
+  var logoutForm = $("#logoutForm");
+  var signupBtn = $("#signupBtn");
+  var myPageBtn = $("#myPage");
 
   var loggedInMember = '<%= session.getAttribute("login") %>';
   console.log("세션에 저장된 값: " + loggedInMember);
-  // 여기서 로그인 여부를 확인하고 그에 따라 버튼을 표시하거나 숨깁니다.
+  
   var isLoggedIn = loggedInMember !== 'null' && loggedInMember !== '';
 
   if (isLoggedIn) {
-    loginBtn.style.display = "none";
-    logoutForm.style.display = "block";
-    signupBtn.style.display = "none";
-    myPageBtn.style.display ="block";
+    loginBtn.hide();
+    logoutForm.show();
+    signupBtn.hide();
+    myPageBtn.show();
   } else {
-    loginBtn.style.display = "block";
-    logoutForm.style.display = "none";
-    signupBtn.style.display= "block";
-    myPageBtn.style.display="none";
+    loginBtn.show();
+    logoutForm.hide();
+    signupBtn.show();
+    myPageBtn.hide();
   }
 });
 </script>

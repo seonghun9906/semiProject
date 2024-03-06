@@ -99,12 +99,7 @@
             <source src="resources/video/TestHome.MP4" type="video/mp4">
          </video>
       </div>
-      <!-- 
-      <div class="menuName">
-         <a href="signUp">[회원가입 이동]</a> <a href="login">[로그인 이동]</a> <a
-            href="mypage">[마이페이지]</a>
-      </div> 
-      -->
+
       
       <div class="bottominfo">
       
@@ -139,47 +134,49 @@
   
 </body>
 <script>
-   var rectangle = document.getElementById('rectangle');
-   var menuButton = document.getElementById('menuButton');
-   var iconContainer = document.getElementById('icon-container');
-   var isRectangleVisible = false; // rectangle의 초기 상태를 정의 - 첫 메뉴 클릭 때 실행되지 않는 현상 해결
+$(document).ready(function() {
+	  var rectangle = $("#rectangle");
+	  var menuButton = $("#menuButton");
+	  var iconContainer = $("#icon-container");
+	  var isRectangleVisible = false;
 
-   menuButton.addEventListener('click', function() {
-      if (!isRectangleVisible) {
-         rectangle.style.display = 'block';
-         iconContainer.style.display = 'none'; //메뉴 창이 나오면서 iconcontainer 사라지기
-         isRectangleVisible = true; // rectangle이 보이는 상태로 설정
-      } else {
-         rectangle.style.display = 'none';
-         iconContainer.style.display = 'flex';
-         isRectangleVisible = false; // rectangle이 숨겨진 상태로 설정
-      }
-   });
+	  menuButton.on('click', function() {
+	    if (!isRectangleVisible) {
+	      rectangle.show();
+	      iconContainer.hide();
+	      isRectangleVisible = true;
+	    } else {
+	      rectangle.hide();
+	      iconContainer.show();
+	      isRectangleVisible = false;
+	    }
+	  });
+	});
 </script>
 <script>
- 
-document.addEventListener("DOMContentLoaded", function() {
-  var loginBtn = document.getElementById("loginBtn");
-  var logoutForm = document.getElementById("logoutForm");
-  var signupBtn = document.getElementById("signupBtn");
-  var myPageBtn = document.getElementById("myPage");
+$(document).ready(function() {
+	  var loginBtn = $("#loginBtn");
+	  var logoutForm = $("#logoutForm");
+	  var signupBtn = $("#signupBtn");
+	  var myPageBtn = $("#myPage");
 
-  var loggedInMember = '<%= session.getAttribute("login") %>';
-  console.log("세션에 저장된 값: " + loggedInMember);
-  // 여기서 로그인 여부를 확인하고 그에 따라 버튼을 표시하거나 숨깁니다.
-  var isLoggedIn = loggedInMember !== 'null' && loggedInMember !== '';
+	  var loggedInMember = '<%= session.getAttribute("login") %>';
+	  console.log("세션에 저장된 값: " + loggedInMember);
 
-  if (isLoggedIn) {
-    loginBtn.style.display = "none";
-    logoutForm.style.display = "block";
-    signupBtn.style.display = "none";
-    myPageBtn.style.display ="block";
-  } else {
-    loginBtn.style.display = "block";
-    logoutForm.style.display = "none";
-    signupBtn.style.display= "block";
-    myPageBtn.style.display="none";
-  }
-});
+	  // 여기서 로그인 여부를 확인하고 그에 따라 버튼을 표시하거나 숨깁니다.
+	  var isLoggedIn = loggedInMember !== 'null' && loggedInMember !== '';
+
+	  if (isLoggedIn) {
+	    loginBtn.hide();
+	    logoutForm.show();
+	    signupBtn.hide();
+	    myPageBtn.show();
+	  } else {
+	    loginBtn.show();
+	    logoutForm.hide();
+	    signupBtn.show();
+	    myPageBtn.hide();
+	  }
+	});
 </script>
 </html>

@@ -9,6 +9,9 @@
 <meta charset="UTF-8">
 <title>게시물 작성</title>
 <link rel="stylesheet" href="resources/css/qwrite.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+   crossorigin="anonymous"></script>
 <script>
    $(function() {
       let m = "${msg}";
@@ -116,25 +119,26 @@
 </body>
 <script>
 <!-- 메뉴 버튼 기능 -->
-   var rectangle = document.getElementById('rectangle');
-   var menuButton = document.getElementById('menuButton');
-   var iconContainer = document.getElementById('icon-container');
+$(document).ready(function() {
+   var rectangle = $('#rectangle');
+   var menuButton = $('#menuButton');
+   var iconContainer = $('#icon-container');
    var isRectangleVisible = false; // rectangle의 초기 상태를 정의 - 첫 메뉴 클릭 때 실행되지 않는 현상 해결
 
-   menuButton.addEventListener('click', function() {
+   menuButton.on('click', function() {
       if (!isRectangleVisible) {
-         rectangle.style.display = 'block';
-         iconContainer.style.display = 'none'; //메뉴 창이 나오면서 iconcontainer 사라지기
+         rectangle.show();
+         iconContainer.hide(); //메뉴 창이 나오면서 iconcontainer 사라지기
          isRectangleVisible = true; // rectangle이 보이는 상태로 설정
       } else {
-         rectangle.style.display = 'none';
-         iconContainer.style.display = 'flex';
+         rectangle.hide();
+         iconContainer.show();
          isRectangleVisible = false; // rectangle이 숨겨진 상태로 설정
       }
    });
 
    //엔터 기능 막기 
-   document.addEventListener('DOMContentLoaded', function() {
+   document.on('DOMContentLoaded', function() {
       var contentInput = document
             .querySelector('.write input[name="b_contents"]');
 
@@ -154,14 +158,15 @@
    $("#backbtn").click(function() {
       location.href = `./detail?b_code=${qboard.b_code}`;
    });
+});
 </script>
 <script>
- 
-document.addEventListener("DOMContentLoaded", function() {
-  var loginBtn = document.getElementById("loginBtn");
-  var logoutForm = document.getElementById("logoutForm");
-  var signupBtn = document.getElementById("signupBtn");
-  var myPageBtn = document.getElementById("myPage");
+$(document).ready(function() {
+
+  var loginBtn = $("#loginBtn");
+  var logoutForm = $("#logoutForm");
+  var signupBtn = $("#signupBtn");
+  var myPageBtn = $("#myPage");
 
   var loggedInMember = '<%= session.getAttribute("login") %>';
   console.log("세션에 저장된 값: " + loggedInMember);
@@ -169,16 +174,18 @@ document.addEventListener("DOMContentLoaded", function() {
   var isLoggedIn = loggedInMember !== 'null' && loggedInMember !== '';
 
   if (isLoggedIn) {
-    loginBtn.style.display = "none";
-    logoutForm.style.display = "block";
-    signupBtn.style.display = "none";
-    myPageBtn.style.display ="block";
+    loginBtn.hide();
+    logoutForm.show();
+    signupBtn.hide();
+    myPageBtn.show();
   } else {
-    loginBtn.style.display = "block";
-    logoutForm.style.display = "none";
-    signupBtn.style.display= "block";
-    myPageBtn.style.display="none";
+    loginBtn.show();
+    logoutForm.hide();
+    signupBtn.show();
+    myPageBtn.hide();
   }
 });
+
+
 </script>
 </html>

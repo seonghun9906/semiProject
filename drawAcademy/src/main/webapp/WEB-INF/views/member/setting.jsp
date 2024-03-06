@@ -144,87 +144,59 @@
    
 </body>
 <script>
-   var rectangle = document.getElementById('rectangle');
-   var menuButton = document.getElementById('menuButton');
-   var iconContainer = document.getElementById('icon-container');
-   var isRectangleVisible = false; // rectangle의 초기 상태를 정의 - 첫 메뉴 클릭 때 실행되지 않는 현상 해결
+  $(document).ready(function() {
+    var rectangle = $('#rectangle');
+    var menuButton = $('#menuButton');
+    var iconContainer = $('#icon-container');
+    var loginBtn = $('#loginBtn');
+    var logoutForm = $('#logoutForm');
+    var signupBtn = $('#signupBtn');
+    var myPageBtn = $('#myPage');
+    var phoneNumberInput = $('#phoneNumber');
+    var errorMessage = $('#phoneNumberCheck');
 
-   menuButton.addEventListener('click', function() {
-      if (!isRectangleVisible) {
-         rectangle.style.display = 'block';
-         iconContainer.style.display = 'none'; //메뉴 창이 나오면서 iconcontainer 사라지기
-         isRectangleVisible = true; // rectangle이 보이는 상태로 설정
-      } else {
-         rectangle.style.display = 'none';
-         iconContainer.style.display = 'flex';
-         isRectangleVisible = false; // rectangle이 숨겨진 상태로 설정
-      }
-   });
-</script>
-<script>
- 
-document.addEventListener("DOMContentLoaded", function() {
-  var loginBtn = document.getElementById("loginBtn");
-  var logoutForm = document.getElementById("logoutForm");
-  var signupBtn = document.getElementById("signupBtn");
-  var myPageBtn = document.getElementById("myPage");
+    // Rectangle 토글
+    menuButton.on('click', function() {
+      rectangle.toggle();
+      iconContainer.toggle();
+    });
 
-  var loggedInMember = '<%= session.getAttribute("login") %>';
-  console.log("세션에 저장된 값: " + loggedInMember);
-  // 여기서 로그인 여부를 확인하고 그에 따라 버튼을 표시하거나 숨깁니다.
-  var isLoggedIn = loggedInMember !== 'null' && loggedInMember !== '';
+    // 로그인 여부에 따라 버튼 표시
+    var loggedInMember = '<%= session.getAttribute("login") %>';
+    var isLoggedIn = loggedInMember !== 'null' && loggedInMember !== '';
+    
+    loginBtn.toggle(!isLoggedIn);
+    logoutForm.toggle(isLoggedIn);
+    signupBtn.toggle(!isLoggedIn);
+    myPageBtn.toggle(isLoggedIn);
 
-  if (isLoggedIn) {
-    loginBtn.style.display = "none";
-    logoutForm.style.display = "block";
-    signupBtn.style.display = "none";
-    myPageBtn.style.display ="block";
-  } else {
-    loginBtn.style.display = "block";
-    logoutForm.style.display = "none";
-    signupBtn.style.display= "block";
-    myPageBtn.style.display="none";
-  }
-});
-</script>
-<script>
-$(document).ready(function() {
     // Datepicker 적용
     $("#birthdate").datepicker({
-        dateFormat: 'yy-mm-dd', // 원하는 날짜 형식 지정
-        changeYear: true, // 연도 선택 가능
-        yearRange: '1900:2024', // 연도 범위 설정
-        changeMonth: true, // 월 선택 가능
-        showMonthAfterYear: true, // 연도 먼저 나오고 월 나오도록 설정
-        currentText: '오늘', // '오늘' 버튼 텍스트
-        closeText: '닫기', // '닫기' 버튼 텍스트
-        showDay: true // 일(day) 표시
+      dateFormat: 'yy-mm-dd',
+      changeYear: true,
+      yearRange: '1900:2024',
+      changeMonth: true,
+      showMonthAfterYear: true,
+      currentText: '오늘',
+      closeText: '닫기',
+      showDay: true
     });
-});
-</script>
-<script>
-    // 전화번호 검증 함수
-    	$(document).ready(function() {
-    	    // 문서가 준비되면 실행되는 함수
-    	    $("#settingForm").submit(function(){
-    	    
-    	        var phoneNumberInput = $('#phoneNumber');
-    	        var errorMessage = $('#phoneNumberCheck');
-    	        var phoneNumberPattern =  /^010-\d{4}-\d{4}$/;
 
-    	        
-    	        if (!phoneNumberPattern.test(phoneNumberInput.val())) {
-    	            errorMessage.text('(형식 : 010-0000-0000)');
-    	            alert("전화번호 형식을 다시 확인해주세요.")
-    	            errorMessage.css('color', 'white'); // 스타일을 동적으로 변경
-    	            event.preventDefault();
-    	            return false;
-    	        } else {
-    	            errorMessage.text('');
-    	            return true;
-    	        }
-    	    });
-    
-    	});
+    // 전화번호 검증 함수
+    $("#settingForm").submit(function(event) {
+      var phoneNumberPattern = /^010-\d{4}-\d{4}$/;
+
+      if (!phoneNumberPattern.test(phoneNumberInput.val())) {
+        errorMessage.text('(형식 : 010-0000-0000)');
+        alert("전화번호 형식을 다시 확인해주세요.");
+        errorMessage.css('color', 'white');
+        event.preventDefault();
+        return false;
+      } else {
+        errorMessage.text('');
+        return true;
+      }
+    });
+  });
 </script>
 </html>

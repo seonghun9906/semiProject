@@ -67,18 +67,6 @@
     </div><!-- cancel-part -->
     
    </div>
-   <!--   <div class="btn-con">
-        <div class="classCancle">
-            <form action="classCancle" method="get" class="cancleBtn">
-                <button type="submit">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    수강신청취소
-                </button>
-            </form>
-        </div>  -->
         
         <div class="classCancle">
             <form action="setting" method="get" class="settingBtn">
@@ -94,7 +82,7 @@
 
         <div class="classCancle">
             <form action="memout" method="get" class="memoutBtn">
-                <button type="submit" onclick="memoutBtn()">
+                <button type="submit" onclick="memoutBtn()" id="memout">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -190,65 +178,71 @@ if(msg != ""){
 
 </script>
 <script>
-   var rectangle = document.getElementById('rectangle');
-   var menuButton = document.getElementById('menuButton');
-   var iconContainer = document.getElementById('icon-container');
-   var isRectangleVisible = false; // rectangle의 초기 상태를 정의 - 첫 메뉴 클릭 때 실행되지 않는 현상 해결
+$(document).ready(function() {
+	  var rectangle = $("#rectangle");
+	  var menuButton = $("#menuButton");
+	  var iconContainer = $("#icon-container");
+	  var isRectangleVisible = false;
 
-   menuButton.addEventListener('click', function() {
-      if (!isRectangleVisible) {
-         rectangle.style.display = 'block';
-         iconContainer.style.display = 'none'; //메뉴 창이 나오면서 iconcontainer 사라지기
-         isRectangleVisible = true; // rectangle이 보이는 상태로 설정
-      } else {
-         rectangle.style.display = 'none';
-         iconContainer.style.display = 'flex';
-         isRectangleVisible = false; // rectangle이 숨겨진 상태로 설정
-      }
-   });
+	  menuButton.on('click', function() {
+	    if (!isRectangleVisible) {
+	      rectangle.show();
+	      iconContainer.hide();
+	      isRectangleVisible = true;
+	    } else {
+	      rectangle.hide();
+	      iconContainer.show();
+	      isRectangleVisible = false;
+	    }
+	  });
+	});
 </script>
 <script>
- 
-document.addEventListener("DOMContentLoaded", function() {
-  var loginBtn = document.getElementById("loginBtn");
-  var logoutForm = document.getElementById("logoutForm");
-  var signupBtn = document.getElementById("signupBtn");
-  var myPageBtn = document.getElementById("myPage");
+$(document).ready(function() {
+	  var loginBtn = $("#loginBtn");
+	  var logoutForm = $("#logoutForm");
+	  var signupBtn = $("#signupBtn");
+	  var myPageBtn = $("#myPage");
 
-  var loggedInMember = '<%=session.getAttribute("login")%>';
-  
-      console.log("세션에 저장된 값: " + loggedInMember);
-      // 여기서 로그인 여부를 확인하고 그에 따라 버튼을 표시하거나 숨깁니다.
-      var isLoggedIn = loggedInMember !== 'null' && loggedInMember !== '';
+	  var loggedInMember = '<%= session.getAttribute("login") %>';
+	  console.log("세션에 저장된 값: " + loggedInMember);
 
-      if (isLoggedIn) {
-         loginBtn.style.display = "none";
-         logoutForm.style.display = "block";
-         signupBtn.style.display = "none";
-         myPageBtn.style.display = "block";
-      } else {
-         loginBtn.style.display = "block";
-         logoutForm.style.display = "none";
-         signupBtn.style.display = "block";
-         myPageBtn.style.display = "none";
-      }
-   });
+	  // 여기서 로그인 여부를 확인하고 그에 따라 버튼을 표시하거나 숨깁니다.
+	  var isLoggedIn = loggedInMember !== 'null' && loggedInMember !== '';
+
+	  if (isLoggedIn) {
+	    loginBtn.hide();
+	    logoutForm.show();
+	    signupBtn.hide();
+	    myPageBtn.show();
+	  } else {
+	    loginBtn.show();
+	    logoutForm.hide();
+	    signupBtn.show();
+	    myPageBtn.hide();
+	  }
+	});
 </script>
 <script>
+  $(document).ready(function() {
     function memoutBtn() {
-        // 확인 창을 띄우고 사용자의 선택에 따라 동작을 수행
-        var memBtn = confirm("정말 회원탈퇴를 하시겠습니까?");
-        
-        if (memBtn) {
-            // 사용자가 확인을 선택한 경우, 실제 회원탈퇴 동작 수행
-            alert("회원탈퇴가 완료되었습니다.");
-            // 여기에 실제 회원탈퇴 동작을 수행하는 코드를 추가할 수 있습니다.
-        } else {
-            // 사용자가 취소를 선택한 경우
-            alert("회원탈퇴가 취소되었습니다.");
-            event.preventDefault();
-        }
+      // 확인 창을 띄우고 사용자의 선택에 따라 동작을 수행
+      var memBtn = confirm("정말 회원탈퇴를 하시겠습니까?");
+      
+      if (memBtn) {
+        // 사용자가 확인을 선택한 경우, 실제 회원탈퇴 동작 수행
+        alert("회원탈퇴가 완료되었습니다.");
+        // 여기에 실제 회원탈퇴 동작을 수행하는 코드를 추가할 수 있습니다.
+      } else {
+        // 사용자가 취소를 선택한 경우
+        alert("회원탈퇴가 취소되었습니다.");
+        event.preventDefault();
+      }
     }
+
+    // 버튼 클릭 이벤트에 memoutBtn 함수 바인딩
+    $('#memout').on('click', memoutBtn);
+  });
 </script>
 
 </html>

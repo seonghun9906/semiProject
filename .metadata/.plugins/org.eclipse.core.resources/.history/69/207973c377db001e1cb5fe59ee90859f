@@ -15,8 +15,7 @@
 		
 		<c:forEach var="cl" items="${cList}">
 		<form action="classCancleProc" method="post">
-	  		<li>${cl.className} : ${cl.day} ${cl.date} ${cl.time} 
-	  			<button type="submit">취소</button>
+	  		<li>${cl.className} : ${cl.day} ${cl.date} ${cl.time} 	  			<button type="submit">취소</button>
 	  		</li>
 	  		<input type="hidden" value="${sessionScope.login.m_id}" name="m_id">
 	  		<input type="hidden" value="${cl.c_id}" name="c_id">
