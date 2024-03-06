@@ -141,12 +141,24 @@
    </div>
 </body>
 <script>
-  $(document).ready(function() {
+$(document).ready(function() {
     // 이메일 중복 체크
     $("#signUpEmail").on("blur", function() {
-      $.post("emailCheckResult", { m_email: $(this).val() }, function(result) {
-        $("#emailCheckResult").text(result).addClass("white-text");
-      });
+        var emailValue = $(this).val();
+
+        // AJAX를 사용하여 중복 체크
+        $.post("emailCheckResult", { m_email: emailValue }, function(result) {
+            $("#emailCheckResult").text(result).addClass("white-text");
+
+            // 중복이면 폼 제출 막기
+            if (result === "중복된 이메일입니다.") {
+                $("#signUpFrom").submit(function(event) {
+                    event.preventDefault();
+                    alert("중복된 이메일입니다. 이메일을 다시 확인하여 주십시오.");
+                    // 또는 다른 작업 수행
+                });
+            }
+        });
     });
 
     // 메뉴 토글

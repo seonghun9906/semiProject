@@ -9,6 +9,8 @@
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
 			<item value="paging"/>
+			<item value="freque"/>
+			<item value="pno"/>
 			<item value="search-item"/>
 			<item value="test"/>
 			<item value="downButton"/>
@@ -21,8 +23,6 @@
 			<item value="search"/>
 			<item value="item"/>
 			<item value="search_item"/>
-			<item value="qboard"/>
-			<item value="qlist"/>
 		</list>
 		<list key="replacehistory">
 			<item value="btn-write1"/>

@@ -56,3 +56,31 @@
 
 3월 06, 2024 13:07:32.191 NEW SESSION
 3월 06, 2024 13:07:32.191 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+3월 06, 2024 15:21:51.993 [9136:7536:0306/152151.992:ERROR:interface_endpoint_client.cc(707)] Message 5 rejected by interface blink.mojom.WidgetHost
+3월 06, 2024 15:22:03.67 [9136:7536:0306/152203.066:ERROR:interface_endpoint_client.cc(707)] Message 5 rejected by interface blink.mojom.WidgetHost
+3월 06, 2024 16:09:05.985 [9136:7536:0306/160905.984:ERROR:device_event_log_impl.cc(192)] [16:09:05.983] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+3월 06, 2024 16:09:05.998 [9136:7536:0306/160905.997:ERROR:device_event_log_impl.cc(192)] [16:09:05.997] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: �궗�슜 媛��뒫�븳 �뜲�씠�꽣媛� �뾾�뒿�땲�떎. (0x103)
+3월 06, 2024 16:09:25.529 [9136:7536:0306/160925.529:ERROR:device_event_log_impl.cc(192)] [16:09:25.528] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+3월 06, 2024 16:09:25.538 [9136:7536:0306/160925.538:ERROR:device_event_log_impl.cc(192)] [16:09:25.537] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: �궗�슜 媛��뒫�븳 �뜲�씠�꽣媛� �뾾�뒿�땲�떎. (0x103)
+3월 06, 2024 16:09:48.345 [9136:7536:0306/160948.344:ERROR:device_event_log_impl.cc(192)] [16:09:48.344] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+3월 06, 2024 16:09:48.350 [9136:7536:0306/160948.350:ERROR:device_event_log_impl.cc(192)] [16:09:48.349] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: �궗�슜 媛��뒫�븳 �뜲�씠�꽣媛� �뾾�뒿�땲�떎. (0x103)
+3월 06, 2024 16:11:09.283 [9136:7536:0306/161109.282:ERROR:device_event_log_impl.cc(192)] [16:11:09.282] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+3월 06, 2024 16:11:09.290 [9136:7536:0306/161109.290:ERROR:device_event_log_impl.cc(192)] [16:11:09.290] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: �궗�슜 媛��뒫�븳 �뜲�씠�꽣媛� �뾾�뒿�땲�떎. (0x103)
+3월 06, 2024 16:11:22.452 [9136:7536:0306/161122.452:ERROR:device_event_log_impl.cc(192)] [16:11:22.451] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+3월 06, 2024 16:11:22.459 [9136:7536:0306/161122.459:ERROR:device_event_log_impl.cc(192)] [16:11:22.459] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: �궗�슜 媛��뒫�븳 �뜲�씠�꽣媛� �뾾�뒿�땲�떎. (0x103)
+3월 06, 2024 16:11:26.252 [9136:7536:0306/161126.252:ERROR:device_event_log_impl.cc(192)] [16:11:26.252] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+3월 06, 2024 16:11:26.260 [9136:7536:0306/161126.260:ERROR:device_event_log_impl.cc(192)] [16:11:26.259] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: �궗�슜 媛��뒫�븳 �뜲�씠�꽣媛� �뾾�뒿�땲�떎. (0x103)
+3월 06, 2024 16:11:35.236 [9136:7536:0306/161135.236:ERROR:device_event_log_impl.cc(192)] [16:11:35.236] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+3월 06, 2024 16:11:35.251 [9136:7536:0306/161135.250:ERROR:device_event_log_impl.cc(192)] [16:11:35.250] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: �궗�슜 媛��뒫�븳 �뜲�씠�꽣媛� �뾾�뒿�땲�떎. (0x103)
+3월 06, 2024 16:11:50.990 [9136:7536:0306/161150.990:ERROR:device_event_log_impl.cc(192)] [16:11:50.989] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+3월 06, 2024 16:11:50.999 [9136:7536:0306/161150.999:ERROR:device_event_log_impl.cc(192)] [16:11:50.998] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: �궗�슜 媛��뒫�븳 �뜲�씠�꽣媛� �뾾�뒿�땲�떎. (0x103)
+3월 06, 2024 16:11:53.685 [9136:7536:0306/161153.685:ERROR:device_event_log_impl.cc(192)] [16:11:53.683] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+3월 06, 2024 16:11:53.693 [9136:7536:0306/161153.692:ERROR:device_event_log_impl.cc(192)] [16:11:53.692] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: �궗�슜 媛��뒫�븳 �뜲�씠�꽣媛� �뾾�뒿�땲�떎. (0x103)
+3월 06, 2024 16:12:02.489 [9136:7536:0306/161202.488:ERROR:device_event_log_impl.cc(192)] [16:12:02.487] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+3월 06, 2024 16:12:02.497 [9136:7536:0306/161202.497:ERROR:device_event_log_impl.cc(192)] [16:12:02.496] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: �궗�슜 媛��뒫�븳 �뜲�씠�꽣媛� �뾾�뒿�땲�떎. (0x103)
+3월 06, 2024 16:12:05.300 [9136:7536:0306/161205.299:ERROR:device_event_log_impl.cc(192)] [16:12:05.298] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+3월 06, 2024 16:12:05.309 [9136:7536:0306/161205.308:ERROR:device_event_log_impl.cc(192)] [16:12:05.307] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: �궗�슜 媛��뒫�븳 �뜲�씠�꽣媛� �뾾�뒿�땲�떎. (0x103)
+3월 06, 2024 16:12:09.961 [9136:7536:0306/161209.961:ERROR:device_event_log_impl.cc(192)] [16:12:09.960] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+3월 06, 2024 16:12:09.969 [9136:7536:0306/161209.968:ERROR:device_event_log_impl.cc(192)] [16:12:09.968] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: �궗�슜 媛��뒫�븳 �뜲�씠�꽣媛� �뾾�뒿�땲�떎. (0x103)
+3월 06, 2024 16:14:15.128 [9136:7536:0306/161415.128:ERROR:device_event_log_impl.cc(192)] [16:14:15.127] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+3월 06, 2024 16:14:15.142 [9136:7536:0306/161415.141:ERROR:device_event_log_impl.cc(192)] [16:14:15.141] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: �궗�슜 媛��뒫�븳 �뜲�씠�꽣媛� �뾾�뒿�땲�떎. (0x103)
