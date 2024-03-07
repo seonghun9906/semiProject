@@ -8,13 +8,7 @@
 		VALUES (null,#{className},#{day},#{date},#{time},#{m_id})
 	</insert>
   	
-  	<update id="PlusMemberClassName" parameterType="classDto">
-  		UPDATE membertbl SET className = #{className} WHERE m_id = #{m_id}
-  	</update>
   	
-  	<update id="PlusClassNameMember" parameterType="classDto">
-  		UPDATE teacherName1 SET m_id=#{m_id} WHERE className = #{className} AND m_id=#{m_id}
-  	</update>
   	
   	<select id="classLimit" parameterType="classDto" resultType="Integer">
   		SELECT COUNT(*) FROM teacherName1 WHERE className = #{className}

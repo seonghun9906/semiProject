@@ -57,7 +57,7 @@ public class ClassService {
       try {
          
          classDto.setM_id(m_id);
-         loggedInMember.setClassName(className);
+       
          
          // System.out.println("classDto = " + classDto);
          // System.out.println("loggedInMember = " + loggedInMember);
@@ -65,8 +65,7 @@ public class ClassService {
          // MemberDto의 ClassName 정보 업데이트
          cDao.class1proc(classDto); // 저장 성공
          
-         cDao.PlusMemberClassName(className, m_id);
-         cDao.PlusClassNameMember(className, m_id);
+         
          view = "redirect:class1";
          msg = "수강신청 성공";
          rttr.addFlashAttribute("msg", msg);

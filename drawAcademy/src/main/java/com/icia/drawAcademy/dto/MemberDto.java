@@ -20,7 +20,7 @@ public class MemberDto {
 	private String m_address;
 	private String m_age;
 	private String sort;
-	private String className; 
+	
 	
 		
 	

@@ -11,9 +11,7 @@ public interface ClassDao {
 
 	void class1proc(ClassDto classdto);
 	
-	void PlusMemberClassName(@Param("className")String className,@Param("m_id") Integer m_id);
 	
-	void PlusClassNameMember(@Param("className")String className,@Param("m_id") Integer m_id);
 							
 	Integer classLimit(String className);
 	

@@ -1,8 +1,19 @@
+-- eezy academyProject
+create database if not exists eezy_db;
+create user if not exists eezy_user@localhost identified by '1234';
+grant all privileges on eezy_db.* to eezy_user@localhost;
+ALTER USER 'eezy_user'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';
+FLUSH PRIVILEGES;
+
+
+---------------------------------------------------------------------------------------------------------------
+
 use eezy_db;
 
 DROP VIEW IF EXISTS memeberlist;
 DROP TABLE IF EXISTS membertbl;
 
+-- table만들기
 CREATE TABLE IF NOT EXISTS membertbl (
     m_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     m_name varchar(100) NOT NULL,
@@ -11,10 +22,10 @@ CREATE TABLE IF NOT EXISTS membertbl (
     m_password varchar(100) NOT NULL,
     m_address varchar(100) NOT NULL,
     m_age varchar(10) NOT NULL,
-	sORt varchar(20) Not null,
-    className varchar(20) default null
+	sORt varchar(20) Not null
+    
 );
-
+-- 리스트 만들기
 CREATE OR REPLACE VIEW memberlist AS
 SELECT * FROM membertbl
 ORDER BY m_id DESC;
@@ -23,6 +34,10 @@ COMMIT; -- commit 을 안하면 안보임.
 
 SELECT * FROM memberlist;
 SELECT * FROM membertbl order by m_id DESC;
+
+SET SQL_SAFE_UPDATES = 0;
+DELETE FROM membertbl WHERE m_email = 'asd@asd';
+
 
 delete from memberlist;
 commit;
@@ -33,24 +48,36 @@ commit;
 DROP VIEW IF EXISTS teacherName1list;
 DROP TABLE IF EXISTS teacherName1;
 
-CREATE TABLE IF NOT EXISTS teacherName1 (
+CREATE TABLE IF NOT EXISTS teacherName1(
    c_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	className varchar(50) NOT NULL,
     day varchar(50) not null,
     date varchar(50) NOT NULL,
     time varchar(50) Not null,
-    m_id int(50) default null
+    m_id int,
+    foreign key (m_id) references membertbl (m_id) on delete cascade 
 );
 
+INSERT INTO teacherName1
+VALUES  (
+	null,
+    'classD',
+    'TEST',
+    'TEST',
+    'TEST',
+    null
+
+);
 CREATE OR REPLACE VIEW teacherName1list AS
 SELECT * FROM teacherName1
 ORDER BY c_id desc;
 
-        
+SELECT * FROM teacherName1 order by c_id desc;
+        SELECT * FROM teacherName1list;
 COMMIT; -- commit 을 안하면 안보임.
 
-SELECT * FROM teacherName1list;
-SELECT * FROM teacherName1 order by c_id desc;
+
+
 
 SElect COUNT(*) FROM teacherName1 where className = "classB";
 
@@ -67,6 +94,10 @@ SELECT * FROM membertbl WHERE className = 'classB';
 -- ---------------------------------------------------------------------------------------------------------------------------------
 DROP VIEW IF EXISTS blist;
 DROP TABLE IF EXISTS Qboard;
+
+CREATE OR REPLACE VIEW blist AS
+SELECT * FROM Qboard ORDER BY b_code DESC;
+
 CREATE TABLE IF NOT EXISTS Qboard (
    b_code int not null primary key auto_increment,
     m_id int,
@@ -76,8 +107,24 @@ CREATE TABLE IF NOT EXISTS Qboard (
     foreign key (m_id) references membertbl (m_id) on delete cascade
 );
 
+select * from Qboard;
+
+INSERT INTO Qboard
+VALUES  (
+	null,
+    null,
+    'TEST',
+    'TEST',
+    'TEST'
+
+);
+
+-- ---------------------------------------------------------------
 DROP VIEW IF EXISTS clist;
 drop table if exists cmt;
+
+CREATE OR REPLACE VIEW clist AS
+SELECT * FROM cmt ORDER BY c_code DESC;
 CREATE TABLE IF NOT EXISTS cmt (
    c_code int not null primary key auto_increment,
     c_contents varchar (500) not null,
@@ -91,15 +138,12 @@ SELECT * FROM cmt;
 
 COMMIT;
 
-select * from Qboard;
 
-CREATE OR REPLACE VIEW blist AS
-SELECT * FROM Qboard ORDER BY b_code DESC;
 
-CREATE OR REPLACE VIEW clist AS
-SELECT * FROM cmt ORDER BY c_code DESC;
+
+
+
 
 SElect * from memberlist;
 
 select * from clist;
-
