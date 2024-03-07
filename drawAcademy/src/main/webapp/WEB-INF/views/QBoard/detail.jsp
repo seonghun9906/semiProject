@@ -133,6 +133,7 @@
                <form action="inscProc" method="post" onsubmit="scrollToComment()">
                   <input type="hidden" name="b_code" value="${qboard.b_code}">
                   <input type="hidden" name="c_code" value="${ccc.c_code}">
+                  <input type="hidden" name="m_name" value="${sessionScope.login.m_name}">
                   <input type="hidden" name="m_id" value="${sessionScope.login.m_id}">
                   <h4 class ="h4Cmt">댓글 입력</h4>
                   <div class="cmtInput"> 
@@ -155,7 +156,7 @@
                      <h3>댓글</h3>
                      <c:forEach var="ccc" items="${cmtList}">
                         <div>
-                           <p id="author">작성자: ${sessionScope.login.m_name}</p>
+                           <p id="author">작성자: ${ccc.m_name}</p>
                            <p id="cContents">내용 : ${ccc.c_contents}</p>
                            <c:if test="${ccc.m_id eq sessionScope.login.m_id}">
                               <form action="cDelete" method="post">
@@ -199,7 +200,7 @@
             isRectangleVisible = false; // rectangle이 숨겨진 상태로 설정
          }
       });
-
+   });
 
       $(document).ready(function() {
          // 댓글을 작성한 후 페이지 스크롤 위치를 유지

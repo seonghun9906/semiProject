@@ -5,8 +5,8 @@
 <mapper namespace="com.icia.drawAcademy.dao.Qboarddao.CmtDao">
    <insert id="insertCmt" parameterType="CmtDTO">
       INSERT INTO cmt
-      (c_contents, b_code, m_id)
-      VALUES (#{c_contents}, #{b_code}, #{m_id})
+      (c_contents, b_code, m_id, m_name)
+      VALUES (#{c_contents}, #{b_code}, #{m_id}, #{m_name})
    </insert>
 
    <select id="getCommentList" resultType="CmtDTO" >

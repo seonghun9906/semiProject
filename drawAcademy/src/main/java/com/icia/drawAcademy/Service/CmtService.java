@@ -26,15 +26,16 @@ public class CmtService {
          MemberDto loggedInMember = (MemberDto) session.getAttribute("login");
 
          Integer m_id = loggedInMember.getM_id();
-
+         String m_name = loggedInMember.getM_name();
          String view = null;
          String msg = "";
 
          try {
             cDto.setM_id(m_id);
+            cDto.setM_name(m_name);
             cDao.insertCmt(cDto);
             System.out.println("cmtDTO SERV =  "+cDto.getM_id());
-            System.out.println("CmtDto" + cDto);
+            System.out.println("CmtDto SERV SERV  +== " + cDto);
             msg = "등록 성공";
          } catch (Exception e) {
             e.printStackTrace();

@@ -99,7 +99,7 @@
             src="resources/images/instagramIcon.png" class="instagram">
          </a>
       </div>
-   <form action="signUpProc" method="post" id="signUpFrom"
+   <form action="signUpProc" method="post" id="signUpForm"
      onsubmit="return validateForm()" class="joinForm">
       <h2>SIGN UP</h2>
       <div class="textForm">
@@ -150,16 +150,18 @@ $(document).ready(function() {
         $.post("emailCheckResult", { m_email: emailValue }, function(result) {
             $("#emailCheckResult").text(result).addClass("white-text");
 
-            // 중복이면 폼 제출 막기
-            if (result === "중복된 이메일입니다.") {
-                $("#signUpFrom").submit(function(event) {
-                    event.preventDefault();
-                    alert("중복된 이메일입니다. 이메일을 다시 확인하여 주십시오.");
-                    // 또는 다른 작업 수행
-                });
-            }
         });
     });
+
+    // 폼 제출 막기
+    $("#signUpForm").submit(function(event) {
+        var emailResult = $("#emailCheckResult").text();
+        if (emailResult === "중복된 이메일입니다.") {
+            event.preventDefault();
+            alert("중복된 이메일입니다. 이메일을 다시 확인하여 주십시오.");
+        }
+    });
+
 
     // 메뉴 토글
     var rectangle = $('#rectangle');
@@ -198,7 +200,7 @@ $(document).ready(function() {
     });
 
     // 전화번호 검증
-    $("#signUpFrom").submit(function(event) {
+    $("#signUpForm").submit(function(event) {
       var phoneNumberInput = $('#phoneNumber');
       var errorMessage = $('#phoneNumberCheck');
       var phoneNumberPattern = /^010-\d{4}-\d{4}$/;
