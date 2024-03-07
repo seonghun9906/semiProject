@@ -1,0 +1,17 @@
+127.0.0.1 - - [07/Mar/2024:10:16:06 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [07/Mar/2024:10:16:07 +0900] "GET /drawAcademy/ HTTP/1.1" 200 5701
+0:0:0:0:0:0:0:1 - - [07/Mar/2024:10:16:07 +0900] "GET /drawAcademy/resources/images/menu.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [07/Mar/2024:10:16:07 +0900] "GET /drawAcademy/resources/images/lg.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [07/Mar/2024:10:16:07 +0900] "GET /drawAcademy/resources/images/facebookIcon.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [07/Mar/2024:10:16:07 +0900] "GET /drawAcademy/resources/images/youtubeIcon.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [07/Mar/2024:10:16:07 +0900] "GET /drawAcademy/resources/images/instagramIcon.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [07/Mar/2024:10:16:07 +0900] "GET /drawAcademy/resources/css/home.css HTTP/1.1" 200 5517
+0:0:0:0:0:0:0:1 - - [07/Mar/2024:10:16:07 +0900] "GET /drawAcademy/resources/images/TitleLogo.png HTTP/1.1" 200 81209
+0:0:0:0:0:0:0:1 - - [07/Mar/2024:10:16:07 +0900] "GET /drawAcademy/resources/images/infoBlack.png HTTP/1.1" 200 26352
+0:0:0:0:0:0:0:1 - - [07/Mar/2024:10:16:07 +0900] "GET /drawAcademy/resources/images/todayClass.PNG HTTP/1.1" 200 299748
+0:0:0:0:0:0:0:1 - - [07/Mar/2024:10:16:07 +0900] "GET /drawAcademy/resources/images/Map.png HTTP/1.1" 200 194316
+0:0:0:0:0:0:0:1 - - [07/Mar/2024:10:16:07 +0900] "GET /drawAcademy/resources/video/TestHome.MP4 HTTP/1.1" 206 1572864
+0:0:0:0:0:0:0:1 - - [07/Mar/2024:10:16:07 +0900] "GET /drawAcademy/resources/video/TestHome.MP4 HTTP/1.1" 206 80654
+0:0:0:0:0:0:0:1 - - [07/Mar/2024:10:16:07 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [07/Mar/2024:10:16:27 +0900] "GET /drawAcademy/resources/video/TestHome.MP4 HTTP/1.1" 206 27259246
+0:0:0:0:0:0:0:1 - - [07/Mar/2024:10:16:40 +0900] "GET /drawAcademy/resources/video/TestHome.MP4 HTTP/1.1" 206 782
